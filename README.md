@@ -53,6 +53,10 @@ Include the client ID in your app `Info.plist` file using the key `FireworkVideo
 
 ### Using FireworkVideo
 
+#### Sample Code
+
+There is a sample project available under `FireworkVideoSample` that sets up the FireworkVideo framework using Swift Package Manager (SPM). Please read-over the sample code documentation located in `FireworkVideoSample/README.md` for setup tips.
+
 #### Initialization
 
 Before using any components video components are used you must initialize `FireworkVideo`.
