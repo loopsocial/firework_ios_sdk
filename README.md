@@ -220,7 +220,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         }
     }
 ```
-
-## API Changes
-
-**You're strongly encouraged you to use the latest available FireworkVideo version. Versions prior to 1.0 may contain breaking API changes and behaviors. Please provide feedback and report any bugs to the business and engineering team you're working with.**
