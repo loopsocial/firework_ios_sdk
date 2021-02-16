@@ -22,6 +22,13 @@ class VideoFeedLayoutTypes {
         return VideoFeedLayoutTypes.configureGridVideoFeedViewController()
     }
     
+    static func horizontalVideoFeedLayout() -> VideoFeedHorizontalLayout {
+        let layout = VideoFeedHorizontalLayout()
+        layout.itemSpacing = 8
+        layout.contentInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        return layout
+    }
+    
     static func configureHorizontalVideoFeedViewController() -> VideoFeedViewController {
         let vc = VideoFeedViewController()
         let layout = VideoFeedHorizontalLayout()

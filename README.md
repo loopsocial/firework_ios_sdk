@@ -6,19 +6,20 @@ FireworkVideo is a library to integrate video feeds from Firework - a short form
 
 ## Setup Prerequisites
 
-To integrate FireworkVideo into your application, you have to register your application with Firework platform and get unique FireworkVideo client ID. To get the client ID 
+To integrate FireworkVideo into your application, you have to register your application with Firework platform and get unique FireworkVideo app ID. To get the app ID and publisher ID:
 
-- [X] Provide your application's bundle identifier or package name to the business team / engineering team you are co-ordinating with.
-- [X] We will email you the client ID, follow the setup steps below under Firework Client ID to include it in your app.
+- Provide your application's bundle identifier or package name to the business team / engineering team you are co-ordinating with.
+- You will receive via email the app ID ad well as the publisher ID, follow the setup steps below under Firework IDs to include both in your app.
 
-The client ID is used to authenticate your application with the server. Authentication will fail if you use wrong client ID.
+The app ID is used to authenticate your application with the server. Authentication will fail if you use wrong app ID. The SDK will also return an error if the 
+publisher ID is not provided. The publisher ID is used for publisher metrics.
 
 ## Requirements
 
 FireworkVideo is compatible with:
 
   - iOS 12 or greater.
-  - Xcode 12.3 or greater.
+  - Xcode 12.4 or greater.
   - Swift 5.3 or greater.
 
 ## How to add FireworkVideo to your Xcode project?
@@ -31,13 +32,13 @@ In your Xcode project, select File > Swift Packages > Add Package Dependency and
 
 > If you are new to Xcode's Swift Pacakage Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
-Select Version > Up to Next Major > 0.1.0.
+Select Version > Up to Next Major > 0.2.0.
 
 ### Importing FireworkVideo Framework Manually
 
 * Clone the SDK repo located at `https://www.github.com/loopsocial/firework_ios_sdk/`
 
-* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.1.0/FireworkVideo-v0.1.0.xcframework.zip) and unzip if needed.
+* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.2.0/FireworkVideo-v0.2.0.xcframework.zip) and unzip if needed.
 
 * Drag the unzipped `FireworkVideo.xcframework` into the Xcode project navigator and drop it at root of your project. Make sure `Copy items if needed` checkbox is selected in the confirmation dialog. Check to make sure your project directory now has `FireworkVideo.xcframework` in it and it is visible and linked in your Xcode project navigator.
 
@@ -45,9 +46,9 @@ Select Version > Up to Next Major > 0.1.0.
 
 ![Copy Files Step](https://github.com/loopsocial/firework_ios_sdk/blob/main/Resources/manual_installation_copy_files_step.png?raw=true)
 
-### Firework Client ID
+### Firework IDs
 
-Include the client ID in your app `Info.plist` file using the key `FireworkVideoClientID`, see image below. If the client ID is not included or is included under a differently spelled key, the SDK will return an error. See Troubleshooting for more details.
+Include the app ID and publisher ID in your app `Info.plist` file using the keys `FireworkVideoAppID` and `FireworkVideoPublisherID` respectively, see image below. If either the app ID or the publisher ID is not included or is included under a differently spelled key, the SDK will return an error. See Troubleshooting for more details.
 
 ![App Setup Info Plist](https://github.com/loopsocial/firework_ios_sdk/blob/main/Resources/app_setup_info_plist.png?raw=true)
 
@@ -186,7 +187,13 @@ config.itemView = itemConfig
 feedVC.viewConfiguration = config
 ```
 
+### Content Sources
+
+The enum VideoFeedContentSource defines the different sources that can be used to populate the video feed. The content source must be specified when the VideoFeedViewController is instantiated; `VideoFeedViewController(source: .discover)`. By default the feed will use the .discover content source. Alternatively, a channel feed can be used as a source by using the .channel and passing in a valid channel id; `VideoFeedViewController(source: .channel(channelID: "<Channel ID>"))`.
+
 ### Troubleshooting
+
+#### SDK Intialization
 
 `FireworkVideoSDK.initializeSDK` accepts an optional `delegate` parameter that can receive any errors the SDK outputs during setup. This delegate can be any class that conforms to the `FireworkVideoSDKDelegate` protocol.  See example code below that uses  `AppDelegate` to print any errors to console.
 
@@ -211,12 +218,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
     
     func fireworkVideoDidLoadWith(error: FireworkVideoSDKError) {
         switch error {
-        case .missingClientID:
-            print("FireworkVideo loaded with error due to missing FireworkVideo client ID.")
+        case .missingAppID:
+            print("FireworkVideo loaded with error due to missing FireworkVideo app ID.")
+        case .missingPublisherID:
+            print("FireworkVideo loaded with error due to missing FireworkVideo publisher ID.")
         case .authenticationFailure:
             print("FireworkVideo loaded with error due to authentication failure.")
         @unknown default:
             break
         }
     }
+```
+
+#### Video Feeds
+
+`VideoFeedViewController` exposes an optional `delegate` property that can receive any errors the SDK outputs when loading the video feed or a success when the video feed loaded successfully.
+
+```
+/// Add the dependency SDK
+import FireworkVideo
+
+class VideoFeedService: VideoFeedViewControllerDelegate {
+
+    func videoFeedDidLoadFeed(_ viewController: FireworkVideo.VideoFeedViewController) {
+        print("Video feed on view controller \(viewController) loaded.")
+    }
+
+    func videoFeed(_ viewController: FireworkVideo.VideoFeedViewController, didFailToLoadFeed error: FireworkVideo.VideoFeedError) {
+        if case let FireworkVideo.VideoFeedError.contentSourceError(contentSourceError) =  error {
+            print("Video feed on view controller \(viewController) loaded with error \(contentSourceError.errorDescription).")
+        } else if case let FireworkVideo.VideoFeedError.unknownError(underlyingError) = error {
+            print("Video feed on view controller \(viewController) loaded with error \(underlyingError.localizedDescription).")
+        }        
+    }
+}
 ```

@@ -9,15 +9,6 @@
           "revision": "4fa7a0b3cb779d97b771a5bf0de8927d6a37153f",
           "version": null
         }
-      },
-      {
-        "package": "FireworkVideo",
-        "repositoryURL": "git@github.com:loopsocial/firework_ios_sdk.git",
-        "state": {
-          "branch": null,
-          "revision": "14a86f3782256037919fe7ab918c1f635584fab5",
-          "version": "0.1.0"
-        }
       }
     ]
   },

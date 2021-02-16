@@ -20,7 +20,9 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>FireworkVideoClientID</key>
+	<key>FireworkVideoAppID</key>
+	<string></string>
+	<key>FireworkVideoPublisherID</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -32,6 +32,8 @@ class VideoFeedExamplesViewController: UITableViewController {
             return VideoFeedCustomizationViewController()
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 3 {
             return TableViewEmbeddedVideoFeedViewController()
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 4 {
+            return VideoFeedChannelSourceViewController()
         }
         
         return nil

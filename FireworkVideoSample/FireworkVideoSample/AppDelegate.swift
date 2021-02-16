@@ -13,10 +13,16 @@ import FireworkVideo
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate {
 
+    var videoPlaybackLogger = VideoPlaybackLogger()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         /// Initialize the SDK as soon as app launches.
         FireworkVideoSDK.initializeSDK(delegate: self)
+        
+        /// Set the video playback event logger, this is optional
+        FireworkVideoSDK.eventTracking.videoPlaybackDelegate = self.videoPlaybackLogger
+        
         return true
     }
     
@@ -29,8 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
     
     func fireworkVideoDidLoadWith(error: FireworkVideoSDKError) {
         switch error {
-        case .missingClientID:
-            print("FireworkVideo loaded with error due to missing client ID.")
+        case .missingAppID:
+            print("FireworkVideo loaded with error due to missing app ID.")
+        case .missingPublisherID:
+            print("FireworkVideo loaded with error due to missing publisher ID.")
         case .authenticationFailure:
             print("FireworkVideo loaded with error due to authentication failure.")
         @unknown default:
@@ -51,7 +59,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
