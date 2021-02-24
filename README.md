@@ -253,3 +253,17 @@ class VideoFeedService: VideoFeedViewControllerDelegate {
     }
 }
 ```
+
+#### Missing or Empty Video Feeds
+
+In the event the feed is empty or the SDK encounters an error when downloading videos, create a new instance and replace the existing instance in your view hierarchy. If the video feed source configured for the view controller does not have videos available, you may need to supply an alternative source when creating the new instance.
+
+If `VideoFeedViewController` is a child view controller, make sure to call the view controller containment lifecycle methods when removing it from your apps view hierarchy to ensure proper cleanup.
+
+```
+/// Removing videoFeedViewController from it's parent view controller
+
+videoFeedViewController.willMove(toParent: nil)
+videoFeedViewController.view.removeFromSuperview()
+videoFeedViewController.removeFromParent()
+```

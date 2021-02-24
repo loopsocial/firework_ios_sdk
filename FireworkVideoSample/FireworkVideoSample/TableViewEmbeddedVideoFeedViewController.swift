@@ -47,6 +47,9 @@ class TableViewEmbeddedVideoFeedViewController: UIViewController, UITableViewDel
         self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.tableView.bottomAnchor).isActive = true
     }
     
+    
+    /// Only the horizontal layout supports embedding inside of UITableView
+    /// or UICollectionView.
     private func configuredFeedViewController() -> VideoFeedViewController {
         let viewController = VideoFeedViewController()
         let layout = VideoFeedHorizontalLayout()
