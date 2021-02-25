@@ -1,0 +1,4 @@
+framework module FireworkVideo {
+  header "FireworkVideo-Swift.h"
+  requires objc
+}
