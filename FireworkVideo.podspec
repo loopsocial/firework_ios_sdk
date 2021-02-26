@@ -8,8 +8,8 @@ Pod::Spec.new do |spec|
   spec.license      = { :text => "Copyright 2020 Firework", :type => "Copyright" }
   spec.author       = "Firework.tv"
   spec.platform     = :ios, "11.0"
-  spec.source       = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-v#{spec.version}.xcframework.zip", :flatten => true }
-  spec.vendored_frameworks = "FireworkVideo.xcframework"
+  spec.source       = { :git => "https://github.com/loopsocial/firework_ios_sdk.git", :tag => "v#{spec.version}" }
+  spec.vendored_frameworks = "frameworks/FireworkVideo.xcframework"
   spec.frameworks   = "AVFoundation"
   spec.cocoapods_version = '>= 1.10.0'
 
