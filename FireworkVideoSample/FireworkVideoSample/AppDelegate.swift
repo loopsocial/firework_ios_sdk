@@ -37,11 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         switch error {
         case .missingAppID:
             print("FireworkVideo loaded with error due to missing app ID.")
-        case .missingPublisherID:
-            print("FireworkVideo loaded with error due to missing publisher ID.")
         case .authenticationFailure:
             print("FireworkVideo loaded with error due to authentication failure.")
-        @unknown default:
+        default:
             break
         }
     }

@@ -18,9 +18,7 @@ class VideoFeedChannelSourceViewController: UIViewController, VideoFeedViewContr
         self.view.backgroundColor = UIColor.secondarySystemBackground
         
         let horizontalVideoFeedLayout = VideoFeedLayoutTypes.horizontalVideoFeedLayout()
-        /// Try to set any public channel from https://fw.tv here and relaunch the sample app
-        /// The video feed will update to reflect the content of the channel
-        let channelVideoSource = VideoFeedContentSource.channel(channelID: "mesh")
+        let channelVideoSource = VideoFeedContentSource.channel(channelID: "bJDywZ")
         
         self.embeddedVideoFeedViewController = VideoFeedViewController(layout: horizontalVideoFeedLayout,
                                                                        source: channelVideoSource)

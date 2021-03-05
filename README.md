@@ -6,19 +6,18 @@ FireworkVideo is a library to integrate video feeds from Firework - a short form
 
 ## Setup Prerequisites
 
-To integrate FireworkVideo into your application, you have to register your application with Firework platform and get unique FireworkVideo app ID. To get the app ID and publisher ID:
+To integrate FireworkVideo into your application, you have to register your application with Firework platform and get unique FireworkVideo app ID. To get the app ID:
 
 - Provide your application's bundle identifier or package name to the business team / engineering team you are co-ordinating with.
-- You will receive via email the app ID ad well as the publisher ID, follow the setup steps below under Firework IDs to include both in your app.
+- You will receive via email the app ID ad, then follow the setup steps below under Firework IDs to include both in your app.
 
-The app ID is used to authenticate your application with the server. Authentication will fail if you use wrong app ID. The SDK will also return an error if the 
-publisher ID is not provided. The publisher ID is used for publisher metrics.
+The app ID is used to authenticate your application with the server. Authentication will fail if you use wrong app ID.
 
 ## Requirements
 
 FireworkVideo is compatible with:
 
-  - iOS 12 or greater.
+  - iOS 11 or greater.
   - Xcode 12.4 or greater.
   - Swift 5.3 or greater.
 
@@ -32,13 +31,17 @@ In your Xcode project, select File > Swift Packages > Add Package Dependency and
 
 > If you are new to Xcode's Swift Pacakage Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
-Select Version > Up to Next Major > 0.2.0.
+Select Version > Up to Next Major > 0.3.0.
+
+### Importing Using Cocoapods
+
+In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install`.
 
 ### Importing FireworkVideo Framework Manually
 
 * Clone the SDK repo located at `https://www.github.com/loopsocial/firework_ios_sdk/`
 
-* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.2.0/FireworkVideo-v0.2.0.xcframework.zip) and unzip if needed.
+* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.3.0/FireworkVideo-v0.3.0.xcframework.zip) and unzip if needed.
 
 * Drag the unzipped `FireworkVideo.xcframework` into the Xcode project navigator and drop it at root of your project. Make sure `Copy items if needed` checkbox is selected in the confirmation dialog. Check to make sure your project directory now has `FireworkVideo.xcframework` in it and it is visible and linked in your Xcode project navigator.
 
@@ -48,7 +51,7 @@ Select Version > Up to Next Major > 0.2.0.
 
 ### Firework IDs
 
-Include the app ID and publisher ID in your app `Info.plist` file using the keys `FireworkVideoAppID` and `FireworkVideoPublisherID` respectively, see image below. If either the app ID or the publisher ID is not included or is included under a differently spelled key, the SDK will return an error. See Troubleshooting for more details.
+Include the app ID in your app `Info.plist` file using the key `FireworkVideoAppID` see image below. If the app ID is not included or is included under a differently spelled key, the SDK will return an error. See Troubleshooting for more details.
 
 ![App Setup Info Plist](https://github.com/loopsocial/firework_ios_sdk/blob/main/Resources/app_setup_info_plist.png?raw=true)
 
@@ -220,8 +223,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         switch error {
         case .missingAppID:
             print("FireworkVideo loaded with error due to missing FireworkVideo app ID.")
-        case .missingPublisherID:
-            print("FireworkVideo loaded with error due to missing FireworkVideo publisher ID.")
         case .authenticationFailure:
             print("FireworkVideo loaded with error due to authentication failure.")
         @unknown default:

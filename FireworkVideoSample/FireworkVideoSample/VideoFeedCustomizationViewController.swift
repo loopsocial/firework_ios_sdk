@@ -27,12 +27,14 @@ class VideoFeedCustomizationViewController: UIViewController {
     
     /// Controls that change apperance, along with helpers
     var colorAttributesSegmentedControl: UISegmentedControl!
+    var playerStyleSegmentedControl: UISegmentedControl!
     var selectedColorPreview: UIView!
     var customizationControlsStackView: UIStackView!
     
     var selectedColor: UIColor = .lightGray
     var targetActions: [TargetAction] = []
     var senderSuppliedTargetActions: [SenderSuppliedTargetAction] = []
+    var selectedPlayerStyle: VideoPlayerContentConfiguration.VideoPlayerStyle = .fit
     
     /// The video feed view controller is embedded when view first loads
     override func viewDidLoad() {
@@ -57,6 +59,18 @@ class VideoFeedCustomizationViewController: UIViewController {
                                                  at: 1,
                                                  animated: false)
         return colorSegmentedControl
+    }
+    
+    private func setupPlayerStyleSegmentedControl() -> UISegmentedControl {
+        let segmentedControl = UISegmentedControl()
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.insertSegment(withTitle: "Fit Style",
+                                       at: 0,
+                                       animated: false)
+        segmentedControl.insertSegment(withTitle: "Full Bleed Style",
+                                       at: 1,
+                                       animated: false)
+        return segmentedControl
     }
     
     private func setupSelectedColorPreview() -> UIView {
@@ -132,7 +146,19 @@ class VideoFeedCustomizationViewController: UIViewController {
         fontSizeSlider.addTarget(sliderTargetAction,
                                  action: #selector(SenderSuppliedTargetAction.performAction(_:)),
                                  for: .valueChanged)
-
+                                 
+        self.playerStyleSegmentedControl = self.setupPlayerStyleSegmentedControl()
+        
+        let playerStyleSegmentTargetAction = SenderSuppliedTargetAction { (sender) in
+            if let segmentedControl = sender as? UISegmentedControl {
+                self.updateSelectedPlayerStyle(segmentIndex: segmentedControl.selectedSegmentIndex)
+            }
+        }
+        self.senderSuppliedTargetActions.append(playerStyleSegmentTargetAction)
+        self.playerStyleSegmentedControl.addTarget(playerStyleSegmentTargetAction,
+                                             action: #selector(SenderSuppliedTargetAction.performAction(_:)),
+                                             for: .valueChanged)
+        self.playerStyleSegmentedControl.selectedSegmentIndex = 0
         self.customizationControlsStackView = UIStackView(arrangedSubviews: [
             colorSegmentExplanation,
             self.colorAttributesSegmentedControl,
@@ -142,6 +168,9 @@ class VideoFeedCustomizationViewController: UIViewController {
             UILabel.standardLabel(text: NSLocalizedString("Drag Slider to Change Title Font Size",
                                                                                       comment: "")),
             fontSizeSlider,
+            UILabel.standardLabel(text: NSLocalizedString("Pick a Player Appearance Style",
+                                                                                      comment: "")),
+            playerStyleSegmentedControl,
         ])
         
         self.customizationControlsStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,6 +200,23 @@ class VideoFeedCustomizationViewController: UIViewController {
             self.selectedColorPreview.backgroundColor = self.selectedColor
         default:
             break
+        }
+    }
+    
+    func updateSelectedPlayerStyle(segmentIndex: Int) {
+        switch segmentIndex {
+            case 0:
+                self.selectedPlayerStyle = .fit
+                var c = self.embeddedVideoFeedViewController.viewConfiguration
+                c.playerView.playerStyle = .fit
+                self.embeddedVideoFeedViewController.viewConfiguration = c
+            case 1:
+                self.selectedPlayerStyle = .fullBleed
+                var c = self.embeddedVideoFeedViewController.viewConfiguration
+                c.playerView.playerStyle = .fullBleed
+                self.embeddedVideoFeedViewController.viewConfiguration = c
+            default:
+                break
         }
     }
     

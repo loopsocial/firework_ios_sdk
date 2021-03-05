@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7B1A7B9625DB2E640097079C /* VideoPlaybackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A7B9525DB2E640097079C /* VideoPlaybackLogger.swift */; };
 		7B1A7B9825DB305E0097079C /* VideoFeedChannelSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A7B9725DB305E0097079C /* VideoFeedChannelSourceViewController.swift */; };
-		7B1A7B9E25DB7CC00097079C /* FireworkVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 7B1A7B9D25DB7CC00097079C /* FireworkVideo */; };
 		7B8BD68E25BD667200BFFFB5 /* ChromaColorPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 7B8BD68D25BD667200BFFFB5 /* ChromaColorPicker */; };
 		7B8BD69F25BD85C400BFFFB5 /* ColorPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD69E25BD85C400BFFFB5 /* ColorPickers.swift */; };
 		7B8BD6A125BD973900BFFFB5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BD6A025BD973900BFFFB5 /* Helpers.swift */; };
@@ -62,7 +61,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8BD68E25BD667200BFFFB5 /* ChromaColorPicker in Frameworks */,
-				7B1A7B9E25DB7CC00097079C /* FireworkVideo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +132,6 @@
 			name = FireworkVideoSample;
 			packageProductDependencies = (
 				7B8BD68D25BD667200BFFFB5 /* ChromaColorPicker */,
-				7B1A7B9D25DB7CC00097079C /* FireworkVideo */,
 			);
 			productName = FireworkVideoSample;
 			productReference = 7BA940A525B9765300CF58D5 /* FireworkVideoSample.app */;
@@ -166,7 +163,6 @@
 			mainGroup = 7BA9409C25B9765300CF58D5;
 			packageReferences = (
 				7B8BD68C25BD667200BFFFB5 /* XCRemoteSwiftPackageReference "ChromaColorPicker" */,
-				7B1A7B9C25DB7CC00097079C /* XCRemoteSwiftPackageReference "firework_ios_sdk" */,
 			);
 			productRefGroup = 7BA940A625B9765300CF58D5 /* Products */;
 			projectDirPath = "";
@@ -413,14 +409,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7B1A7B9C25DB7CC00097079C /* XCRemoteSwiftPackageReference "firework_ios_sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:loopsocial/firework_ios_sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
-			};
-		};
 		7B8BD68C25BD667200BFFFB5 /* XCRemoteSwiftPackageReference "ChromaColorPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/joncardasis/ChromaColorPicker";
@@ -432,11 +420,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7B1A7B9D25DB7CC00097079C /* FireworkVideo */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7B1A7B9C25DB7CC00097079C /* XCRemoteSwiftPackageReference "firework_ios_sdk" */;
-			productName = FireworkVideo;
-		};
 		7B8BD68D25BD667200BFFFB5 /* ChromaColorPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7B8BD68C25BD667200BFFFB5 /* XCRemoteSwiftPackageReference "ChromaColorPicker" */;
