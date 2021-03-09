@@ -12,20 +12,6 @@ import FireworkVideo
 class VideoFeedCell: UITableViewCell {
     static let reuseIdentifier = "VideoFeedCellReuseIdentifier"
     
-    var isSetup: Bool = false
-    
-    func setup(videoFeedViewController: VideoFeedViewController) {
-        self.contentView.addSubview(videoFeedViewController.view)
-        
-        videoFeedViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.contentView.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: videoFeedViewController.view.leadingAnchor).isActive = true
-        self.contentView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: videoFeedViewController.view.trailingAnchor).isActive = true
-        self.contentView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: videoFeedViewController.view.topAnchor).isActive = true
-        self.contentView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: videoFeedViewController.view.bottomAnchor).isActive = true
-        
-        self.isSetup = true
-    }
 }
 
 class TableViewEmbeddedVideoFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -82,8 +68,6 @@ class TableViewEmbeddedVideoFeedViewController: UIViewController, UITableViewDel
         return tableView
     }
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -100,12 +84,31 @@ class TableViewEmbeddedVideoFeedViewController: UIViewController, UITableViewDel
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: VideoFeedCell.reuseIdentifier,
                                                      for: indexPath) as! VideoFeedCell
-            
-            if !cell.isSetup {
-                cell.setup(videoFeedViewController: self.videoFeedViewController)
-            }
-            
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            self.addChild(self.videoFeedViewController)
+            cell.contentView.addSubview(videoFeedViewController.view)
+            
+            self.videoFeedViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            
+            cell.contentView.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: videoFeedViewController.view.leadingAnchor).isActive = true
+            cell.contentView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: videoFeedViewController.view.trailingAnchor).isActive = true
+            cell.contentView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: videoFeedViewController.view.topAnchor).isActive = true
+            cell.contentView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: videoFeedViewController.view.bottomAnchor).isActive = true
+            
+            self.videoFeedViewController.willMove(toParent: self)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            videoFeedViewController.willMove(toParent: nil)
+            videoFeedViewController.view.removeFromSuperview()
+            videoFeedViewController.removeFromParent()
         }
     }
     
