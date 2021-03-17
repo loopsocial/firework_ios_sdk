@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FireworkVideo
 
 class VideoFeedExamplesViewController: UITableViewController {
 
@@ -33,7 +34,11 @@ class VideoFeedExamplesViewController: UITableViewController {
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 3 {
             return TableViewEmbeddedVideoFeedViewController()
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 4 {
-            return VideoFeedChannelSourceViewController()
+            let contentSource = VideoFeedContentSource.channel(channelID: "bJDywZ")
+            return VideoFeedChannelSourceViewController(contentSource: contentSource)
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 5 {
+            let contentSource = VideoFeedContentSource.channelPlaylist(channelID: "bJDywZ", playlistID: "g206q5")
+            return VideoFeedChannelSourceViewController(contentSource: contentSource)
         }
         
         return nil

@@ -12,16 +12,33 @@ import FireworkVideo
 class VideoFeedChannelSourceViewController: UIViewController, VideoFeedViewControllerDelegate {
     var embeddedVideoFeedViewController:VideoFeedViewController!
     
+    var contentSource: VideoFeedContentSource
+    
+    init(contentSource: VideoFeedContentSource) {
+        self.contentSource = contentSource
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Video Feed from Channel Source"
+        
+        if case VideoFeedContentSource.channel = self.contentSource {
+            self.title = "Video Feed from Channel"
+        } else if case VideoFeedContentSource.channelPlaylist = self.contentSource {
+            self.title = "Video Feed from Channel Playlist"
+        }
+        
         self.view.backgroundColor = UIColor.secondarySystemBackground
         
         let horizontalVideoFeedLayout = VideoFeedLayoutTypes.horizontalVideoFeedLayout()
-        let channelVideoSource = VideoFeedContentSource.channel(channelID: "bJDywZ")
         
         self.embeddedVideoFeedViewController = VideoFeedViewController(layout: horizontalVideoFeedLayout,
-                                                                       source: channelVideoSource)
+                                                                       source: self.contentSource)
         self.embeddedVideoFeedViewController.delegate = self
         
         self.setupVideoFeed(videoFeedViewController: self.embeddedVideoFeedViewController,
