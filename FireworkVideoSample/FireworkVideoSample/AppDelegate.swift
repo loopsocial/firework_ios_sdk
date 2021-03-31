@@ -14,6 +14,7 @@ import FireworkVideo
 class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate {
 
     var videoPlaybackLogger = VideoPlaybackLogger()
+    var videoFeedLogger = VideoFeedLogger()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         
         /// Set the video playback event logger, this is optional
         FireworkVideoSDK.eventTracking.videoPlaybackDelegate = self.videoPlaybackLogger
+        FireworkVideoSDK.eventTracking.feedDelegate = self.videoFeedLogger
         
         return true
     }

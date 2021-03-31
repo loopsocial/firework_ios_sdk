@@ -31,7 +31,7 @@ In your Xcode project, select File > Swift Packages > Add Package Dependency and
 
 > If you are new to Xcode's Swift Pacakage Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
-Select Version > Up to Next Major > 0.4.0.
+Select Version > Up to Next Major > 0.5.0.
 
 ### Importing Using Cocoapods
 
@@ -41,7 +41,7 @@ In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install
 
 * Clone the SDK repo located at `https://www.github.com/loopsocial/firework_ios_sdk/`
 
-* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.4.0/FireworkVideo-v0.4.0.xcframework.zip) and unzip if needed.
+* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.5.0/FireworkVideo-v0.5.0.xcframework.zip) and unzip if needed.
 
 * Drag the unzipped `FireworkVideo.xcframework` into the Xcode project navigator and drop it at root of your project. Make sure `Copy items if needed` checkbox is selected in the confirmation dialog. Check to make sure your project directory now has `FireworkVideo.xcframework` in it and it is visible and linked in your Xcode project navigator.
 
@@ -190,14 +190,43 @@ config.itemView = itemConfig
 feedVC.viewConfiguration = config
 ```
 
+#### Video Player Customizations
+
+Video player behavior such as the sharing functionality can also be customized using `VideoPlayerContentConfiguration`.
+
+```
+let feedVC = VideoFeedViewController()
+
+// Gets the default configuration
+var config = feedVC.viewConfiguration
+
+// Gets the player content configuration
+var playerConfig = config.playerView
+
+// Show or hide the sharing button
+playerConfig.shareButton.isHidden = true
+
+// Add UIActivity instances specific to your app
+playerConfig.shareButton.behavior.applicationActivities = customApplicationActivities()
+
+// Exclude certain UIActivity Types
+playerConfig.shareButton.behavior.excludedActivityTypes = [UIActivity.ActivityType.markupAsPDF]
+
+// Updates the title configuration
+config.playerView = playerConfig
+
+// Must set the viewConfiguration property to apply the changes
+feedVC.viewConfiguration = config
+```
+
 ### Content Sources
 
 The enum VideoFeedContentSource defines the different sources that can be used to populate the video feed. The content source must be specified when the VideoFeedViewController is instantiated; `VideoFeedViewController(source: .discover)`. By default the feed will use the .discover content source. 
 
-Alternatively, a channel feed can be used as a source by using the .channel and passing in a valid channel id; `VideoFeedViewController(source: .channel(channelID: "<Channel Encoded ID>"))`. The source can also specify a playlist ID linked to that specific channel.
+Alternatively, a channel feed can be used as a source by using the .channel and passing in a valid channel id; `VideoFeedViewController(source: .channel(channelID: "<Channel ID>"))`. The source can also specify a playlist ID linked to that specific channel.
 
 ```
-let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: "<Channel Encoded ID>", playlistID: "<Playlist Encoded ID>"))
+let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: "", playlistID: ""))
 ```
 
 ### Troubleshooting

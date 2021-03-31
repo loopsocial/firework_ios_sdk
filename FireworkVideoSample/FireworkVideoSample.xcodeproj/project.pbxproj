@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B052AC82613E63500B96C2F /* VideoFeedLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B052AC72613E63500B96C2F /* VideoFeedLogger.swift */; };
+		7B052ACB2613EA0700B96C2F /* DiscoverVideoFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B052ACA2613EA0700B96C2F /* DiscoverVideoFeedViewController.swift */; };
 		7B1A7B9625DB2E640097079C /* VideoPlaybackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A7B9525DB2E640097079C /* VideoPlaybackLogger.swift */; };
 		7B1A7B9825DB305E0097079C /* VideoFeedChannelSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A7B9725DB305E0097079C /* VideoFeedChannelSourceViewController.swift */; };
 		7B8BD68E25BD667200BFFFB5 /* ChromaColorPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 7B8BD68D25BD667200BFFFB5 /* ChromaColorPicker */; };
@@ -37,6 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B052AC72613E63500B96C2F /* VideoFeedLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedLogger.swift; sourceTree = "<group>"; };
+		7B052ACA2613EA0700B96C2F /* DiscoverVideoFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVideoFeedViewController.swift; sourceTree = "<group>"; };
 		7B1A7B9525DB2E640097079C /* VideoPlaybackLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlaybackLogger.swift; sourceTree = "<group>"; };
 		7B1A7B9725DB305E0097079C /* VideoFeedChannelSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedChannelSourceViewController.swift; sourceTree = "<group>"; };
 		7B8BD69E25BD85C400BFFFB5 /* ColorPickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickers.swift; sourceTree = "<group>"; };
@@ -96,8 +100,10 @@
 			children = (
 				7BA940A825B9765300CF58D5 /* AppDelegate.swift */,
 				7B1A7B9525DB2E640097079C /* VideoPlaybackLogger.swift */,
+				7B052AC72613E63500B96C2F /* VideoFeedLogger.swift */,
 				7BA940AA25B9765300CF58D5 /* SceneDelegate.swift */,
 				7BA940AC25B9765300CF58D5 /* VideoFeedExamplesViewController.swift */,
+				7B052ACA2613EA0700B96C2F /* DiscoverVideoFeedViewController.swift */,
 				7BA940BF25B979D000CF58D5 /* VideoFeedLayoutsExampleViewController.swift */,
 				7BA940BE25B979D000CF58D5 /* VideoFeedCustomizationViewController.swift */,
 				7BA940C025B979D000CF58D5 /* TableViewEmbeddedVideoFeedViewController.swift */,
@@ -194,8 +200,10 @@
 				7BA940AD25B9765300CF58D5 /* VideoFeedExamplesViewController.swift in Sources */,
 				7BA940A925B9765300CF58D5 /* AppDelegate.swift in Sources */,
 				7BA940C125B979D000CF58D5 /* VideoFeedCustomizationViewController.swift in Sources */,
+				7B052AC82613E63500B96C2F /* VideoFeedLogger.swift in Sources */,
 				7BA940AB25B9765300CF58D5 /* SceneDelegate.swift in Sources */,
 				7B1A7B9625DB2E640097079C /* VideoPlaybackLogger.swift in Sources */,
+				7B052ACB2613EA0700B96C2F /* DiscoverVideoFeedViewController.swift in Sources */,
 				7B8BD6A125BD973900BFFFB5 /* Helpers.swift in Sources */,
 				7BA940C625B979D900CF58D5 /* StoryboardVideoFeedViewController.swift in Sources */,
 				7B8BD69F25BD85C400BFFFB5 /* ColorPickers.swift in Sources */,

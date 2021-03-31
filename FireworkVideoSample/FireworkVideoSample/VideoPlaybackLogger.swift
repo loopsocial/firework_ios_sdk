@@ -10,6 +10,10 @@ import Foundation
 import FireworkVideo
 
 class VideoPlaybackLogger: FireworkVideoPlaybackDelegate {
+    func fireworkVideoDidTapShareButton(_ videoPlayback: VideoPlaybackDetails) {
+        print("Did Share Button Tap for Video \(videoPlayback.videoID)")
+    }
+    
     func fireworkVideoDidRecordImpression(_ videoPlayback: VideoPlaybackDetails) {
         print("Did Record Impression for Video \(videoPlayback.videoID)")
     }

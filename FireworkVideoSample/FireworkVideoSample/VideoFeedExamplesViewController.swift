@@ -23,20 +23,23 @@ class VideoFeedExamplesViewController: UITableViewController {
     }
     
     func viewController(at selectedIndexPath:IndexPath) -> UIViewController? {
+        
         if selectedIndexPath.section == 0 && selectedIndexPath.row == 0 {
-            return VideoFeedLayoutsExampleViewController()
+            return DiscoverVideoFeedViewController()
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 1 {
+            return VideoFeedLayoutsExampleViewController()
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 2 {
             /// A grid view controller is configured and returned in this method
             let gridViewController = VideoFeedLayoutTypes.configureGridVideoFeedViewController()
             return gridViewController
-        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 2 {
-            return VideoFeedCustomizationViewController()
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 3 {
-            return TableViewEmbeddedVideoFeedViewController()
+            return VideoFeedCustomizationViewController()
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 4 {
+            return TableViewEmbeddedVideoFeedViewController()
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 5 {
             let contentSource = VideoFeedContentSource.channel(channelID: "bJDywZ")
             return VideoFeedChannelSourceViewController(contentSource: contentSource)
-        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 5 {
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 6 {
             let contentSource = VideoFeedContentSource.channelPlaylist(channelID: "bJDywZ", playlistID: "g206q5")
             return VideoFeedChannelSourceViewController(contentSource: contentSource)
         }
