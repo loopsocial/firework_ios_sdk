@@ -42,6 +42,8 @@ class VideoFeedExamplesViewController: UITableViewController {
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 6 {
             let contentSource = VideoFeedContentSource.channelPlaylist(channelID: "bJDywZ", playlistID: "g206q5")
             return VideoFeedChannelSourceViewController(contentSource: contentSource)
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 7 {
+            return ShareVideoExamplesViewController()
         }
         
         return nil
