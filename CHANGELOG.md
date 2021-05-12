@@ -1,7 +1,17 @@
 ## CHANGELOG
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.7.0] - 2021-05-06
+
+### Added
+
+- Server configuration switch to stop duplicate Direct ads from being shown in the feed in the same session.
+
+## [0.6.0] - 2021-05-15
+
+### Added
+
+- Open video player with share link or encoded `fwplayer` parameter.
+- Add localization support for Japanese, Polish, Portuguese (Brazil), Russian, and Spanish.
 
 ## [0.5.0] - 2021-04-01
 
