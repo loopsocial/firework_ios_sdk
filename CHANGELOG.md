@@ -1,5 +1,15 @@
 ## CHANGELOG
 
+## [0.8.0] - 2021-07-19
+
+### Added
+
+- Support for Google IMA Ads SDK.
+
+### Changed
+
+- Video Player UI v2
+
 ## [0.7.0] - 2021-05-06
 
 ### Added

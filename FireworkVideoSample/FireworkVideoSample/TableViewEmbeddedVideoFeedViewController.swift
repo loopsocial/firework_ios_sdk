@@ -69,26 +69,27 @@ class TableViewEmbeddedVideoFeedViewController: UIViewController, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 5 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: VideoFeedCell.reuseIdentifier,
-                                                     for: indexPath) as! VideoFeedCell
-            return cell
-        } else {
+        
+        if indexPath.row == 0 {
             let cell = UITableViewCell(style: .subtitle,
                                        reuseIdentifier: "")
             cell.textLabel?.text = NSLocalizedString("Embed the Horizontal Layout in a Table View",
                                                      comment: "")
             return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: VideoFeedCell.reuseIdentifier,
+                                                     for: indexPath) as! VideoFeedCell
+            return cell
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == 5 {
+        if indexPath.row == 1 {
             self.addChild(self.videoFeedViewController)
             cell.contentView.addSubview(videoFeedViewController.view)
             
@@ -104,7 +105,7 @@ class TableViewEmbeddedVideoFeedViewController: UIViewController, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == 5 {
+        if indexPath.row == 1 {
             videoFeedViewController.willMove(toParent: nil)
             videoFeedViewController.view.removeFromSuperview()
             videoFeedViewController.removeFromParent()
@@ -112,6 +113,6 @@ class TableViewEmbeddedVideoFeedViewController: UIViewController, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 5 ? 125.0 : 280.0
+        return indexPath.row == 0 ? 75.0 : 280.0
     }
 }

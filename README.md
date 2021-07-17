@@ -229,6 +229,13 @@ Alternatively, a channel feed can be used as a source by using the .channel and 
 let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: "", playlistID: ""))
 ```
 
+### Ad Support
+
+Popular 3rd party ad SDKs can be used alongside the FireworkVideoSDK to perform client side ad insertion within the Firework Video Player. These 3rd party SDKs require a supporting library in order to work. Please review the list below and checkout the repo for more detailed instructions.
+
+  - Google Ad Mob SDK - Requires [FireworkVideo GAM Supporting Library](https://github.com/loopsocial/firework_ios_sdk_gam_support) 
+  - Google IMA SDK - Requires [FireworkVideo Google IMA Supporting Library](https://github.com/loopsocial/firework_ios_sdk_google_ima_support)
+
 ### Troubleshooting
 
 #### SDK Intialization
