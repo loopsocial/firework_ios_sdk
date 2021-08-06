@@ -229,6 +229,31 @@ Alternatively, a channel feed can be used as a source by using the .channel and 
 let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: "", playlistID: ""))
 ```
 
+### Share Link
+
+You can customize the shared URL. The feature can be used, if you want share URL to be a universal link or a deeplink link so that when a user clicks on it, it can be opened in your application. 
+
+To customize a share url, just provide a base url.
+```swift
+config.playerView.shareButton.behavior.baseURL = URL(string: "<Base URL for your Universal Link or Deeplink>")
+```
+
+#### Handling Share Link
+
+After your app receives a universal link or deeplink, once your app is ready to present the video player you can use one of two methods to present the player
+
+```swift
+let viewController = // The view controller that should present the video player
+let url = // The received url that contains the `fwplayer` query parameter
+VideoFeedViewController.openVideoPlayer(with: url, viewController) { result in /* Called after successfully presenting the video player */ }
+
+// Or you can pass the value of the `fwplayer` query parameter directly into method
+
+let paramValue = // The value of the `fwplayer` query parameter
+VideoFeedViewController.openVideoPlayer(with: paramValue, viewController) { result in /* Called after successfully presenting the video player */ }
+
+```
+
 ### Ad Support
 
 Popular 3rd party ad SDKs can be used alongside the FireworkVideoSDK to perform client side ad insertion within the Firework Video Player. These 3rd party SDKs require a supporting library in order to work. Please review the list below and checkout the repo for more detailed instructions.

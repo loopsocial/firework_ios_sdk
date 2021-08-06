@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## [0.9.0] - 2021-08-06
+
+### Changed
+
+- Optimized ad insertion for more accuarate interstitial ad placement.
+
 ## [0.8.0] - 2021-07-19
 
 ### Added
