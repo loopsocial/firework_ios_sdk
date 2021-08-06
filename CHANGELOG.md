@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## [0.9.1] - 2021-08-06
+
+### Changed
+
+- Fixes an issue where the custom share link would not be properly updated.
+
 ## [0.9.0] - 2021-08-06
 
 ### Changed
