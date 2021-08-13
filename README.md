@@ -335,3 +335,76 @@ videoFeedViewController.willMove(toParent: nil)
 videoFeedViewController.view.removeFromSuperview()
 videoFeedViewController.removeFromParent()
 ```
+
+
+## Data Reporting
+
+To receive video playback events, conform to the Protocol `FireworkVideoPlaybackDelegate`, see file FireworkVideoPlaybackDelegate.swift.
+
+List of video playback events:
+
+```
+    /// Called when a video appears on the screen but the video playback has not started
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoDidRecordImpression(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when a video has paused playback
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoDidPause(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when a video has resumed playback
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoDidResume(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when a video has started playing
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoDidStartPlaying(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when the first quarter of the video has been played
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoReachedFirstQuartile(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when the first half of the video has been played
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoReachedMidPoint(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when the third quarter of the video has been played
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoReachedThirdQuartile(_ videoPlayback: VideoPlaybackDetails)
+
+    /**
+     Called when the video playback has completed.
+    
+     There are many actions that can cause a video to finish playback including:
+       - User swiping to the next or previous video
+       - User dismissing the current video
+       - Video reaches end of playback and either advances to the next video or loops the beginning of the current video
+     
+     - Parameter videoPlayback: The details of the video playback
+    */
+    func fireworkVideoDidFinishPlaying(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when the user has tapped on the CTA button that appeared during the video playback
+    func fireworkVideoDidTapCTAButton(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when the user has tapped on the share button that appeared during the video playback
+    func fireworkVideoDidTapShareButton(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when an ad video has started playing
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoDidStartPlayingAd(_ videoPlayback: VideoPlaybackDetails)
+
+    /// Called when the ad video playback has completed.
+    /// - Parameter videoPlayback: The details of the video playback
+    func fireworkVideoDidFinishPlayingAd(_ videoPlayback: VideoPlaybackDetails)
+```
+    
+To receive feed related events, conform to the Protocol `FireworkVideoFeedDelegate`, see file FireworkVideoFeedDelegate.swift.
+
+List of feed events:
+
+```
+    /// Called when the a video thumbnail is tapped by the user
+    /// - Parameter eventDetails: The details of the feed event
+    func fireworkVideoDidTapVideoThumbnail(_ eventDetails: FeedEventDetails)
+```
