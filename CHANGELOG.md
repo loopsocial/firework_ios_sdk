@@ -1,5 +1,12 @@
 ## CHANGELOG
 
+## [0.10.0] - 2021-08-20
+
+### Added
+
+- Ability to force refresh video feeds.
+- Ability to pass VideoPlayerContentConfiguration when opening a video player with share link.
+
 ## [0.9.1] - 2021-08-06
 
 ### Changed

@@ -229,6 +229,10 @@ Alternatively, a channel feed can be used as a source by using the .channel and 
 let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: "", playlistID: ""))
 ```
 
+### Force Refresh
+
+A `VideoFeedViewController` can be hard refreshed by calling the `refresh()` method on the instance that should be refreshed. This functionality is useful if your feed is embedded along with other components that are also updated and you support features like pull to refresh.
+
 ### Share Link
 
 You can customize the shared URL. The feature can be used, if you want share URL to be a universal link or a deeplink link so that when a user clicks on it, it can be opened in your application. 
@@ -245,7 +249,9 @@ After your app receives a universal link or deeplink, once your app is ready to 
 ```swift
 let viewController = // The view controller that should present the video player
 let url = // The received url that contains the `fwplayer` query parameter
-VideoFeedViewController.openVideoPlayer(with: url, viewController) { result in /* Called after successfully presenting the video player */ }
+// Optionally a custom player config can be applied to the presented video player
+let playerConfig: VideoPlayerContentConfiguration = // Custom video player configuration
+VideoFeedViewController.openVideoPlayer(with: url, playerConfig, viewController) { result in /* Called after successfully presenting the video player */ }
 
 // Or you can pass the value of the `fwplayer` query parameter directly into method
 
@@ -253,6 +259,8 @@ let paramValue = // The value of the `fwplayer` query parameter
 VideoFeedViewController.openVideoPlayer(with: paramValue, viewController) { result in /* Called after successfully presenting the video player */ }
 
 ```
+
+> **Note** If a custom `VideoPlayerContentConfiguration` is not passed into the `openVideoPlayer` method the default configuration will be used.
 
 ### Ad Support
 
