@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## [0.11.0] - 2021-09-10
+
+### Added
+
+- Adds client side ad insertion logic for GAM integration.
+
 ## [0.10.0] - 2021-08-20
 
 ### Added
