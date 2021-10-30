@@ -27,7 +27,7 @@ FireworkVideoは、Swift Package Managerを使ってSwiftバイナリパッケ�
 
 ### Swiftパッケージマネージャを使ったインポート
 
-Xcodeプロジェクトで、File > Swift Packages > Add Package Dependencyを選択し、次のURLを入力します： `https://www.github.com/loopsocial/firework_ios_sdk/`
+Xcodeプロジェクトで、File > Swift Packages > Add Package Dependencyを選択し、次のURLを入力します： `https://github.com/loopsocial/firework_ios_sdk/`
 
 > XcodeのSwift Pacakage Managerの統合に慣れていない場合は、Appleのドキュメント「Adding a Package Dependency to Your App」を参照してください。
 
