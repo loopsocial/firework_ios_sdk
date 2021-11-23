@@ -24,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         /// Set the video playback event logger, this is optional
         FireworkVideoSDK.eventTracking.videoPlaybackDelegate = self.videoPlaybackLogger
         FireworkVideoSDK.eventTracking.feedDelegate = self.videoFeedLogger
-        
+
+        /// Enable CTA custom handling
+        FireworkVideoSDK.ctaDelegate = self
+
         return true
     }
     
@@ -61,3 +64,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
     }
 }
 
+/// Implementing the FireworkVideoCTADelegate allows
+/// client to build custom actions on CTA clicks
+extension AppDelegate: FireworkVideoCTADelegate {
+    func handleCustomCTAClick(_ viewController: PlayerViewController, url: URL) -> Bool {
+        // Custom action code here...
+
+        // Simple dismiss example:
+        viewController.dismiss(animated: true, completion: nil)
+        return true
+    }
+}

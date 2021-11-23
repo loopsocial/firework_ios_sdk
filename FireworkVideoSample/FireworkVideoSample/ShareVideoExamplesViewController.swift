@@ -2,7 +2,6 @@
 //  ShareVideoExamplesViewController.swift
 //  FireworkVideoSample
 //
-//  Created by Luke Davis on 4/10/21.
 //  Copyright © 2021 Firework. All rights reserved.
 //
 

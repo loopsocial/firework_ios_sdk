@@ -9,6 +9,15 @@
           "revision": "4fa7a0b3cb779d97b771a5bf0de8927d6a37153f",
           "version": null
         }
+      },
+      {
+        "package": "Mobile Buy SDK",
+        "repositoryURL": "git@github.com:Shopify/mobile-buy-sdk-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "14cb49618c88024ca531f7bd4425554ab180f89e",
+          "version": "6.2.0"
+        }
       }
     ]
   },

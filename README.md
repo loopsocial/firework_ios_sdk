@@ -27,7 +27,7 @@ FireworkVideo can be added as a Swift binary package using Swift Package Manager
 
 ### Importing Using Swift Package Manager
 
-In your Xcode project, select File > Swift Packages > Add Package Dependency and enter the following URL: `https://github.com/loopsocial/firework_ios_sdk/`
+In your Xcode project, select File > Swift Packages > Add Package Dependency and enter the following URL: `https://www.github.com/loopsocial/firework_ios_sdk/`
 
 > If you are new to Xcode's Swift Pacakage Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
@@ -60,6 +60,11 @@ Include the app ID in your app `Info.plist` file using the key `FireworkVideoApp
 #### Sample Code
 
 There is a sample project available under `FireworkVideoSample` that sets up the FireworkVideo framework using Swift Package Manager (SPM). Please read-over the sample code documentation located in `FireworkVideoSample/README.md` for setup tips.
+
+##### Shopping Sample Code
+
+Within the sample app project there is a second app `FireworkVideoShoppingSample` that contains samples for integrating with `FireworkVideoShopping`.
+Please read-over the shopping sample code documentation located in the `FireworkVideoSample/FireworkVideoShoppingSample/README.md` for setup tips.
 
 #### Initialization
 
@@ -219,6 +224,22 @@ config.playerView = playerConfig
 feedVC.viewConfiguration = config
 ```
 
+#### Custom Call-To-Action Button Handling
+
+Custom Call-To-Action button handling is done via the `FireworkVideoCTADelegate` protocol. This provides control over what occurs when a call-to-action button is tapped.
+
+  1. Set the delegate:
+```
+FireworkVideoSDK.ctaDelegate = self
+```
+  2. Confirm to protocol:
+```
+func handleCustomCTAClick(_ viewController: PlayerViewController, url: URL) -> Bool {
+    // Your custom action code here...
+    return true
+}
+```
+
 ### Content Sources
 
 The enum VideoFeedContentSource defines the different sources that can be used to populate the video feed. The content source must be specified when the VideoFeedViewController is instantiated; `VideoFeedViewController(source: .discover)`. By default the feed will use the .discover content source. 
@@ -228,6 +249,72 @@ Alternatively, a channel feed can be used as a source by using the .channel and 
 ```
 let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: "", playlistID: ""))
 ```
+
+### Shopping
+
+FireworkVideoSDK contains a `shopping` property that enables video shopping integration. There are two main points of integration both located on the `FireworkVideoShopping` type.
+
+#### FireworkVideoShoppingDelegate
+
+Assign a `FireworkVideoShoppingDelegate` to receive important shopping events. 
+
+```swift
+FireworkVideoSDK.shopping.delegate = <Your delegate>
+```
+
+The shopping lifecycle events provide opportinities to customize the product views, hydrate product information and handle when a user adds a product variant to the cart.
+
+##### Shopping View Configuration 
+
+When the `fireworkShopping(_:willDisplayProductInfo:forVideo:)` method is called it gives the host app a chance to configure the view that will be displayed.
+Similar to how view configurations work on the `VideoFeedViewController` the properties are value types and must be reassigned to the `configurator` before the changes will be applied.
+
+The following items can be configured:
+
+  1. Shopping Cart icon 
+    1. isHidden - Important: When setting this value to `false` ensure the `cartProvider` is added.
+    2. indicator - (Used to indicate to the user that there is an item in their cart)
+      1. isHidden - if the  indicator is hidden or not
+  2. Add to button 
+    1. Button color
+    2. Button font
+    3. Button text color
+
+For more detailed examples see the Sample App Code.
+
+##### Product Hydration
+
+The `fireworkShopping(_:updateDetailsForProducts:forVideo:_:)` method will be called when a video will be shown that contains products. It is at this point when the 
+host app will be able to update the associated product information.
+
+See the Sample App Code for examples of how to hydrate with Shopify.
+
+##### Handle Add to Cart
+
+The `fireworkShopping(_:addProductVariantToCart:fromVideo:_:)` method is called when the user has selected the "Add to cart" button and will pass the ids of the product and variant of the selected item. 
+
+The host app must call the `addToCartCompletionHandler` to inform the next action to perform.
+
+  - `showEmbeddedCart` - When sepecifying this action the SDK will request a `CartViewController` from the `FireworkVideoSDK.shopping.cartProvider`; see [Providing an embedded cart view](#providing-an-embedded-cart-view) for more details. 
+  - `dismissWithFeedback` - When specifying this action the SDK will dismiss the Product summary drawer and display a toast message to the user.
+
+> **Note:** If no action is provided within 2 seconds the SDK will assume the item was not successfully added.
+
+**Important:** it is at this point when the host app should add the item to the user's cart as they have indicated intent to buy this product.
+
+#### Providing an embedded cart view
+
+The host app can embed their own custom cart view which will be displayed directly within the Firework Video Player.
+This custom cart view can be shown within the Firework Video Player after the following actions occur:
+
+  - User clicks cart icon - The host app must setup the configuration to show a shopping icon; see [Shopping View Configuration](#shopping-view-configuration) for more details.
+  - Host app returns `showEmbeddedCart` as the `AddToCartAction` - This is sequence occurs after the user selects "Add to cart". 
+
+The host app **must** supply a mechanism that conforms to `CartViewProviding` in order to provide a `CartViewController`. A provider must be assigned on the `FireworkVideoSDK.shopping.cartProvider` property.
+If no provider is set the actions above will be replaced with these actions; respectively:
+
+  - User clicks cart icon - Nothing.
+  - Host app returns `showEmbeddedCart` as the `AddToCartAction` - SDK treats this as a success and will use the `dismissWithFeedback` with `success`.
 
 ### Force Refresh
 

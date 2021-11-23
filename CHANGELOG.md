@@ -1,5 +1,14 @@
 ## CHANGELOG
 
+## [0.12.0] - 2021-11-15
+
+### Added
+
+- Adds support for videos with products
+- Adds shopping cart and product hydration integration
+- Adds CTA button configuration
+- Adds client side ability to customize CTA button action handling
+
 ## [0.11.0] - 2021-09-10
 
 ### Added

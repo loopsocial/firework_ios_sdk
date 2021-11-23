@@ -24,6 +24,22 @@
 		7BA940C225B979D000CF58D5 /* VideoFeedLayoutsExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA940BF25B979D000CF58D5 /* VideoFeedLayoutsExampleViewController.swift */; };
 		7BA940C325B979D000CF58D5 /* TableViewEmbeddedVideoFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA940C025B979D000CF58D5 /* TableViewEmbeddedVideoFeedViewController.swift */; };
 		7BA940C625B979D900CF58D5 /* StoryboardVideoFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA940C525B979D900CF58D5 /* StoryboardVideoFeedViewController.swift */; };
+		8424BADF273E2C2E00E73A3C /* CartItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424BADD273E2C2E00E73A3C /* CartItemViewCell.swift */; };
+		8424BAE0273E2C2E00E73A3C /* CartItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8424BADE273E2C2E00E73A3C /* CartItemViewCell.xib */; };
+		8424BAE5273E37DA00E73A3C /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424BAE4273E37DA00E73A3C /* CheckoutViewController.swift */; };
+		8432FD0E273DCF78000A0125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD0D273DCF78000A0125 /* AppDelegate.swift */; };
+		8432FD10273DCF78000A0125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD0F273DCF78000A0125 /* SceneDelegate.swift */; };
+		8432FD12273DCF78000A0125 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD11273DCF78000A0125 /* HomeViewController.swift */; };
+		8432FD15273DCF78000A0125 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8432FD13273DCF78000A0125 /* Main.storyboard */; };
+		8432FD17273DCF7A000A0125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8432FD16273DCF7A000A0125 /* Assets.xcassets */; };
+		8432FD1A273DCF7A000A0125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8432FD18273DCF7A000A0125 /* LaunchScreen.storyboard */; };
+		8432FD23273DCFFA000A0125 /* Buy in Frameworks */ = {isa = PBXBuildFile; productRef = 8432FD22273DCFFA000A0125 /* Buy */; };
+		8432FD28273DD4A0000A0125 /* ShoppingCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD27273DD4A0000A0125 /* ShoppingCartManager.swift */; };
+		8432FD2A273DD967000A0125 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD29273DD967000A0125 /* CartItem.swift */; };
+		8432FD2C273DDB4C000A0125 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD2B273DDB4C000A0125 /* AppTheme.swift */; };
+		8432FD30273DDF07000A0125 /* ShopifyStorefront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD2F273DDF07000A0125 /* ShopifyStorefront.swift */; };
+		8432FD33273E1A78000A0125 /* StorefrontRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD32273E1A78000A0125 /* StorefrontRepository.swift */; };
+		8432FD35273E22F5000A0125 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD34273E22F5000A0125 /* CartViewController.swift */; };
 		84E478AB2622C888007CC9AE /* ShareVideoExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E478AA2622C888007CC9AE /* ShareVideoExamplesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +74,23 @@
 		7BA940BF25B979D000CF58D5 /* VideoFeedLayoutsExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoFeedLayoutsExampleViewController.swift; sourceTree = "<group>"; };
 		7BA940C025B979D000CF58D5 /* TableViewEmbeddedVideoFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewEmbeddedVideoFeedViewController.swift; sourceTree = "<group>"; };
 		7BA940C525B979D900CF58D5 /* StoryboardVideoFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardVideoFeedViewController.swift; sourceTree = "<group>"; };
+		8424BADD273E2C2E00E73A3C /* CartItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewCell.swift; sourceTree = "<group>"; };
+		8424BADE273E2C2E00E73A3C /* CartItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemViewCell.xib; sourceTree = "<group>"; };
+		8424BAE4273E37DA00E73A3C /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		8432FD0B273DCF78000A0125 /* FireworkVideoShoppingSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireworkVideoShoppingSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8432FD0D273DCF78000A0125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8432FD0F273DCF78000A0125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8432FD11273DCF78000A0125 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8432FD14273DCF78000A0125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8432FD16273DCF7A000A0125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8432FD19273DCF7A000A0125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8432FD1B273DCF7A000A0125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8432FD27273DD4A0000A0125 /* ShoppingCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartManager.swift; sourceTree = "<group>"; };
+		8432FD29273DD967000A0125 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		8432FD2B273DDB4C000A0125 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		8432FD2F273DDF07000A0125 /* ShopifyStorefront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyStorefront.swift; sourceTree = "<group>"; };
+		8432FD32273E1A78000A0125 /* StorefrontRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorefrontRepository.swift; sourceTree = "<group>"; };
+		8432FD34273E22F5000A0125 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		84E478AA2622C888007CC9AE /* ShareVideoExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareVideoExamplesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +100,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8BD68E25BD667200BFFFB5 /* ChromaColorPicker in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8432FD08273DCF78000A0125 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8432FD23273DCFFA000A0125 /* Buy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				7BA940A725B9765300CF58D5 /* FireworkVideoSample */,
+				8432FD0C273DCF78000A0125 /* FireworkVideoShoppingSample */,
 				7BA940A625B9765300CF58D5 /* Products */,
 				7B8BD82E25BD169200767F6A /* Frameworks */,
 			);
@@ -93,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				7BA940A525B9765300CF58D5 /* FireworkVideoSample.app */,
+				8432FD0B273DCF78000A0125 /* FireworkVideoShoppingSample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +165,85 @@
 			path = FireworkVideoSample;
 			sourceTree = "<group>";
 		};
+		8424BADA273E2A4B00E73A3C /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				8432FD2D273DDBE5000A0125 /* Integrations */,
+				8432FD29273DD967000A0125 /* CartItem.swift */,
+				8432FD27273DD4A0000A0125 /* ShoppingCartManager.swift */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
+		8424BADB273E2A7900E73A3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8432FD2B273DDB4C000A0125 /* AppTheme.swift */,
+				8424BAE1273E2D3900E73A3C /* HomeViewController */,
+				8424BADC273E2BE500E73A3C /* CartViewController */,
+				8424BAE3273E37B500E73A3C /* CheckoutViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8424BADC273E2BE500E73A3C /* CartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8432FD34273E22F5000A0125 /* CartViewController.swift */,
+				8424BADD273E2C2E00E73A3C /* CartItemViewCell.swift */,
+				8424BADE273E2C2E00E73A3C /* CartItemViewCell.xib */,
+			);
+			path = CartViewController;
+			sourceTree = "<group>";
+		};
+		8424BAE1273E2D3900E73A3C /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8432FD11273DCF78000A0125 /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		8424BAE3273E37B500E73A3C /* CheckoutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8424BAE4273E37DA00E73A3C /* CheckoutViewController.swift */,
+			);
+			path = CheckoutViewController;
+			sourceTree = "<group>";
+		};
+		8432FD0C273DCF78000A0125 /* FireworkVideoShoppingSample */ = {
+			isa = PBXGroup;
+			children = (
+				8424BADA273E2A4B00E73A3C /* Shopping */,
+				8424BADB273E2A7900E73A3C /* View */,
+				8432FD0D273DCF78000A0125 /* AppDelegate.swift */,
+				8432FD0F273DCF78000A0125 /* SceneDelegate.swift */,
+				8432FD13273DCF78000A0125 /* Main.storyboard */,
+				8432FD16273DCF7A000A0125 /* Assets.xcassets */,
+				8432FD18273DCF7A000A0125 /* LaunchScreen.storyboard */,
+				8432FD1B273DCF7A000A0125 /* Info.plist */,
+			);
+			path = FireworkVideoShoppingSample;
+			sourceTree = "<group>";
+		};
+		8432FD2D273DDBE5000A0125 /* Integrations */ = {
+			isa = PBXGroup;
+			children = (
+				8432FD2E273DDEA5000A0125 /* Shopify */,
+				8432FD32273E1A78000A0125 /* StorefrontRepository.swift */,
+			);
+			path = Integrations;
+			sourceTree = "<group>";
+		};
+		8432FD2E273DDEA5000A0125 /* Shopify */ = {
+			isa = PBXGroup;
+			children = (
+				8432FD2F273DDF07000A0125 /* ShopifyStorefront.swift */,
+			);
+			path = Shopify;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,18 +268,41 @@
 			productReference = 7BA940A525B9765300CF58D5 /* FireworkVideoSample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8432FD0A273DCF78000A0125 /* FireworkVideoShoppingSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8432FD1C273DCF7A000A0125 /* Build configuration list for PBXNativeTarget "FireworkVideoShoppingSample" */;
+			buildPhases = (
+				8432FD07273DCF78000A0125 /* Sources */,
+				8432FD08273DCF78000A0125 /* Frameworks */,
+				8432FD09273DCF78000A0125 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FireworkVideoShoppingSample;
+			packageProductDependencies = (
+				8432FD22273DCFFA000A0125 /* Buy */,
+			);
+			productName = FireworkVideoShoppingSample;
+			productReference = 8432FD0B273DCF78000A0125 /* FireworkVideoShoppingSample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		7BA9409D25B9765300CF58D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = Firework;
 				TargetAttributes = {
 					7BA940A425B9765300CF58D5 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					8432FD0A273DCF78000A0125 = {
+						CreatedOnToolsVersion = 12.5;
 					};
 				};
 			};
@@ -172,12 +317,14 @@
 			mainGroup = 7BA9409C25B9765300CF58D5;
 			packageReferences = (
 				7B8BD68C25BD667200BFFFB5 /* XCRemoteSwiftPackageReference "ChromaColorPicker" */,
+				8432FD21273DCFFA000A0125 /* XCRemoteSwiftPackageReference "mobile-buy-sdk-ios" */,
 			);
 			productRefGroup = 7BA940A625B9765300CF58D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				7BA940A425B9765300CF58D5 /* FireworkVideoSample */,
+				8432FD0A273DCF78000A0125 /* FireworkVideoShoppingSample */,
 			);
 		};
 /* End PBXProject section */
@@ -190,6 +337,17 @@
 				7BA940B525B9765400CF58D5 /* LaunchScreen.storyboard in Resources */,
 				7BA940B225B9765400CF58D5 /* Assets.xcassets in Resources */,
 				7BA940B025B9765300CF58D5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8432FD09273DCF78000A0125 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8432FD1A273DCF7A000A0125 /* LaunchScreen.storyboard in Resources */,
+				8424BAE0273E2C2E00E73A3C /* CartItemViewCell.xib in Resources */,
+				8432FD17273DCF7A000A0125 /* Assets.xcassets in Resources */,
+				8432FD15273DCF78000A0125 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +375,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8432FD07273DCF78000A0125 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8432FD30273DDF07000A0125 /* ShopifyStorefront.swift in Sources */,
+				8432FD12273DCF78000A0125 /* HomeViewController.swift in Sources */,
+				8432FD28273DD4A0000A0125 /* ShoppingCartManager.swift in Sources */,
+				8424BADF273E2C2E00E73A3C /* CartItemViewCell.swift in Sources */,
+				8432FD33273E1A78000A0125 /* StorefrontRepository.swift in Sources */,
+				8424BAE5273E37DA00E73A3C /* CheckoutViewController.swift in Sources */,
+				8432FD0E273DCF78000A0125 /* AppDelegate.swift in Sources */,
+				8432FD2C273DDB4C000A0125 /* AppTheme.swift in Sources */,
+				8432FD2A273DD967000A0125 /* CartItem.swift in Sources */,
+				8432FD35273E22F5000A0125 /* CartViewController.swift in Sources */,
+				8432FD10273DCF78000A0125 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -232,6 +408,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				7BA940B425B9765400CF58D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8432FD13273DCF78000A0125 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8432FD14273DCF78000A0125 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8432FD18273DCF7A000A0125 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8432FD19273DCF7A000A0125 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -397,6 +589,46 @@
 			};
 			name = Release;
 		};
+		8432FD1D273DCF7A000A0125 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z24TE4EN73;
+				INFOPLIST_FILE = FireworkVideoShoppingSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tv.fw.FireworkVideoShoppingSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8432FD1E273DCF7A000A0125 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z24TE4EN73;
+				INFOPLIST_FILE = FireworkVideoShoppingSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tv.fw.FireworkVideoShoppingSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,6 +650,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		8432FD1C273DCF7A000A0125 /* Build configuration list for PBXNativeTarget "FireworkVideoShoppingSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8432FD1D273DCF7A000A0125 /* Debug */,
+				8432FD1E273DCF7A000A0125 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -429,6 +670,14 @@
 				kind = branch;
 			};
 		};
+		8432FD21273DCFFA000A0125 /* XCRemoteSwiftPackageReference "mobile-buy-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Shopify/mobile-buy-sdk-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -436,6 +685,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B8BD68C25BD667200BFFFB5 /* XCRemoteSwiftPackageReference "ChromaColorPicker" */;
 			productName = ChromaColorPicker;
+		};
+		8432FD22273DCFFA000A0125 /* Buy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8432FD21273DCFFA000A0125 /* XCRemoteSwiftPackageReference "mobile-buy-sdk-ios" */;
+			productName = Buy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
