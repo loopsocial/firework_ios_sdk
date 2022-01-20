@@ -72,7 +72,7 @@ Before using any components video components are used you must initialize `Firew
 
 Start by importing the SDK into your App Delegate. Then initialize the Firework Video SDK in the App Delegate method `application(:, didFinishLaunchingWithOptions:) -> Bool`.
 
-```
+```swift
 import UIKit
 
 // Add the dependency SDK
@@ -102,7 +102,7 @@ Displaying a video feed can be done by using a `VideoFeedViewController` either 
   2. Create a new `VideoFeedViewController`
   3. Present, show or embed the instantiated `VideoFeedViewController`
   
-```
+```swift
 import FireworkVideo
 
 class ViewController: UIViewController {
@@ -161,7 +161,7 @@ The `VideoFeedGridLayout` is a layout that provides a vertical scrolling feed th
 
 There are many view customizations that are exposed and can be accessed by the `viewConfiguration` of a `VideoFeedViewController`. All view configurations are value types which means changing the properties will not update the view state. To update the view state, simply set the `viewConfiguration` with the updated view configuration.
 
-```
+```swift
 let feedVC = VideoFeedViewController()
 
 // Gets the default configuration
@@ -199,7 +199,7 @@ feedVC.viewConfiguration = config
 
 Video player behavior such as the sharing functionality can also be customized using `VideoPlayerContentConfiguration`.
 
-```
+```swift
 let feedVC = VideoFeedViewController()
 
 // Gets the default configuration
@@ -210,6 +210,12 @@ var playerConfig = config.playerView
 
 // Show or hide the sharing button
 playerConfig.shareButton.isHidden = true
+
+// Show or hide the mute button
+playerConfig.muteButton.isHidden = true
+
+// Show or hide the playback button
+playerConfig.playbackButton.isHidden = true
 
 // Add UIActivity instances specific to your app
 playerConfig.shareButton.behavior.applicationActivities = customApplicationActivities()
@@ -233,7 +239,7 @@ Custom Call-To-Action button handling is done via the `FireworkVideoCTADelegate`
 FireworkVideoSDK.ctaDelegate = self
 ```
   2. Confirm to protocol:
-```
+```swift
 func handleCustomCTAClick(_ viewController: PlayerViewController, url: URL) -> Bool {
     // Your custom action code here...
     return true
@@ -242,12 +248,40 @@ func handleCustomCTAClick(_ viewController: PlayerViewController, url: URL) -> B
 
 ### Content Sources
 
-The enum VideoFeedContentSource defines the different sources that can be used to populate the video feed. The content source must be specified when the VideoFeedViewController is instantiated; `VideoFeedViewController(source: .discover)`. By default the feed will use the .discover content source. 
+The enum VideoFeedContentSource defines the different sources that can be used to populate the video feed. The content source must be specified when the VideoFeedViewController is instantiated; `VideoFeedViewController(source: .discover)`. By default the feed will use the `.discover` content source. 
 
-Alternatively, a channel feed can be used as a source by using the .channel and passing in a valid channel id; `VideoFeedViewController(source: .channel(channelID: "<Channel ID>"))`. The source can also specify a playlist ID linked to that specific channel.
+Other content sources include
 
+#### Channel
+
+Displays content from the specified channel id. 
+
+> Note: The user will only see videos they have not viewed before. If the user has viewed all the videos for a channel similar videos will automatically be provided.
+
+```swift
+let channelID = "<Channel ID>"
+let feedVC = VideoFeedViewController(source: .channel(channelID: channelID))
 ```
-let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: "", playlistID: ""))
+
+#### Channel Playlist
+
+Displays content from the specified playlist id. 
+
+> Note: Unlike the [channel content source](#channel), only content in the playlist will be shown to the user.
+
+```swift
+let channelID = "<Your Channel ID>"
+let playlistID = "<Playlist ID>"
+let feedVC = VideoFeedViewController(source: .channelPlaylist(channelID: channelID, playlistID: playlistID))
+```
+
+#### Playlist Group
+
+Displays playlists from the specified playlist group id. 
+
+```swift
+let playlistGroupID = "<Playlist ID>"
+let feedVC = VideoFeedViewController(source: .playlistGroup(groupID: playlistGroupID))
 ```
 
 ### Shopping
@@ -362,7 +396,7 @@ Popular 3rd party ad SDKs can be used alongside the FireworkVideoSDK to perform 
 
 `FireworkVideoSDK.initializeSDK` accepts an optional `delegate` parameter that can receive any errors the SDK outputs during setup. This delegate can be any class that conforms to the `FireworkVideoSDKDelegate` protocol.  See example code below that uses  `AppDelegate` to print any errors to console.
 
-```
+```swift
 import UIKit
 
 /// Add the dependency SDK
@@ -397,7 +431,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
 
 `VideoFeedViewController` exposes an optional `delegate` property that can receive any errors the SDK outputs when loading the video feed or a success when the video feed loaded successfully.
 
-```
+```swift
 /// Add the dependency SDK
 import FireworkVideo
 
@@ -423,7 +457,7 @@ In the event the feed is empty or the SDK encounters an error when downloading v
 
 If `VideoFeedViewController` is a child view controller, make sure to call the view controller containment lifecycle methods when removing it from your apps view hierarchy to ensure proper cleanup.
 
-```
+```swift
 /// Removing videoFeedViewController from it's parent view controller
 
 videoFeedViewController.willMove(toParent: nil)
@@ -438,7 +472,7 @@ To receive video playback events, conform to the Protocol `FireworkVideoPlayback
 
 List of video playback events:
 
-```
+```swift
     /// Called when a video appears on the screen but the video playback has not started
     /// - Parameter videoPlayback: The details of the video playback
     func fireworkVideoDidRecordImpression(_ videoPlayback: VideoPlaybackDetails)
@@ -498,7 +532,7 @@ To receive feed related events, conform to the Protocol `FireworkVideoFeedDelega
 
 List of feed events:
 
-```
+```swift
     /// Called when the a video thumbnail is tapped by the user
     /// - Parameter eventDetails: The details of the feed event
     func fireworkVideoDidTapVideoThumbnail(_ eventDetails: FeedEventDetails)

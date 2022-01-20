@@ -43,6 +43,7 @@ class ShareVideoExamplesViewController: UIViewController {
     @objc private func openShareLink() {
         VideoFeedViewController.openVideoPlayer(
             with: self.shareLinkURL,
+            VideoPlayerContentConfiguration(),
             self,
             self.shareCompletionHandler()
         )
@@ -51,6 +52,7 @@ class ShareVideoExamplesViewController: UIViewController {
     @objc private func openEncodedParameter() {
         VideoFeedViewController.openVideoPlayer(
             with: self.encodedFWPlayerParameter,
+            VideoPlayerContentConfiguration(),
             self,
             self.shareCompletionHandler()
         )

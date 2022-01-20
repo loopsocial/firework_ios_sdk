@@ -1,6 +1,27 @@
 ## CHANGELOG
 
-## [0.12.0] - 2021-11-15
+## [0.13.0]
+
+### Added
+
+- Playlist group content source
+- Configurable playback button on video player
+- Configurable mute button on video player
+- Configurable sponsored label on thumbnail feed
+- Xcode documentation archive
+
+### Changed
+
+## Breaking Changes
+
+- `FireworkVideoFeedDelegate.fireworkVideoDidTapVideoThumbnail(_:)` is now `FireworkVideoFeedDelegate.fireworkVideoDidTapThumbnail(_:)`
+- `FeedEventDetails.videoID` is now `FeedEventDetails.id`. This property can represent either a video or a playlist id. You can use the `FeedEventDetails.source` to determine if id represents a video or playlist.
+
+### Removed
+
+- Removes support for iOS 11
+
+## [0.12.0]
 
 ### Added
 
@@ -9,32 +30,32 @@
 - Adds CTA button configuration
 - Adds client side ability to customize CTA button action handling
 
-## [0.11.0] - 2021-09-10
+## [0.11.0]
 
 ### Added
 
 - Adds client side ad insertion logic for GAM integration.
 
-## [0.10.0] - 2021-08-20
+## [0.10.0]
 
 ### Added
 
 - Ability to force refresh video feeds.
 - Ability to pass VideoPlayerContentConfiguration when opening a video player with share link.
 
-## [0.9.1] - 2021-08-06
+## [0.9.1]
 
 ### Changed
 
 - Fixes an issue where the custom share link would not be properly updated.
 
-## [0.9.0] - 2021-08-06
+## [0.9.0]
 
 ### Changed
 
 - Optimized ad insertion for more accuarate interstitial ad placement.
 
-## [0.8.0] - 2021-07-19
+## [0.8.0]
 
 ### Added
 
@@ -44,20 +65,20 @@
 
 - Video Player UI v2
 
-## [0.7.0] - 2021-05-06
+## [0.7.0]
 
 ### Added
 
 - Server configuration switch to stop duplicate Direct ads from being shown in the feed in the same session.
 
-## [0.6.0] - 2021-05-15
+## [0.6.0]
 
 ### Added
 
 - Open video player with share link or encoded `fwplayer` parameter.
 - Add localization support for Japanese, Polish, Portuguese (Brazil), Russian, and Spanish.
 
-## [0.5.0] - 2021-04-01
+## [0.5.0]
 
 ### Added
 
@@ -70,7 +91,7 @@
 - Renamed `VideoPlayerContentConfiguration.FadeOutDelay.none` to `VideoPlayerContentConfiguration.FadeOutDelay.disabled` to remove ambiguity.
 - Better support for launching the video player from landscape orientation. 
 
-## [0.4.0] - 2021-03-18
+## [0.4.0]
 
 ### Added
 
@@ -78,7 +99,7 @@
 - Video player tool tip can now be disabled.
 - When using a channel source, the video feed can be initialized with a playlist encoded ID.
 
-## [0.3.0] - 2021-03-05
+## [0.3.0]
 
 ### Added
 - Support for Google AdMob Native Ads.
@@ -91,7 +112,7 @@
 ### Removed
 - Publisher ID is no longer required or supported by the SDK.
 
-## [0.2.0] - 2021-02-15
+## [0.2.0]
 
 ### Added
 - `initializeSDK` can now be called with an optional userID parameter that can be used to link SDK metrics against a specific identity.
@@ -102,7 +123,7 @@
 - A Publisher ID is also required to use the SDK.
 - `FireworkVideoPlaybackDelegate` exposes additional delegate methods for video playback.
 
-## [0.1.0] - 2021-01-25
+## [0.1.0]
 
 ### Added
 - Initial Release with Sample Code
