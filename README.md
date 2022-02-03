@@ -187,6 +187,8 @@ itemConfig.title.numberOfLines = 1
 itemConfig.title.textColor = .black
 // Sets the title is hidden to false
 itemConfig.title.isHidden = false
+// Specifies if the sposored label should be shown on thumbnails
+itemConfig.sponsored.isHidden = false
 
 // Updates the title configuration
 config.itemView = itemConfig
@@ -391,6 +393,79 @@ Popular 3rd party ad SDKs can be used alongside the FireworkVideoSDK to perform 
   - Google IMA SDK - Requires [FireworkVideo Google IMA Supporting Library](https://github.com/loopsocial/firework_ios_sdk_google_ima_support)
 
 ### Troubleshooting
+
+#### Common Mistakes
+
+This section contains common mistakes that can lead to a `FeedViewController` to not behave correctly.
+
+##### View Controller Lifecycle Management 
+
+Properly managing a view controller's lifecycle is easily overlooked because Xcode does not strictly enforce this. So when a subtle issue does arise the root cause may not
+be all that obvious and is hard to debug.
+
+###### Attaching a View Controller
+
+When add a view controller as a child of another view controller it is important to call the correct methods so that it will start to receive the normal view controller 
+life cycle events.
+
+The steps for attaching a child view controller are
+
+  1. Add child to parent view controller
+  2. Add add root view from child view controller to some view in the parent view controller
+  3. Set constraints on child view controller view
+  4. Inform the child view controller that it has been moved onto the parent view controller
+
+The last step is really important and also overlooked as it will inform the child view controller that it that it can begin laying out its components.
+
+Here is an example
+
+```swift
+let feedVC = //... 
+
+parentViewController.addChild(feedVC)
+
+parentViewController.view.addSubView(feedVC.view)
+
+feedVC.view.translatesAutoresizingMaskIntoConstraints = false
+
+// ... Set feed constraint
+NSLayoutConstraint.activate(
+    constraints
+)
+
+feedVC.didMove(toParent: parentViewController)
+```
+
+###### Detaching a View Controller
+
+Similar to attaching a view controller we must also detach a view controller. Detaching is more straightforeward.
+
+The steps to detach
+
+  1. Inform the child view controller it will be moving from the parent view controller
+  2. Remove the child view controller from the parent
+  3. remove the child view controller view from super view
+
+```swift
+feedVC.willMove(toParent: nil) // Let's the child VC know it will be detached from the parent
+
+feedVC.removeFromParent()
+
+feedVC.view.removeSuperview()
+```
+
+##### Attaching a View Controller in a Table or Collection Cell View
+
+Often times it is desirable to display a horizontal scrolling feed within a UITableView or UICollectionView. 
+
+There are two lifecycle events on the UITableView and UICollectionView that we can use to attach and deatch the FeedViewController. For details on attaching and detaching 
+see View Controller Lifecycle Management section above.
+
+The Table and Collection views have a delegate method that is called before a cell is going to be shown on a screen; table/collectionView(_:willDisplayCell:at:). When this
+method is called it is a good time to attach the feed view controller.
+
+Conversely, the Table and Collection views have a method that is called just after a cell has left the screen; table/collectionView(_:didEndDisplayingCell:at:). WHen this
+method is called it is a good time to detach the feed view controller.
 
 #### SDK Intialization
 
