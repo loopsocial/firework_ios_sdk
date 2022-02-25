@@ -37,6 +37,9 @@ class VideoFeedLayoutTypes {
         vc.layout = layout
         var config = vc.viewConfiguration
         config.backgroundColor = UIColor.systemGray
+        config.adBadge.textColor = UIColor.white
+        config.adBadge.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        config.adBadge.badgeText = .ad
         config.itemView.cornerRadius = 12
         config.itemView.titleLayoutConfiguration.insets = UIEdgeInsets(top: 10, left: 4, bottom: 0, right: 4)
         config.itemView.title.isHidden = false

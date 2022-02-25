@@ -17,7 +17,7 @@ The app ID is used to authenticate your application with the server. Authenticat
 
 FireworkVideo is compatible with:
 
-  - iOS 11 or greater.
+  - iOS 12 or greater.
   - Xcode 12.4 or greater.
   - Swift 5.3 or greater.
 
@@ -225,8 +225,42 @@ playerConfig.shareButton.behavior.applicationActivities = customApplicationActiv
 // Exclude certain UIActivity Types
 playerConfig.shareButton.behavior.excludedActivityTypes = [UIActivity.ActivityType.markupAsPDF]
 
-// Updates the title configuration
+// Player launch behaviors
+// Using muteOnFirstLaunch will mute all videos when the player is launched for the first time
+// After the user unmutes the video the behavior will be retained across video launches.
+// Note: If the mute button is hidden this option is ignored
+playerConfig.onFirstLaunch = .muteOnFirstLaunch 
+
+// Updates the player configuration
 config.playerView = playerConfig
+
+// Must set the viewConfiguration property to apply the changes
+feedVC.viewConfiguration = config
+```
+
+#### Ad Badge Customizations
+Ad Badge property such as textColor can be customized using `AdBadgeConfiguration`, this configuration will be applied to all feeds and player
+
+```swift
+let feedVC = VideoFeedViewController()
+
+// Gets the default configuration
+var config = feedVC.viewConfiguration
+
+// Gets the player content configuration
+var adBadgeConfig = config.adBadge
+
+// Sets the ad badge text color to white
+adBadgeConfig.textColor = .white
+
+// Sets the ad badge background color to translucent
+adBadgeConfig.backgroundColor = UIColor(white: 0, alpha: 0.3)
+
+// Sets the ad badge text to "Ad"
+adBadgeConfig.badgeText = .ad
+
+// Updates the title configuration
+config.adBadge = adBadgeConfig
 
 // Must set the viewConfiguration property to apply the changes
 feedVC.viewConfiguration = config
@@ -467,7 +501,30 @@ method is called it is a good time to attach the feed view controller.
 Conversely, the Table and Collection views have a method that is called just after a cell has left the screen; table/collectionView(_:didEndDisplayingCell:at:). WHen this
 method is called it is a good time to detach the feed view controller.
 
-#### SDK Intialization
+#### Safe Area Guides
+
+Because the `VideoFeedViewController` is self contained it must be able to avoid safe areas. As such the 
+`VideoFeedViewController` attaches its child view controller to the `safeAreaGuide` of its view. 
+
+There are some scenarios that may cause odd behaviors when the `VideoFeedViewController` is laid out.
+
+##### Sibling Views
+
+This scenario occurs when a the `VideoFeedViewController` is attached to a `UIScrollView`, `UICollectionView` 
+or `UITableView` which has a sibling view. The safe area guides will propagate down to the `VideoFeedViewController` 
+when the `UIScrollView`, `UICollectionView` or `UITableView` is not the first child in the view hierarchy. 
+
+Typically, `UIScrollView`, `UICollectionView` or `UITableView` respects the safe area by adjusting the content size to
+allow the content to scroll above the safe area. Thus, UIKit does not pass the guides down into views that are within
+the content view of the `UIScrollView`. However, behavior suggests there is a bug within the UIKit logic.
+
+**Workarounds**
+
+To get around this issue simply make sure the `UIScrollView`, `UICollectionView` or `UITableView` is the first sibling
+of the parent view. In story board simply drag the view in question to the top of the subclasses. Or, if you are building
+views programmatically simply make sure to `view.addSubview()` the view in question first.
+
+#### SDK Initialization
 
 `FireworkVideoSDK.initializeSDK` accepts an optional `delegate` parameter that can receive any errors the SDK outputs during setup. This delegate can be any class that conforms to the `FireworkVideoSDKDelegate` protocol.  See example code below that uses  `AppDelegate` to print any errors to console.
 
@@ -610,5 +667,5 @@ List of feed events:
 ```swift
     /// Called when the a video thumbnail is tapped by the user
     /// - Parameter eventDetails: The details of the feed event
-    func fireworkVideoDidTapVideoThumbnail(_ eventDetails: FeedEventDetails)
+    func fireworkVideoDidTapThumbnail(_ eventDetails: FeedEventDetails)
 ```

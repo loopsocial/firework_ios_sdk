@@ -1,5 +1,16 @@
 ## CHANGELOG
 
+## [0.14.0]
+
+### Added
+
+- Configurable Ad badge
+
+### Changed
+
+- Fixes an issue where the CTA text color configuration would not be updated
+- Fixes an issue where the shopping callback to update the shopping cart icon would not be called in certain scenarios
+
 ## [0.13.0]
 
 ### Added
