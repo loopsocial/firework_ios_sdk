@@ -266,12 +266,21 @@ config.adBadge = adBadgeConfig
 feedVC.viewConfiguration = config
 ```
 
+#### Live Stream Event Callbacks
+
+Live stream events can be observed by assgning a receiver as the `FireworkLiveStreamEventDelegate`. This will provide different methods that will be invoked at the time of each event.
+
+```swift
+// Assign a delegate
+FireworkVideoSDK.eventTracking.liveStreamEventDelegate = // Object to receive live stream events
+``
+
 #### Custom Call-To-Action Button Handling
 
 Custom Call-To-Action button handling is done via the `FireworkVideoCTADelegate` protocol. This provides control over what occurs when a call-to-action button is tapped.
 
   1. Set the delegate:
-```
+```swift
 FireworkVideoSDK.ctaDelegate = self
 ```
   2. Confirm to protocol:

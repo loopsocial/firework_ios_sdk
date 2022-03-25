@@ -159,6 +159,7 @@ class VideoFeedCustomizationViewController: UIViewController {
                                              action: #selector(SenderSuppliedTargetAction.performAction(_:)),
                                              for: .valueChanged)
         self.playerStyleSegmentedControl.selectedSegmentIndex = 0
+
         self.customizationControlsStackView = UIStackView(arrangedSubviews: [
             colorSegmentExplanation,
             self.colorAttributesSegmentedControl,

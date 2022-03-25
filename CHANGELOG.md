@@ -1,5 +1,12 @@
 ## CHANGELOG
 
+## [0.15.0]
+
+### Added
+
+- Support for live stream playback
+- Live stream callback events
+
 ## [0.14.1]
 
 ### Changed

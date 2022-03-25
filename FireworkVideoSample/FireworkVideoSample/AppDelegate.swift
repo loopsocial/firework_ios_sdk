@@ -75,3 +75,29 @@ extension AppDelegate: FireworkVideoCTADelegate {
         return true
     }
 }
+
+/// Implementing the FireworkLiveStreamEventDelegate will receive live stream events
+extension AppDelegate: FireworkLiveStreamEventDelegate {
+    func fireworkLiveStreamUserDidJoin(_ liveStream: LiveStreamEventDetails) {
+        // App developer code
+        debugPrint(">>> Live stream user did join")
+    }
+
+    func fireworkLiveStreamUserDidLeave(_ liveStream: LiveStreamEventDetails) {
+        // App developer code
+        debugPrint(">>> Live stream user did leave")
+    }
+
+    func fireworkLiveStreamUserDidSendChat(
+        _ chat: LiveStreamMessageDetails,
+        to liveStream: LiveStreamEventDetails
+    ) {
+        // App developer code
+        debugPrint(">>> Live stream user did send chat \(chat.text) \(chat.username) \(chat.messageID)")
+    }
+
+    func fireworkLiveStreamUserDidSendLike(_ liveStream: LiveStreamEventDetails) {
+        // App developer code
+        debugPrint(">>> Live stream user did send like")
+    }
+}
