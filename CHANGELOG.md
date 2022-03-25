@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## [0.14.1]
+
+### Changed
+
+- Fixes an issue where the CTA button may not appear in certain conditions
+
 ## [0.14.0]
 
 ### Added
