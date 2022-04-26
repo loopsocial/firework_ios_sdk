@@ -31,7 +31,7 @@ In your Xcode project, select File > Swift Packages > Add Package Dependency and
 
 > If you are new to Xcode's Swift Pacakage Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
-Select Version > Up to Next Major > 0.5.0.
+Select Version > Up to Next Major > 0.15.0 or [latest](https://github.com/loopsocial/firework_ios_sdk/releases/latest).
 
 ### Importing Using Cocoapods
 
@@ -41,7 +41,7 @@ In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install
 
 * Clone the SDK repo located at `https://www.github.com/loopsocial/firework_ios_sdk/`
 
-* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.5.0/FireworkVideo-v0.5.0.xcframework.zip) and unzip if needed.
+* Download the [SDK binary](https://www.github.com/loopsocial/firework_ios_sdk/releases/download/v0.15.0/FireworkVideo-v0.15.0.xcframework.zip) and unzip if needed.
 
 * Drag the unzipped `FireworkVideo.xcframework` into the Xcode project navigator and drop it at root of your project. Make sure `Copy items if needed` checkbox is selected in the confirmation dialog. Check to make sure your project directory now has `FireworkVideo.xcframework` in it and it is visible and linked in your Xcode project navigator.
 
