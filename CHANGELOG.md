@@ -1,5 +1,19 @@
 ## CHANGELOG
 
+## [0.16.0]
+
+### Added
+
+- Dynamic Content content source
+- Autoplay video in thumbnails
+- Support for external live stream player
+
+### Changed
+
+## Breaking Changes
+
+- Replace the VideoPlayerContentConfiguration parameter of the func VideoFeedViewController.openVideoPlayer with type VideoFeedContentConfiguration
+
 ## [0.15.0]
 
 ### Added

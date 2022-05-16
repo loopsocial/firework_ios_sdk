@@ -18,7 +18,7 @@ The app ID is used to authenticate your application with the server. Authenticat
 FireworkVideo is compatible with:
 
   - iOS 12 or greater.
-  - Xcode 12.4 or greater.
+  - Xcode 13+ or greater.
   - Swift 5.3 or greater.
 
 ## How to add FireworkVideo to your Xcode project?
@@ -189,6 +189,8 @@ itemConfig.title.textColor = .black
 itemConfig.title.isHidden = false
 // Specifies if the sposored label should be shown on thumbnails
 itemConfig.sponsored.isHidden = false
+// Specifies if autoplay is enabled on thumbnails. 
+itemConfig.autoplay.isEnabled = true
 
 // Updates the title configuration
 config.itemView = itemConfig
@@ -329,6 +331,16 @@ let playlistGroupID = "<Playlist ID>"
 let feedVC = VideoFeedViewController(source: .playlistGroup(groupID: playlistGroupID))
 ```
 
+#### Dynamic Content
+
+Displays playlists from the specified playlist group id. 
+
+```swift
+let channelID = "<Channel ID>"
+let parameters: DynamicContentParameters = ["<cohort key>": ["<cohort value 1>", "<cohort value 2>"]]
+let feedVC = VideoFeedViewController(source: .dynamicContent(channelID: channelID, parameters: parameters))
+```
+
 ### Shopping
 
 FireworkVideoSDK contains a `shopping` property that enables video shopping integration. There are two main points of integration both located on the `FireworkVideoShopping` type.
@@ -416,8 +428,8 @@ After your app receives a universal link or deeplink, once your app is ready to 
 let viewController = // The view controller that should present the video player
 let url = // The received url that contains the `fwplayer` query parameter
 // Optionally a custom player config can be applied to the presented video player
-let playerConfig: VideoPlayerContentConfiguration = // Custom video player configuration
-VideoFeedViewController.openVideoPlayer(with: url, playerConfig, viewController) { result in /* Called after successfully presenting the video player */ }
+let feedConfig: VideoFeedContentConfiguration = // Custom video player configuration
+VideoFeedViewController.openVideoPlayer(with: url, feedConfig, viewController) { result in /* Called after successfully presenting the video player */ }
 
 // Or you can pass the value of the `fwplayer` query parameter directly into method
 
@@ -426,7 +438,7 @@ VideoFeedViewController.openVideoPlayer(with: paramValue, viewController) { resu
 
 ```
 
-> **Note** If a custom `VideoPlayerContentConfiguration` is not passed into the `openVideoPlayer` method the default configuration will be used.
+> **Note** If a custom `VideoFeedContentConfiguration` is not passed into the `openVideoPlayer` method the default configuration will be used.
 
 ### Ad Support
 

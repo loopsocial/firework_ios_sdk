@@ -29,6 +29,8 @@ class VideoFeedCustomizationViewController: UIViewController {
     var colorAttributesSegmentedControl: UISegmentedControl!
     var playerStyleSegmentedControl: UISegmentedControl!
     var selectedColorPreview: UIView!
+    var autoplaySwitch: UISwitch!
+    var autoplaySwitchWrapperStackView: UIStackView!
     var customizationControlsStackView: UIStackView!
     
     var selectedColor: UIColor = .lightGray
@@ -96,6 +98,12 @@ class VideoFeedCustomizationViewController: UIViewController {
         fontSizePickingSlider.maximumValue = 24.0
         return fontSizePickingSlider
     }
+
+    private func setupAutoplaySwitchControl() -> UISwitch {
+        let switchControl = UISwitch()
+        switchControl.isOn = false
+        return switchControl
+    }
     
     private func setupCustomizationControls() {
         let colorSegmentExplanation = UILabel.standardLabel(text: NSLocalizedString("Pick a Color Attribute to Change",
@@ -160,6 +168,25 @@ class VideoFeedCustomizationViewController: UIViewController {
                                              for: .valueChanged)
         self.playerStyleSegmentedControl.selectedSegmentIndex = 0
 
+        self.autoplaySwitch = setupAutoplaySwitchControl()
+        let switchControlTargetAction = SenderSuppliedTargetAction { sender in
+            guard let switchControl = sender as? UISwitch else {
+                return
+            }
+            self.updateAutoplayConfiguration(switchControl.isOn)
+        }
+        self.senderSuppliedTargetActions.append(switchControlTargetAction)
+        self.autoplaySwitch.addTarget(switchControlTargetAction, action: #selector(SenderSuppliedTargetAction.performAction(_:)), for: .valueChanged)
+        self.autoplaySwitchWrapperStackView = UIStackView(arrangedSubviews: [
+            UILabel.standardLabel(
+                text: NSLocalizedString("Switch autoplay configuration",comment: ""),
+                textAlignment: .left
+            ),
+            self.autoplaySwitch
+        ])
+        self.autoplaySwitchWrapperStackView.axis = .horizontal
+        self.autoplaySwitchWrapperStackView.spacing = 20.0
+
         self.customizationControlsStackView = UIStackView(arrangedSubviews: [
             colorSegmentExplanation,
             self.colorAttributesSegmentedControl,
@@ -172,6 +199,8 @@ class VideoFeedCustomizationViewController: UIViewController {
             UILabel.standardLabel(text: NSLocalizedString("Pick a Player Appearance Style",
                                                                                       comment: "")),
             playerStyleSegmentedControl,
+
+            self.autoplaySwitchWrapperStackView,
         ])
         
         self.customizationControlsStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -236,5 +265,11 @@ class VideoFeedCustomizationViewController: UIViewController {
         default:
             break
         }
+    }
+
+    func updateAutoplayConfiguration(_ isEnabled: Bool) {
+        var configuration = self.videoFeedContentConfiguration!
+        configuration.itemView.autoplay.isEnabled = isEnabled
+        self.videoFeedContentConfiguration = configuration
     }
 }

@@ -44,6 +44,11 @@ class VideoFeedExamplesViewController: UITableViewController {
             return VideoFeedChannelSourceViewController(contentSource: contentSource)
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 7 {
             return ShareVideoExamplesViewController()
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 8 {
+            let contentSource = VideoFeedContentSource.dynamicContent(
+                channelID: "23LBMWN",
+                parameters: ["category": ["dessert"]])
+            return VideoFeedChannelSourceViewController(contentSource: contentSource)
         }
         
         return nil
