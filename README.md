@@ -333,7 +333,7 @@ let feedVC = VideoFeedViewController(source: .playlistGroup(groupID: playlistGro
 
 #### Dynamic Content
 
-Displays playlists from the specified playlist group id. 
+Displays dynamic content based on the provided channel id and content parameters.
 
 ```swift
 let channelID = "<Channel ID>"
