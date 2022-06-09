@@ -221,6 +221,9 @@ playerConfig.muteButton.isHidden = true
 // Show or hide the playback button
 playerConfig.playbackButton.isHidden = true
 
+// Set the delay of the CTA button. Using 0 will result in no delay.
+playerConfig.ctaButton.behavior.delay = .constant(0) 
+
 // Add UIActivity instances specific to your app
 playerConfig.shareButton.behavior.applicationActivities = customApplicationActivities()
 
@@ -333,7 +336,7 @@ let feedVC = VideoFeedViewController(source: .playlistGroup(groupID: playlistGro
 
 #### Dynamic Content
 
-Displays dynamic content based on the provided channel id and content parameters.
+Displays dynamic content based on the provided channel id and content parameters. 
 
 ```swift
 let channelID = "<Channel ID>"
@@ -353,7 +356,7 @@ Assign a `FireworkVideoShoppingDelegate` to receive important shopping events.
 FireworkVideoSDK.shopping.delegate = <Your delegate>
 ```
 
-The shopping lifecycle events provide opportinities to customize the product views, hydrate product information and handle when a user adds a product variant to the cart.
+The shopping lifecycle events provide opportunities to customize the product views, hydrate product information and handle when a user adds a product variant to the cart.
 
 ##### Shopping View Configuration 
 

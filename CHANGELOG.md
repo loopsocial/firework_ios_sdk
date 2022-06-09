@@ -1,5 +1,46 @@
 ## CHANGELOG
 
+## [0.17.0]
+
+### Added 
+
+- Configurable CTA display delay
+
+## Breaking Changes
+
+Direct references can be quickly updated by adding `contentConfiguration` after the `ctaButton` property.
+
+```swift
+var config = VideoPlayerContentConfiguration()
+
+// From
+config.ctaButton.backgroundColor = .green
+config.ctaButton.textColor = .black
+config.ctaButton.font = .systemFont(ofSize: 12)
+
+// To
+
+config.ctaButton.contentConfiguration.backgroundColor = .green
+config.ctaButton.contentConfiguration.textColor = .black
+config.ctaButton.contentConfiguration.font = .systemFont(ofSize: 12)
+```
+
+Type creation has changed as well and will require updating your instantiation routine. Continue creating the `ButtonContentConfiguration`, but instead of assigning it to the `VideoPlayerContentConfiguration.ctaButton` you will need to create a new type `VideoPlayerCTAConfiguration`. Then assign your existing `ButtonContentConfiguration` value to the property `contentConfiguration` on the `VideoPlayerCTAConfiguration` type. Finally, assign the value of the `VideoPlayerCTAConfiguration` to the `VideoPlayerContentConfiguration.ctaButton` property.
+
+```swift
+var config = VideoPlayerContentConfiguration()
+
+let existingCTAConfig = ButtonContentConfiguration()
+//config.ctaButton = existingCTAConfig // Won't compile
+
+// Remove the old assignment and replace with this new configuration
+var ctaConfig = VideoPlayerCTAConfiguration()
+// Simply reassign to contentConfiguration on the VideoPlayerCTAConfiguration type
+ctaConfig.contentConfiguration = existingCTAConfig
+config.ctaButton = ctaConfig
+```
+
+
 ## [0.16.0]
 
 ### Added
