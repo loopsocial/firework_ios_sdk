@@ -1,5 +1,18 @@
 ## CHANGELOG
 
+## [0.18.0]
+
+### Added
+
+- Story block UI component
+- RTL support
+- Arabic translations
+
+### Changed
+
+- Product unit option names are now used when hydration occurs
+- Fix for video event callback
+
 ## [0.17.0]
 
 ### Added 

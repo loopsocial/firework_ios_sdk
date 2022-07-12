@@ -235,12 +235,36 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="3t9-Ao-IlI" detailTextLabel="gEo-1M-ghS" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="gVI-vY-Frr">
+                                        <rect key="frame" x="20" y="724.5" width="374" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gVI-vY-Frr" id="oBe-Ly-7dF">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Story Block" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3t9-Ao-IlI">
+                                                    <rect key="frame" x="20" y="17" width="87.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="embed a video feed by Storyblock" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gEo-1M-ghS">
+                                                    <rect key="frame" x="20" y="40.5" width="193" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Storyboard Examples" id="efy-T6-ONZ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="MKD-KM-efA" detailTextLabel="Mvc-k7-ahj" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="0w5-AQ-lPw">
-                                        <rect key="frame" x="20" y="774.5" width="374" height="75"/>
+                                        <rect key="frame" x="20" y="849.5" width="374" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0w5-AQ-lPw" id="8ST-OE-T0b">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
@@ -278,7 +302,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dh-cF-0Xq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936" y="109"/>
+            <point key="canvasLocation" x="1016" y="108"/>
         </scene>
         <!--Storyboard Video Feed-->
         <scene sceneID="vye-C9-1qS">
@@ -322,7 +346,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="3Hc-g4-5BL" kind="relationship" relationship="rootViewController" id="Ul1-nO-6vw"/>
+                        <segue destination="3Hc-g4-5BL" kind="relationship" relationship="rootViewController" id="NwU-Ns-yhd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIa-wC-ATF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -296,9 +296,9 @@ func handleCustomCTAClick(_ viewController: PlayerViewController, url: URL) -> B
 }
 ```
 
-### Content Sources
+### Feed Content Sources
 
-The enum VideoFeedContentSource defines the different sources that can be used to populate the video feed. The content source must be specified when the VideoFeedViewController is instantiated; `VideoFeedViewController(source: .discover)`. By default the feed will use the `.discover` content source. 
+The enum `VideoFeedContentSource` defines the different sources that can be used to populate the video feed. The content source must be specified when the VideoFeedViewController is instantiated; `VideoFeedViewController(source: .discover)`. By default the feed will use the `.discover` content source. 
 
 Other content sources include
 
@@ -342,6 +342,71 @@ Displays dynamic content based on the provided channel id and content parameters
 let channelID = "<Channel ID>"
 let parameters: DynamicContentParameters = ["<cohort key>": ["<cohort value 1>", "<cohort value 2>"]]
 let feedVC = VideoFeedViewController(source: .dynamicContent(channelID: channelID, parameters: parameters))
+```
+
+### Story Block
+
+Displaying a Story Block can be done by using a `StoryBlockViewController` either programmatically or in a storyboard. 
+
+#### Programmatic
+
+  1. Import FireworkVideo 
+  2. Create a new `StoryBlockViewController`
+  3. Embed the instantiated `StoryBlockViewController`
+  
+```swift
+import FireworkVideo
+
+class ViewController: UIViewController {
+
+    func embedFeedInViewController() {
+        let storyBlockVC = StoryBlockViewController()
+        self.addChild(storyBlockVC)
+        self.view.addSubview(storyBlockVC.view)
+        storyBlockVC.view.frame = self.view.bounds
+        storyBlockVC.willMove(toParent: self)
+    }
+    
+}
+```
+
+#### Story Block Content Source
+
+The enum `StoryBlockContentSource` defines the different sources that can be used to populate the story block. The content source must be specified when the `StoryBlockViewController` is instantiated; `StoryBlockViewController(source: .discover)`. By default, the feed will use the `.discover` content source. 
+
+Other content sources include
+
+#### Channel
+
+Displays content from the specified channel id. 
+
+> Note: The user will only see videos they have not viewed before. If the user has viewed all the videos for a channel similar videos will automatically be provided.
+
+```swift
+let channelID = "<Channel ID>"
+let feedVC = StoryBlockViewController(source: .channel(channelID: channelID))
+```
+
+#### Channel Playlist
+
+Displays content from the specified playlist id. 
+
+> Note: Unlike the [channel content source](#channel), only content in the playlist will be shown to the user.
+
+```swift
+let channelID = "<Your Channel ID>"
+let playlistID = "<Playlist ID>"
+let feedVC = StoryBlockViewController(source: .channelPlaylist(channelID: channelID, playlistID: playlistID))
+```
+
+#### Dynamic Content
+
+Displays dynamic content based on the provided channel id and content parameters. 
+
+```swift
+let channelID = "<Channel ID>"
+let parameters: DynamicContentParameters = ["<cohort key>": ["<cohort value 1>", "<cohort value 2>"]]
+let feedVC = StoryBlockViewController(source: .dynamicContent(channelID: channelID, parameters: parameters))
 ```
 
 ### Shopping

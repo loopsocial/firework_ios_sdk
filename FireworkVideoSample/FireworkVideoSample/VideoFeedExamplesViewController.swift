@@ -49,6 +49,8 @@ class VideoFeedExamplesViewController: UITableViewController {
                 channelID: "23LBMWN",
                 parameters: ["category": ["dessert"]])
             return VideoFeedChannelSourceViewController(contentSource: contentSource)
+        } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 9 {
+            return StoryBlockExampleViewController()
         }
         
         return nil
