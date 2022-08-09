@@ -1,5 +1,28 @@
 ## CHANGELOG
 
+## [1.0.0]
+
+### Added
+
+- Story block playback API
+- Story block UI improvements and optimizations 
+- Accessibility improvements
+- Localization for all components
+
+### Changed
+
+- Live Stream Provider APIs have been updated
+
+## Breaking Changes
+
+The Live Stream Provider APIs have changed which means you must also pull in the latest version of the supporting libraries. 
+For more details please follow the instructions on the corresponding supporting lib repo.
+
+### Fixed
+
+- Live Stream Chat Emoji delay
+- Image correct for RTL languages
+
 ## [0.18.0]
 
 ### Added
