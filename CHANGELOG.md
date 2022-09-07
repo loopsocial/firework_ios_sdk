@@ -1,5 +1,15 @@
 ## CHANGELOG
 
+## [1.1.0]
+
+### Added
+
+- Purchase sale tracking API
+- `DrawerControllerRepresentable` for story block to dismiss drawer
+- Custom VAST attributes support
+- In feed ad support
+
+
 ## [1.0.0]
 
 ### Added

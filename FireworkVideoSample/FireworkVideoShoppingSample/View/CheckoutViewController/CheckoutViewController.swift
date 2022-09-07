@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import FireworkVideo
 
 class CheckoutViewController: UIViewController {
 
     private var shopping = ShoppingCartManager.shopifyInstance
+    var drawerController: DrawerControllerRepresentable?
 
     @IBOutlet weak var finishButton: UIButton!
 
@@ -20,6 +22,7 @@ class CheckoutViewController: UIViewController {
     }
 
     @IBAction func handleFinishTap(_ sender: Any) {
+        self.drawerController?.closeDrawer(animated: true)
         self.dismiss(animated: true)
     }
 

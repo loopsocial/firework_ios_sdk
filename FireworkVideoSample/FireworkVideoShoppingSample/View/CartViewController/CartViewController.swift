@@ -49,16 +49,37 @@ class CartViewController: UIViewController, CartViewRepresentable {
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "checkoutSegue" {
+            if let destinationVC = segue.destination as? CheckoutViewController {
+                destinationVC.drawerController = self.drawerController
+            }
+        }
+    }
+
     @IBAction func handleCheckOutTap(_ sender: Any) {
         switch checkoutDisplayStyle {
         case .present:
-            guard let checkout = storyboard?.instantiateViewController(identifier: "CheckoutViewController") else {
+            guard let checkout = storyboard?.instantiateViewController(identifier: "CheckoutViewController") as? CheckoutViewController else {
                 return
             }
+            checkout.drawerController = self.drawerController
             present(checkout, animated: true)
         case .push:
             performSegue(withIdentifier: "checkoutSegue", sender: self)
         }
+
+        FireworkVideoSDK.trackPurchase(
+            orderID: UUID().uuidString,
+            value: Double.random(in: 1 ... 100),
+            currencyCode: Locale.current.currencyCode,
+            countryCode: Locale.current.regionCode,
+            [
+                "additionalKey1": "additionalValue1",
+                "additionalKey2": "additionalValue2",
+                "additionalKey3": "additionalValue3"
+            ]
+        )
     }
 
 }

@@ -475,6 +475,26 @@ If no provider is set the actions above will be replaced with these actions; res
   - User clicks cart icon - Nothing.
   - Host app returns `showEmbeddedCart` as the `AddToCartAction` - SDK treats this as a success and will use the `dismissWithFeedback` with `success`.
 
+The `CartViewController` has a `drawerController: DrawerControllerRepresentable` property which provides a func to close the cart view container.
+
+#### Purchase tracking
+The host app can record a purchase which will help get a full picture of the user journey flow.In order to do this, call `FireworkVideoSDK.trackPurchase` whenever the purchase happens.
+
+```
+let totalPurchaseValue: Double = // The total value of the purchase
+FireworkVideoSDK.trackPurchase(
+            orderID: "<Order ID of User Purchase>",
+            value: totalPurchaseValue,
+            currencyCode: Locale.current.currencyCode,
+            countryCode: Locale.current.regionCode,
+            [
+                "additionalKey1": "additionalValue1",
+                "additionalKey2": "additionalValue2",
+                "additionalKey3": "additionalValue3"
+            ]
+        )
+```
+
 ### Force Refresh
 
 A `VideoFeedViewController` can be hard refreshed by calling the `refresh()` method on the instance that should be refreshed. This functionality is useful if your feed is embedded along with other components that are also updated and you support features like pull to refresh.
