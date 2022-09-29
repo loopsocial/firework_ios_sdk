@@ -1,5 +1,13 @@
 ## CHANGELOG
 
+## [1.2.0]
+
+### Added
+
+- Picture In Picture functionality
+- `PictureInPictureController` can be used for livestreams
+- Subtitle support for short videos (.vtt files) 
+
 ## [1.1.0]
 
 ### Added

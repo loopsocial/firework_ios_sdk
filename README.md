@@ -528,6 +528,26 @@ VideoFeedViewController.openVideoPlayer(with: paramValue, viewController) { resu
 
 > **Note** If a custom `VideoFeedContentConfiguration` is not passed into the `openVideoPlayer` method the default configuration will be used.
 
+### Picture in Picture (PiP)
+
+This feature allows the user to watch media while the application is in a backgrounded state. While in background mode a video will display in a floating, resizable window. 
+
+To enable PiP functionality, you’ll need to add Background Modes capability via Signing & Capabilities in your project settings. More information about this can be found here: [Apple Documentation](https://developer.apple.com/documentation/avfoundation/media_playback/configuring_the_audio_playback_of_ios_and_tvos_apps) 
+
+
+Once the background mode is enabled, moving from an active state to a background state will immediately trigger the Picture In Picture functionality. PictureInPictureController is responsible for handling all of this functionality. PictureInPictureController retains a strong reference of AVPictureInPictureController. AVPictureInPictureController is a controller that responds to user-initiated Picture in Picture playback of video in a floating, resizable window.
+
+
+```
+   let feedVC = VideoFeedViewController(
+     layout: VideoFeedHorizontalLayout(),
+     source: source,
+     adConfiguration: adConfiguration)
+     pipViewControlelr = PictureInPictureController(videoFeed: feedVC)
+     
+```
+
+
 ### Ad Support
 
 Popular 3rd party ad SDKs can be used alongside the FireworkVideoSDK to perform client side ad insertion within the Firework Video Player. These 3rd party SDKs require a supporting library in order to work. Please review the list below and checkout the repo for more detailed instructions.

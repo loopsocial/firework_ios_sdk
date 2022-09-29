@@ -23,7 +23,6 @@ class VideoFeedExamplesViewController: UITableViewController {
     }
     
     func viewController(at selectedIndexPath:IndexPath) -> UIViewController? {
-        
         if selectedIndexPath.section == 0 && selectedIndexPath.row == 0 {
             return DiscoverVideoFeedViewController()
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 1 {
@@ -51,6 +50,9 @@ class VideoFeedExamplesViewController: UITableViewController {
             return VideoFeedChannelSourceViewController(contentSource: contentSource)
         } else if selectedIndexPath.section == 0 && selectedIndexPath.row == 9 {
             return StoryBlockExampleViewController()
+        }
+        else if selectedIndexPath.section == 0 && selectedIndexPath.row == 10 {
+            return PictureInPictureExampleViewController()
         }
         
         return nil
