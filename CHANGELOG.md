@@ -1,5 +1,15 @@
 ## CHANGELOG
 
+## [1.3.0]
+
+### Added
+
+- Multiple product pinning
+
+### Fixed
+
+- Crash on iOS 16 when returning to the app from Apple Native PiP
+
 ## [1.2.0]
 
 ### Added
