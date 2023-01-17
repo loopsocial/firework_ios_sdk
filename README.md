@@ -224,6 +224,9 @@ playerConfig.playbackButton.isHidden = true
 // Set the delay of the CTA button. Using 0 will result in no delay.
 playerConfig.ctaButton.behavior.delay = .constant(0) 
 
+// Set the highlight delay of the CTA button. Using 0 will result in no delay and the button will be highlighted immediately.
+playerConfig.ctaButton.behavior.highlightDelay = .constant(0) 
+
 // Add UIActivity instances specific to your app
 playerConfig.shareButton.behavior.applicationActivities = customApplicationActivities()
 
@@ -534,6 +537,7 @@ This feature allows the user to watch media while the application is in a backgr
 
 To enable PiP functionality, you’ll need to add Background Modes capability via Signing & Capabilities in your project settings. More information about this can be found here: [Apple Documentation](https://developer.apple.com/documentation/avfoundation/media_playback/configuring_the_audio_playback_of_ios_and_tvos_apps) 
 
+> **Note**  To use Picture in Picture, we configure the app to support background audio playback. See [Configuring the Audio Playback of iOS and tvOS Apps](https://developer.apple.com/documentation/avfoundation/media_playback/configuring_the_audio_playback_of_ios_and_tvos_apps) for more details.
 
 Once the background mode is enabled, moving from an active state to a background state will immediately trigger the Picture In Picture functionality. PictureInPictureController is responsible for handling all of this functionality. PictureInPictureController retains a strong reference of AVPictureInPictureController. AVPictureInPictureController is a controller that responds to user-initiated Picture in Picture playback of video in a floating, resizable window.
 

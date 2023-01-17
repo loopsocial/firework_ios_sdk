@@ -1,5 +1,17 @@
 ## CHANGELOG
 
+## [1.5.0]
+
+### Added
+
+- Floating player functionality. This feature complements Picture in Picture by supporting a custom floating player that can be used within the application. Apple's Picture in Picture will automatically be used when the user switches to another app while watching a live stream.
+- Improved Firework share link handling
+
+### Fixed
+
+- Story block automatically pauses when no longer on screen
+- Overlap of pinned products and interactions while in live stream
+
 ## [1.3.0]
 
 ### Added
