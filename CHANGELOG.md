@@ -1,10 +1,16 @@
 ## CHANGELOG
 
+## [1.6.0]
+
+### Added
+
+- Improved Picture in Picture API
+
 ## [1.5.0]
 
 ### Added
 
-- Floating player functionality. This feature complements Picture in Picture by supporting a custom floating player that can be used within the application. Apple's Picture in Picture will automatically be used when the user switches to another app while watching a live stream.
+- Floating player fuctionality. This feature complements Picture in Picture by supporting a custom floating player that can be used within the application. Apple's Picture in Picture will automatically be used when the user switches to another app while watching a live stream.
 - Improved Firework share link handling
 
 ### Fixed

@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "ChromaColorPicker",
-        "repositoryURL": "https://github.com/joncardasis/ChromaColorPicker",
-        "state": {
-          "branch": "master",
-          "revision": "4fa7a0b3cb779d97b771a5bf0de8927d6a37153f",
-          "version": null
-        }
-      },
-      {
-        "package": "Mobile Buy SDK",
-        "repositoryURL": "git@github.com:Shopify/mobile-buy-sdk-ios.git",
-        "state": {
-          "branch": null,
-          "revision": "14cb49618c88024ca531f7bd4425554ab180f89e",
-          "version": "6.2.0"
-        }
+  "pins" : [
+    {
+      "identity" : "chromacolorpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/joncardasis/ChromaColorPicker",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4fa7a0b3cb779d97b771a5bf0de8927d6a37153f"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "mobile-buy-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:Shopify/mobile-buy-sdk-ios.git",
+      "state" : {
+        "revision" : "14cb49618c88024ca531f7bd4425554ab180f89e",
+        "version" : "6.2.0"
+      }
+    }
+  ],
+  "version" : 2
 }

@@ -11,7 +11,6 @@ import Foundation
 import UIKit
 
 class PictureInPictureExampleViewController: UIViewController {
-    private var pictureInPictureController: PictureInPictureController?
 
     private lazy var storyBlock: StoryBlockViewController = {
         let storyBlock = StoryBlockViewController(
@@ -27,8 +26,10 @@ class PictureInPictureExampleViewController: UIViewController {
     }
 
     private func setupPictureInPicture() {
-        pictureInPictureController = PictureInPictureController(storyBlock: storyBlock)
-        pictureInPictureController?.delegate = self
+        // First enable picture in picture
+        storyBlock.isPictureInPictureEnabled = true
+        // After enabling picture in picture we can assign a delegate
+        storyBlock.pictureInPictureDelegate = self
     }
 
     private func setupStoryBlock() {
@@ -48,6 +49,7 @@ class PictureInPictureExampleViewController: UIViewController {
 }
 
 extension PictureInPictureExampleViewController: PictureInPictureControllerDelegate {
+
     func pictureInPictureControllerWillStartPictureInPicture(_:
         FireworkVideo.PictureInPictureController)
     {
@@ -63,6 +65,10 @@ extension PictureInPictureExampleViewController: PictureInPictureControllerDeleg
     func pictureInPictureController(_: FireworkVideo.PictureInPictureController,
                                     failedToStartPictureInPictureWithError _: Error?)
     {
+        print(#function)
+    }
+
+    func pictureInPictureControllerWillStopPictureInPicture(_ pictureInPictureController: FireworkVideo.PictureInPictureController) {
         print(#function)
     }
 
