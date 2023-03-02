@@ -5,6 +5,9 @@
 ### Added
 
 - APIs to programmatically place video player to floating mode within the application.
+- Updates Firework Branding
+- Adds configuration for hiding link within the product description 
+- Improves player accessibilty
 
 ## [1.6.0]
 
