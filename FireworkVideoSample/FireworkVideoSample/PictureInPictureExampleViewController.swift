@@ -19,10 +19,25 @@ class PictureInPictureExampleViewController: UIViewController {
         return storyBlock
     }()
 
+    private lazy var pipEnterButton = UIBarButtonItem(
+        image: UIImage(systemName: "pip.enter"),
+        style: .plain,
+        target: self,
+        action: #selector(enterPip)
+    )
+
+    private lazy var pipExitButton = UIBarButtonItem(
+        image: UIImage(systemName: "pip.exit"),
+        style: .plain,
+        target: self,
+        action: #selector(exitPip)
+    )
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupStoryBlock()
         setupPictureInPicture()
+        navigationItem.rightBarButtonItem = pipEnterButton
     }
 
     private func setupPictureInPicture() {
@@ -46,6 +61,30 @@ class PictureInPictureExampleViewController: UIViewController {
         ])
         storyBlock.didMove(toParent: self)
     }
+
+    @objc
+    private func enterPip() {
+        do {
+            try PictureInPictureController.start(with: storyBlock.feedID)
+        } catch {
+            print("Error entering Picture-in-Picture: \(error)")
+        }
+    }
+
+    @objc
+    private func exitPip() {
+        do {
+            try PictureInPictureController.stop(with: storyBlock.feedID)
+        } catch {
+            print("Error exiting Picture-in-Picture: \(error)")
+        }
+    }
+
+    private var isOnPictureInPicture: Bool = false {
+        didSet {
+            navigationItem.rightBarButtonItem = isOnPictureInPicture ? pipExitButton : pipEnterButton
+        }
+    }
 }
 
 extension PictureInPictureExampleViewController: PictureInPictureControllerDelegate {
@@ -60,6 +99,7 @@ extension PictureInPictureExampleViewController: PictureInPictureControllerDeleg
         FireworkVideo.PictureInPictureController)
     {
         print(#function)
+        isOnPictureInPicture = true
     }
 
     func pictureInPictureController(_: FireworkVideo.PictureInPictureController,
@@ -76,6 +116,7 @@ extension PictureInPictureExampleViewController: PictureInPictureControllerDeleg
         FireworkVideo.PictureInPictureController)
     {
         print(#function)
+        isOnPictureInPicture = false
     }
 
     func pictureInPictureController(_: FireworkVideo.PictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler _: @escaping (Bool) -> Void) {

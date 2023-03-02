@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## [1.7.0]
+
+### Added
+
+- APIs to programmatically place video player to floating mode within the application.
+
 ## [1.6.0]
 
 ### Added
