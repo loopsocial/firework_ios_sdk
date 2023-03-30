@@ -43,11 +43,11 @@ class ShoppingCartManager: FireworkVideoShoppingDelegate {
 
         var detailConfig = ProductDetailsContentConfiguration()
         // The Add to cart button can also be configured
-        var ctaButtonConfig = detailConfig.addToCartButton
+        var ctaButtonConfig = detailConfig.ctaButton
         // Here we update the background of the CTA
-        ctaButtonConfig.backgroundColor = AppTheme.ctaButtonColor
+        ctaButtonConfig.buttonConfiguration.backgroundColor = AppTheme.ctaButtonColor
         // There are other button properties that can be updated like, font and text color.
-        detailConfig.addToCartButton = ctaButtonConfig
+        detailConfig.ctaButton = ctaButtonConfig
 
         productInfoViewConfigurator.productDetailsConfiguration = detailConfig
     }
@@ -71,13 +71,13 @@ class ShoppingCartManager: FireworkVideoShoppingDelegate {
     // This method is not optional. It must be implemented.
     func fireworkShopping(
         _ fireworkShopping: FireworkVideoShopping,
-        addProductVariantToCart item: SelectedProductVariant,
+        productVariantCTASelected item: SelectedProductVariant,
         fromVideo video: VideoDetails,
-        _ addToCartCompletionHandler: @escaping AddToCartHandler
+        ctaCompletionHandler: @escaping ShoppingCTAHandler
     ) {
         if let itemIdx = cartItems.firstIndex(where: { $0.productID == item.productID && $0.unitID == item.unitID}) {
             incrementItemQuantity(at: itemIdx)
-            addToCartCompletionHandler(.showEmbeddedCart)
+            ctaCompletionHandler(.showEmbeddedCart)
         } else {
             storefront.populateCartItemDetails(productID: item.productID, unitID: item.unitID) { [weak self] result in
                 guard let self = self else { return }
@@ -89,32 +89,42 @@ class ShoppingCartManager: FireworkVideoShoppingDelegate {
                     self.cartItems.append(cartItem)
                     // Notify app of cart update
 
-                    // Important: The host app must call `addToCartCompletionHandler`.
+                    // Important: The host app must call `ctaCompletionHandler`.
 
-                    // There can be two different actions that occur
-                    // Dismiss the product summary screen and display a custom toast message
+                    // There can be four  different scenarios that occur
 
-                    // addToCartCompletionHandler(.dismissWithFeedback(.success(message: "Add!")))
+                    // The first one is embedding a custom `CartViewController`
+                    // For this action the `CartProvider` will provide a `CartViewController` that will be pushed onto
+                    // the product summary view.
+                    ctaCompletionHandler(.showEmbeddedCart)
+                    // Warning: Passing this action requires the `FireworkVideoSDK.shopping.cartViewControllerProvider`
+                    // be set; otherwise `.dismissWithFeedback(.successWithDefaultMessage)` will be used.
+
+                    // The second one is dismiss the product summary screen and display a custom toast message
+
+                    // ctaCompletionHandler(.dismissWithFeedback(.success(message: "Add!")))
 
                     // or the toast can use the default success message
 
-                    // addToCartCompletionHandler(.dismissWithFeedback(.successWithDefaultMessage))
+                    // ctaCompletionHandler(.dismissWithFeedback(.successWithDefaultMessage))
 
-                    // The second action is embedding a custom `CartViewController`
-                    // For this action the `CartProvider` will provide a `CartViewController` that will be pushed onto
-                    // the product summary view.
-                    addToCartCompletionHandler(.showEmbeddedCart)
-                    // Warning: Passing this action requires the `FireworkVideoSDK.shopping.cartViewControllerProvider`
-                    // be set; otherwise `.dismissWithFeedback(.successWithDefaultMessage)` will be used.
+                    // The third one would be only display a custom toast message and avoid to dismiss the product summary
+
+                    // ctaCompletionHandler(.feedbackOnly(.success(message: "Add!")))
+
+                    // The fourth one would be no action at all
+
+                    // addToCartCompletionHandler(.none)
+
                 } catch StorefrontRepositoryError.productFetchError {
                     // A custom failure message can be displayed to the user.
-                    addToCartCompletionHandler(.dismissWithFeedback(.failure(message: "Failed to fetch product information")))
+                    ctaCompletionHandler(.dismissWithFeedback(.failure(message: "Failed to fetch product information")))
                 } catch StorefrontRepositoryError.unknownVariant {
                     // A custom failure message indicating a specific message for the error type
-                    addToCartCompletionHandler(.dismissWithFeedback(.failure(message: "Unable to locate the selected variant")))
+                    ctaCompletionHandler(.dismissWithFeedback(.failure(message: "Unable to locate the selected variant")))
                 } catch {
                     // There is a default canned message that can be used `failureWithDefaultMessage`.
-                    addToCartCompletionHandler(.dismissWithFeedback(.failureWithDefaultMessage))
+                    ctaCompletionHandler(.dismissWithFeedback(.failureWithDefaultMessage))
                 }
             }
         }

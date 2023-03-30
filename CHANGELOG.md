@@ -1,5 +1,13 @@
 ## CHANGELOG
 
+## [1.8.0]
+
+### Added
+
+- Added `didTapLinkButtonAt` function for `FireworkVideoShoppingDelegate` in order to allow a custom action when link button in the product description is tapped.
+- Updated CTA Button for generic use, allowing customize text to "Add to cart" or "Shop now".
+- Updated `addProductVariantToCart` function to `productVariantCTASelected` on `FireworkVideoShoppingDelegate` and added `.none` option for the completion handler.
+
 ## [1.7.0]
 
 ### Added

@@ -454,11 +454,14 @@ See the Sample App Code for examples of how to hydrate with Shopify.
 ##### Handle Add to Cart
 
 The `fireworkShopping(_:addProductVariantToCart:fromVideo:_:)` method is called when the user has selected the "Add to cart" button and will pass the ids of the product and variant of the selected item. 
+The `fireworkShopping(_:productVariantCTASelected:fromVideo:_:)` method is called when the user has selected the CTA Button ("Add to cart"/"Shop now") and will pass the ids of the product and variant of the selected item. 
 
-The host app must call the `addToCartCompletionHandler` to inform the next action to perform.
+The host app must call the `ctaCompletionHandler` to inform the next action to perform.
 
   - `showEmbeddedCart` - When sepecifying this action the SDK will request a `CartViewController` from the `FireworkVideoSDK.shopping.cartProvider`; see [Providing an embedded cart view](#providing-an-embedded-cart-view) for more details. 
   - `dismissWithFeedback` - When specifying this action the SDK will dismiss the Product summary drawer and display a toast message to the user.
+  - `feedbackOnly` - When specifying this action the SDK will only display a toast message to the user.
+  - `none` - When specifying this option the SDK won't perform any action.
 
 > **Note:** If no action is provided within 2 seconds the SDK will assume the item was not successfully added.
 
