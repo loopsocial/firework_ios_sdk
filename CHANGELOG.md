@@ -1,5 +1,24 @@
 ## CHANGELOG
 
+## [1.9.0]
+
+### Added
+
+- `start()` and `stop()` APIs on `PictureInPictureController` to start and stop any eligible player without feedID parameter 
+- VAST tracking for autoplayed ads in feed thumbnails
+- Hashtag content source
+
+### Changed
+
+- Live stream UI improvements 
+- Swift Package includes supporting libraries
+- CocoaPod includes supporting libraries
+
+### Fixed
+
+- Player RTL issues
+- Player rotation issues
+
 ## [1.8.0]
 
 ### Added

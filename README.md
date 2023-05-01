@@ -31,11 +31,19 @@ In your Xcode project, select File > Swift Packages > Add Package Dependency and
 
 > If you are new to Xcode's Swift Pacakage Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
-Select Version > Up to Next Major > 0.5.0.
+Select Version > Up to Next Major > 1.9.0.
 
 ### Importing Using Cocoapods
 
 In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install`.
+
+#### Supporting Libraries
+The SDK has many supporting libraries that can be easily added to your project.
+
+  - Multihost Streaming - Add `pod 'FireworkVideo/FireworkMultiHostStreaming`
+  - Low Latency Streaming - Add `pod 'FireworkVideo/FireworkLowLatencyStreaming`
+  - Interactive Media Ads - Add `pod 'FireworkVideo/FireworkInteractiveMediaAds`
+  - Google Ad Manager - Add `pod 'FireworkVideo/FireworkGoogleAdManager`
 
 ### Importing FireworkVideo Framework Manually
 
@@ -347,6 +355,24 @@ let parameters: DynamicContentParameters = ["<cohort key>": ["<cohort value 1>",
 let feedVC = VideoFeedViewController(source: .dynamicContent(channelID: channelID, parameters: parameters))
 ```
 
+#### Hashtag Playlist
+
+Displays content based on the provided channel id and the hashtag expression.
+
+```swift
+let channelID = "<Channel ID>"
+let singleHashtag = "dogs"
+let feedVC = VideoFeedViewController(source: .hashtagPlaylist(channelID: channelID, filterExpression: singleHashtag))
+```
+
+Or a more advanced hashtag expression can be used to fine tune the results
+
+```swift
+let channelID = "<Channel ID>"
+let filterExpression = "(and sport (or food comedy))"
+let feedVC = VideoFeedViewController(source: .hashtagPlaylist(channelID: channelID, filterExpression: filterExpression))
+```
+
 ### Story Block
 
 Displaying a Story Block can be done by using a `StoryBlockViewController` either programmatically or in a storyboard. 
@@ -410,6 +436,24 @@ Displays dynamic content based on the provided channel id and content parameters
 let channelID = "<Channel ID>"
 let parameters: DynamicContentParameters = ["<cohort key>": ["<cohort value 1>", "<cohort value 2>"]]
 let feedVC = StoryBlockViewController(source: .dynamicContent(channelID: channelID, parameters: parameters))
+```
+
+#### Hashtag Playlist
+
+Displays content based on the provided channel id and the hashtag expression.
+
+```swift
+let channelID = "<Channel ID>"
+let singleHashtag = "dogs"
+let storyBlock = StoryBlockViewController(source: .hashtagPlaylist(channelID: channelID, filterExpression: singleHashtag))
+```
+
+Or a more advanced hashtag expression can be used to fine tune the results
+
+```swift
+let channelID = "<Channel ID>"
+let filterExpression = "(and sport (or food comedy))"
+let storyBlock = StoryBlockViewController(source: .hashtagPlaylist(channelID: channelID, filterExpression: filterExpression))
 ```
 
 ### Shopping
@@ -554,6 +598,25 @@ Once the background mode is enabled, moving from an active state to a background
      
 ```
 
+#### Enhanced APIs
+
+The `PictureInPictureController` offers serveral enhanced APIs that remove the burden of managing the `PictureInPictureController` instance.
+
+##### Enabling PiP
+
+A new property, `isPictureInPictureEnabled`, was added to `VideoFeedViewController` and `StoryBlockViewController`. Set this property to `true` and `FireworkVideoSDK` will manage the resources on your behalf. 
+
+##### Programmatically starting and stopping
+
+The `PictureInPictureController` has new static methods which allows to easily start and stop picture in picture mode. There are 2 sets of methods for both start and stop operations.
+
+The first set allows for starting and stopping of picture in picture with a feedID; `start(with feedID: String) throws` and `stop(with feedID: String) throws`. This set of APIs allows for you to start or stop specific feeds.
+
+> These APIs will throw when trying to start or stop a feed which does not have picture in picture enabled first.
+
+The second set allows for starting and stopping of picture in picture of any "eligible" feed; `start() throws` and `stop() throws`. This set of APIs allows for you to quickly start any feed that is eligible to enter picture in picture. Or stop any currently active picture in picture.
+
+> Eligibility is determined by many factors and is subject to change in future releases.
 
 ### Ad Support
 

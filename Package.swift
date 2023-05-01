@@ -9,14 +9,23 @@ let package = Package(
     ],
     products: [
         .library(name: "FireworkVideo",
-                 targets: ["FireworkVideo"])
+                 targets: ["FireworkVideo"]),
+        .library(name: "FireworkMultiHostStreaming",
+                 targets: ["FireworkMultiHostStreaming"])
     ],
     dependencies: [
+        .package(url: "https://github.com/loopsocial/firework_ios_sdk_agora_support.git",
+                .upToNextMajor(from: "0.4.0"))
     ],
     targets: [
         .binaryTarget(name: "FireworkVideo",
-                      url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.8.0/FireworkVideo-v1.8.0.xcframework.zip",
-                      checksum: "aa6530274fb385648e0bbe486f38685f5be29527b23500d01de53d139581e80e"),
+                      url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.9.0/FireworkVideo-v1.9.0.xcframework.zip",
+                      checksum: "0e1dfed368250aa3561848da050af4420425c318e9d197643e39b16a4fea1e6d"),
+        .target(name: "FireworkMultiHostStreaming",
+                dependencies: [
+                    "FireworkVideo",
+                    .product(name: "FireworkVideoAgoraSupport", package: "firework_ios_sdk_agora_support"),
+                ])
     ]
     
 )
