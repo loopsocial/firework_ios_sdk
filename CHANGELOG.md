@@ -1,5 +1,24 @@
 ## CHANGELOG
 
+## [1.10.0]
+
+### Added
+
+- `FireworkLowLatencyStreaming` SPM support
+- `FireworkGoogleIMA` SPM support
+- `FireworkGoogleAdManager` SPM support (Supports Google Ad Manager integrations)
+
+- New `width` property on `VideoPlayerCTAConfiguration` that allows users to adjust the size of the CTA button. This property is defined as a public enumeration VideoPlayerCTAWidth, which has three possible cases:
+
+`fullWidth`: This case allows users to set the button width to be the full width of the view, with leading and trailing values of 16.
+`compact`: This case sets the button width to be 50% of the view width, with leading and trailing values of 16. The button content size will always take priority over the percentage width.
+`sizeToFit`: This case sets the width of the button to fit the size of the button text, while respecting the leading and trailing values of 16.
+
+- VAST tracking for non-autoplayed ads in feed thumbnails.
+- support 'Select Replay' feature which allows us to choose from which moment users will see the video being played when opening the live stream.
+
+- Introducing a new `cartAction` property in the `FireworkVideoShopping` that enables users to define their own custom action when the shopping cart is selected.
+
 ## [1.9.0]
 
 ### Added

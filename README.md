@@ -33,6 +33,14 @@ In your Xcode project, select File > Swift Packages > Add Package Dependency and
 
 Select Version > Up to Next Major > 1.9.0.
 
+#### Supporting Libraries
+The SDK has many supporting libraries that can be easily added to your project. Here is a list of currently supported libraries.
+
+  - `FireworkMultiHostStreaming`
+  - `FireworkLowLatencyStreaming`
+  - `FireworkGoogleIMA`
+  - `FireworkGoogleAdManager`
+
 ### Importing Using Cocoapods
 
 In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install`.
@@ -234,6 +242,9 @@ playerConfig.ctaButton.behavior.delay = .constant(0)
 
 // Set the highlight delay of the CTA button. Using 0 will result in no delay and the button will be highlighted immediately.
 playerConfig.ctaButton.behavior.highlightDelay = .constant(0) 
+
+// Adjusts the width of the CTA button by using one of the three available cases in the VideoPlayerCTAWidth enumeration
+playerConfig.ctaButton.width = .fullWidth
 
 // Add UIActivity instances specific to your app
 playerConfig.shareButton.behavior.applicationActivities = customApplicationActivities()
@@ -510,6 +521,13 @@ The host app must call the `ctaCompletionHandler` to inform the next action to p
 > **Note:** If no action is provided within 2 seconds the SDK will assume the item was not successfully added.
 
 **Important:** it is at this point when the host app should add the item to the user's cart as they have indicated intent to buy this product.
+
+##### Handle Shopping Cart Action
+
+The host app has the ability to modify the shopping cart action using one of the enumerated cases from ShoppingCartAction.
+
+- `showEmbeddedCart` - Default action. This option will navigate to the custom `CartViewController` when the user is on the product detail screen. However, please note that for this case to work, the `FireworkVideoShopping.cartViewControllerProvider` must not be nil.
+- `custom` - By choosing this action, the SDK will invoke the `fireworkShopping(_:didTapCartIconForVideo:)` delegate function.
 
 #### Providing an embedded cart view
 

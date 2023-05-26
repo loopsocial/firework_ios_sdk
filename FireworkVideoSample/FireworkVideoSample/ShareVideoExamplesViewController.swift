@@ -45,6 +45,7 @@ class ShareVideoExamplesViewController: UIViewController {
             with: self.shareLinkURL,
             VideoFeedContentConfiguration(),
             self,
+            true,
             self.shareCompletionHandler()
         )
     }
