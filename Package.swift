@@ -25,9 +25,9 @@ let package = Package(
         .package(url: "https://github.com/loopsocial/firework_ios_sdk_ivs_support.git",
                 .upToNextMajor(from: "0.5.0")),
         .package(url: "https://github.com/loopsocial/firework_ios_sdk_google_ima_support.git",
-                .upToNextMajor(from: "0.3.0"))
-        .package(url: "https://github.com/loopsocial/firework_ios_sdk_gam_support.git",
                 .upToNextMajor(from: "0.3.0")),
+        .package(url: "https://github.com/loopsocial/firework_ios_sdk_gam_support.git",
+                .upToNextMajor(from: "0.3.0"))
     ],
     targets: [
         .binaryTarget(name: "FireworkVideo",
