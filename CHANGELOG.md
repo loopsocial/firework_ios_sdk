@@ -1,5 +1,17 @@
 ## CHANGELOG
 
+## [1.11.0]
+
+### Added
+- Support Poll in short videos
+- Support Questions in short videos
+- Support SKU playlist. Add `skuPlaylist` in `VideoFeedContentSource`
+
+### Fixed
+- Mute Button Parity Issues
+- Number on the Un-read chat messages in live stream doesn't display properly 
+- User is not able to edit username on the live stream videos
+
 ## [1.10.0]
 
 ### Added
