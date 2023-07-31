@@ -50,6 +50,15 @@ class ShoppingCartManager: FireworkVideoShoppingDelegate {
         detailConfig.ctaButton = ctaButtonConfig
 
         productInfoViewConfigurator.productDetailsConfiguration = detailConfig
+
+        var productCardConfig = ProductCardConfiguration()
+        // There appearance mode of product card
+        productCardConfig.appearance = .light
+        var ctaConfig = productCardConfig.ctaConfig
+        // The product card text can also be configured
+        ctaConfig.text = .buyNow
+
+        productInfoViewConfigurator.productCardConfiguration = productCardConfig
     }
 
     // FireworkVideoSDK will call this method when video with products will be displayed to the user.

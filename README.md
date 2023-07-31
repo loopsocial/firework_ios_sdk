@@ -384,6 +384,15 @@ let filterExpression = "(and sport (or food comedy))"
 let feedVC = VideoFeedViewController(source: .hashtagPlaylist(channelID: channelID, filterExpression: filterExpression))
 ```
 
+#### Single Video or Live Stream
+
+Displays a single video or live stream content.
+
+```swift
+let videoOrLiveStreamID = "<Video or LiveStream ID>"
+let feedVC = VideoFeedViewController(source: .singleContent(videoOrLiveStreamID: videoOrLiveStreamID))
+```
+
 ### Story Block
 
 Displaying a Story Block can be done by using a `StoryBlockViewController` either programmatically or in a storyboard. 
@@ -467,6 +476,38 @@ let filterExpression = "(and sport (or food comedy))"
 let storyBlock = StoryBlockViewController(source: .hashtagPlaylist(channelID: channelID, filterExpression: filterExpression))
 ```
 
+#### Single Video or Live Stream
+
+Displays a single video or live stream content.
+
+```swift
+let videoOrLiveStreamID = "<Video or LiveStream ID>"
+let storyBlock = StoryBlockViewController(source: .singleContent(videoOrLiveStreamID: videoOrLiveStreamID))
+```
+
+#### Story Block Configuration
+
+`StoryBlockViewController` provides a `StoryBlockConfiguration` API to configure the UI elements of the video player. A story block's video player can be configured differently when displaying in embedded mode or when expanded to full screen. Configurations for embedded mode are automatically propagated to their full screen counterparts. Please refer to API documentation for more details.   
+
+```swift
+var configuration = StoryBlockConfiguration()
+
+// 1. Embedded mode
+// 1.1 Configuring the sharing URL
+configuration.shareButton.behavior.baseURL = URL(string: "your.custom.url")
+
+// 1.2 Configuring CTA
+configuration.ctaButton.contentConfiguration.backgroundColor = <Color>
+configuration.ctaButton.contentConfiguration.textColor = <Color>
+configuration.ctaButton.contentConfiguration.font = <Font>
+
+// 2. Full Screen Configuration using `fullScreenPlayerView` property
+configuration.fullScreenPlayerView.playerStyle = .fit
+
+// Setting configuration
+storyBlock.viewConfiguration = configuration
+```
+
 ### Shopping
 
 FireworkVideoSDK contains a `shopping` property that enables video shopping integration. There are two main points of integration both located on the `FireworkVideoShopping` type.
@@ -496,6 +537,9 @@ The following items can be configured:
     1. Button color
     2. Button font
     3. Button text color
+  3. Product card
+    1. Appearance mode
+    2. Product card item text 
 
 For more detailed examples see the Sample App Code.
 

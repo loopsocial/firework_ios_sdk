@@ -1,5 +1,21 @@
 ## CHANGELOG
 
+## [1.12.0]
+
+### Added
+
+- New product card provided in short video
+- New content source for single video or livestream for Video Feed and Storyblock: 
+    `VideoFeedContentSource.singleContent(videoOrLiveStreamID: EncodedID)` 
+    `StoryBlockContentSource.singleContent(videoOrLiveStreamID: EncodedID)`
+- New API to configure `StoryBlockViewController`:
+    `public var viewConfiguration: StoryBlockConfiguration { get set }` 
+- Introducing a new property, `titleConfiguration`, in the `VideoDetailContentConfiguration` that enables users to define the visibility of the video title on the detail section page.
+    `public var titleConfiguration = VideoDetailTitleConfiguration()`
+- New product detail page
+- Ability to define custom navigation handling when user taps on product card.
+- Ability to customize the images of the full screen player buttons namely: video detail button, mute/unmute button, close button, play/pause button.
+
 ## [1.11.0]
 
 ### Added
