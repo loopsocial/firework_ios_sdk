@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "FireworkVideo",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v13),
     ],
     products: [
         .library(name: "FireworkVideo",
@@ -31,8 +31,8 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(name: "FireworkVideo",
-                      url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.12.0/FireworkVideo-v1.12.0.xcframework.zip",
-                      checksum: "83d12fbc27bb3d0c11e4d8ff9b0670978f526140ef1feac15cd9447946b099c0"),
+                      url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.13.0/FireworkVideo-v1.13.0.xcframework.zip",
+                      checksum: "baed2eee5a939d54931d582802dcae08d4bb6c0da720d83c043b29a05c89b814"),
         .target(name: "FireworkMultiHostStreaming",
                 dependencies: [
                     "FireworkVideo",

@@ -17,9 +17,9 @@ The app ID is used to authenticate your application with the server. Authenticat
 
 FireworkVideo is compatible with:
 
-  - iOS 12 or greater.
-  - Xcode 13+ or greater.
-  - Swift 5.3 or greater.
+  - iOS 13+
+  - Xcode 14+
+  - Swift 5.3+
 
 ## How to add FireworkVideo to your Xcode project?
 

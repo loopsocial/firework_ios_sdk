@@ -1,5 +1,15 @@
 ## CHANGELOG
 
+## [1.13.0]
+
+### Added
+
+- Ability to customize product card by changing the corner radius, hiding price labels, and hiding CTA button.
+
+### Changed
+
+- Dropped support for iOS 12.0 and below.
+
 ## [1.12.0]
 
 ### Added
