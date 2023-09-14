@@ -1,5 +1,12 @@
 ## CHANGELOG
 
+## [1.14.0]
+
+### Changed
+
+- `VideoFeedViewController` underlying `UICollectionView` is now dynamically constrained to `safeAreaLayoutGuide` based the type of `VideoFeedLayout` used. `VideoFeedHorizontalLayout` will not constrain to `safeAreaLayoutGuide` whereas `VideoFeedGidLayout` will.
+- Centered video detail options
+
 ## [1.13.0]
 
 ### Added
