@@ -1,5 +1,19 @@
 ## CHANGELOG
 
+## [1.15.0]
+
+### Added
+
+- Product price labels show/hide state controlled by GraphQL Product.hidePrice boolean value
+- Added configuration for Product Card UI, including size, background color, rounded corners, etc.
+- Introducing a new property, `logoConfiguration`, in the `VideoPlayerContentConfiguration` that enables users to define the option to be used for displaying the logo instead of the ellipsis.
+    `public var logoConfiguration = VideoPlayerLogoConfiguration()`
+
+### Deprecated
+
+- PriceConfiguration 'isHidden' local configuration field
+
+
 ## [1.14.0]
 
 ### Changed
