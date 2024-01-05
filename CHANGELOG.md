@@ -1,14 +1,5 @@
 ## CHANGELOG
 
-## [1.16.0]
-
-### Changed
-- `PlayerViewController` method `pause()` can now be called before the video playback begins
-- The `PlayerViewController` is now a wrapper of the underlying player designed to avoid retain cycles that may be caused by integrating with one of the many SDK delegates. This new view controller has very limited functionality (see CTA handler header docs for more details)
-
-### Fixed
-- Optimized thumbnail image fetching
-
 ## [1.15.0]
 
 ### Added
