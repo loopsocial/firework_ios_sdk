@@ -237,6 +237,12 @@ playerConfig.muteButton.isHidden = true
 // Show or hide the playback button
 playerConfig.playbackButton.isHidden = true
 
+// Show or hide the replay badge. Default is hidden
+playerConfig.replayBadge.isHidden = false
+
+// Show or hide the playerView replay badge. Default is hidden
+playerConfig.playerView.replayBadge.isHidden = false
+
 // Set the delay of the CTA button. Using 0 will result in no delay.
 playerConfig.ctaButton.behavior.delay = .constant(0) 
 
@@ -245,6 +251,9 @@ playerConfig.ctaButton.behavior.highlightDelay = .constant(0)
 
 // Adjusts the width of the CTA button by using one of the three available cases in the VideoPlayerCTAWidth enumeration
 playerConfig.ctaButton.width = .fullWidth
+
+// Show or hide the countdown timer. Default is hidden
+playerConfig.countdownTimerConfiguration.isHidden = false
 
 // Add UIActivity instances specific to your app
 playerConfig.shareButton.behavior.applicationActivities = customApplicationActivities()
@@ -500,6 +509,12 @@ configuration.shareButton.behavior.baseURL = URL(string: "your.custom.url")
 configuration.ctaButton.contentConfiguration.backgroundColor = <Color>
 configuration.ctaButton.contentConfiguration.textColor = <Color>
 configuration.ctaButton.contentConfiguration.font = <Font>
+
+// 1.3 Configuring Replay badge visibility
+configuration.replayBadge.isHidden = false
+
+// 1.4 Show or hide the countdown timer. Default is hidden
+configuration.countdownTimerConfiguration.isHidden = false
 
 // 2. Full Screen Configuration using `fullScreenPlayerView` property
 configuration.fullScreenPlayerView.playerStyle = .fit

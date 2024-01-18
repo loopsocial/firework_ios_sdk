@@ -1,5 +1,24 @@
 ## CHANGELOG
 
+## [1.18.0]
+
+### Changed
+- `VideoFeedViewControllerDelegate.videoFeed(_:didFailToLoadFeed:)` will now be invoked with the following error; `VideoFeedError.contentSourceError(.emptyFeed)`. This error occurs when the initial feed load contains no content and the request was successful. 
+- `StoryBlockViewControllerDelegate.storyBlock(_:didFailToLoadFeed:)` will now be invoked with the following error; `StoryBlockError.contentSourceError(.emptyFeed)`. This error occurs when the initial feed load contains no content and the request was successful.
+
+### Added
+- `VideoPlayerContentConfiguration`, `VideoFeedContentConfiguration`, and `StoryBlockConfiguration` now contain a new property `replayBadge: ReplayBadgeConfiguration` to toggle the replay badge visibility. Default is hidden.
+- add `CountdownTimerConfiguration` in `VideoPlayerContentConfiguration` and `StoryBlockConfiguration`. It can display a countdown timer add a remind me flow so that our customers can add to their calendars when to go live. Default is hidden.
+
+## [1.16.0]
+
+### Changed
+- `PlayerViewController` method `pause()` can now be called before the video playback begins
+- The `PlayerViewController` is now a wrapper of the underlying player designed to avoid retain cycles that may be caused by integrating with one of the many SDK delegates. This new view controller has very limited functionality (see CTA handler header docs for more details)
+
+### Fixed
+- Optimized thumbnail image fetching
+
 ## [1.15.0]
 
 ### Added
