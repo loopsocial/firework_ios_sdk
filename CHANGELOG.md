@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## [1.19.0]
+
+### Added
+- The `isEnabled` property has been introduced to the `VideoPlayerLogoConfiguration` class, providing the flexibility to enable or disable touch event on the logo button, thereby controlling the functionality to open the details page.
+- The `shadow: ViewContentConfiguration.ShadowConfiguration` property has beem introduced to the `VideoFeedItemContentConfiguration` class, providing the flexibility to customize the feed item shadow's opacity, color, and offset.
+
 ## [1.18.0]
 
 ### Changed
