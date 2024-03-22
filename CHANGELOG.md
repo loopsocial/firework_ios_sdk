@@ -1,5 +1,13 @@
 ## CHANGELOG
 
+## [1.20.0]
+
+### Added
+- Added privacy manifest configuration to ensure compliance with privacy guidelines and regulations. Clients must use the `AppTrackingTransparency` framework to present an app-tracking authorization request to the user and provide the tracking authorization status.
+
+### Changed
+- `FireworkVideoSDK.initializeSDK()` must be called after the app is launched and before utilizing any Firework components. Failing to do so will result in an app crash, ensuring the smooth execution of development tasks.
+
 ## [1.19.0]
 
 ### Added

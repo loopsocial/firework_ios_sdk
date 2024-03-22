@@ -802,6 +802,8 @@ views programmatically simply make sure to `view.addSubview()` the view in quest
 
 #### SDK Initialization
 
+`FireworkVideoSDK.initializeSDK()` must be called after the app is launched and before utilizing any Firework components. Failing to do so will result in an app crash, ensuring the smooth execution of development tasks.
+
 `FireworkVideoSDK.initializeSDK` accepts an optional `delegate` parameter that can receive any errors the SDK outputs during setup. This delegate can be any class that conforms to the `FireworkVideoSDKDelegate` protocol.  See example code below that uses  `AppDelegate` to print any errors to console.
 
 ```swift
