@@ -31,8 +31,8 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(name: "FireworkVideo",
-                      url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.20.2/FireworkVideo-v1.20.2.xcframework.zip",
-                      checksum: "f71ea0670fb6570b6305bba2ad9a7d72f5dc37a2833d6033a6225c33c2a5ad9e"),
+                      url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.21.0/FireworkVideo-v1.21.0.xcframework.zip",
+                      checksum: "8d394a70f1ee4151df4b7a081cb3e9e54455c03dac15c64b7f68c5beef6084a6"),
         .target(name: "FireworkMultiHostStreaming",
                 dependencies: [
                     "FireworkVideo",

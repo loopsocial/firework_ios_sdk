@@ -1,5 +1,25 @@
 ## CHANGELOG
 
+## [1.21.0]
+
+### Added
+- `feedID` to the `FeedEventDetails` type.
+- `VideoDetails` to the handleCustomCTAClick delegate method.
+- Data Track Level API, `FireworkVideoSDK.dataTrackingLevel` to define the level of data tracking for the SDK. The default value is `.all`.
+- Added the ability to override the product click action on LiveStream and Replay using the `FireworkVideoShoppingDelegate` API.
+```swift
+func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVariant item: SelectedProductVariant, forVideo video: VideoDetails) -> Bool
+```
+
+### Deprecated
+- `fireworkShopping(_:didTapLinkButtonAt:withURL:)` has been deprecated in favor of `fireworkShopping(_:didTapLinkButtonAt:fromVideo:withURL:)`.
+- `handleCustomCTAClick(_:url:)` has been deprecated in favor of `handleCustomCTAClick(_:url:for:)`.
+
+## [1.20.1]
+
+### Fixed
+- Certain CTA text was not properly updating under certain conditions. 
+
 ## [1.20.0]
 
 ### Added
