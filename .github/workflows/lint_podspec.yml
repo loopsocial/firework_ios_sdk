@@ -1,0 +1,18 @@
+name: Lint Podspec
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Lint Podspec
+        env:
+          # For info on how to obtain a new token see
+          # https://medium.com/swlh/automated-cocoapod-releases-with-github-actions-8526dd4535c7
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          pod trunk me
+          pod spec lint FireworkVideo.podspec
