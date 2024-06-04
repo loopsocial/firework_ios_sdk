@@ -13,6 +13,7 @@ import FireworkVideo
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate {
 
+    var analyticsLoggingToken: FireworkVideoAnalytics.Logger.ReceiverToken?
     var videoPlaybackLogger = VideoPlaybackLogger()
     var videoFeedLogger = VideoFeedLogger()
 
@@ -24,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         /// Set the video playback event logger, this is optional
         FireworkVideoSDK.eventTracking.videoPlaybackDelegate = self.videoPlaybackLogger
         FireworkVideoSDK.eventTracking.feedDelegate = self.videoFeedLogger
+        analyticsLoggingToken = FireworkVideoSDK.analytics.logger.onReceive({ event in
+            print("Received Event \(event.name.rawValue)")
+            print("--> Payload: \(event.payload.properties)")
+        }, dispatchedOn: .global(qos: .utility))
 
         /// Enable CTA custom handling
         FireworkVideoSDK.ctaDelegate = self

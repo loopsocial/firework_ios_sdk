@@ -878,72 +878,72 @@ videoFeedViewController.removeFromParent()
 
 ## Data Reporting
 
-To receive video playback events, conform to the Protocol `FireworkVideoPlaybackDelegate`, see file FireworkVideoPlaybackDelegate.swift.
+Analytics events can be accessed from the `FireworkVideoAnalytics.Logger` class located at `FireworkVideoSDK.analytics.logger`. 
 
-List of video playback events:
-
+Events can be received through a closure by adding an observer to the logger. The receiver will continue to receive events as long as the token is retained.
 ```swift
-    /// Called when a video appears on the screen but the video playback has not started
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoDidRecordImpression(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when a video has paused playback
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoDidPause(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when a video has resumed playback
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoDidResume(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when a video has started playing
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoDidStartPlaying(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when the first quarter of the video has been played
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoReachedFirstQuartile(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when the first half of the video has been played
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoReachedMidPoint(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when the third quarter of the video has been played
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoReachedThirdQuartile(_ videoPlayback: VideoPlaybackDetails)
-
-    /**
-     Called when the video playback has completed.
-    
-     There are many actions that can cause a video to finish playback including:
-       - User swiping to the next or previous video
-       - User dismissing the current video
-       - Video reaches end of playback and either advances to the next video or loops the beginning of the current video
-     
-     - Parameter videoPlayback: The details of the video playback
-    */
-    func fireworkVideoDidFinishPlaying(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when the user has tapped on the CTA button that appeared during the video playback
-    func fireworkVideoDidTapCTAButton(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when the user has tapped on the share button that appeared during the video playback
-    func fireworkVideoDidTapShareButton(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when an ad video has started playing
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoDidStartPlayingAd(_ videoPlayback: VideoPlaybackDetails)
-
-    /// Called when the ad video playback has completed.
-    /// - Parameter videoPlayback: The details of the video playback
-    func fireworkVideoDidFinishPlayingAd(_ videoPlayback: VideoPlaybackDetails)
+analyticsLoggingToken = FireworkVideoSDK.analytics.logger.onReceive({ event in
+  // Send event to your analytics service
+}, dispatchedOn: .global(qos: .utility)) // Optional dispatch queue
 ```
-    
-To receive feed related events, conform to the Protocol `FireworkVideoFeedDelegate`, see file FireworkVideoFeedDelegate.swift.
 
-List of feed events:
+A publisher is also available to receive events if you are using Combine. The publisher will emit events as they are received.
+```swift
+FireworkVideoSDK.analytics.logger.publisher.sink { event in
+  // Send event to your analytics service
+}.store(in: &cancellables)
+```
+
+`FireworkAnalyticEvent` type contains a name and a payload. The name can be used to filter events. In addition, the name is a rawReprestable of a `String`. So you can use the event name provided by Firework bys simply using `event.name.rawValue`. The payload has a property which is a dictionary of type `[String: Any]` that contains the event data.
+
+> It is recommened to use the `FireworkVideoAnalytics.Logger` instead of the `FireworkVideoPlaybackDelegate` to receive analytics events. The `FireworkVideoPlaybackDelegate` will be deprecated in future releases.
+
+### Event Filtering
+
+Here are examples of how to filter events by name.
 
 ```swift
-    /// Called when the a video thumbnail is tapped by the user
-    /// - Parameter eventDetails: The details of the feed event
-    func fireworkVideoDidTapThumbnail(_ eventDetails: FeedEventDetails)
+func exampleUsage(event: FireworkAnalyticEvent) {
+    // Example 1: Host app just sends every event and data to their backend
+    hostAppAnalytics(event.name.rawValue, props: event.payload.properties)
+    switch event.name.rawValue {
+    case FireworkAnalyticEvent.Name.liveStream(.join).rawValue:
+    // Example 2: Host app can evaluate events by raw value aka String.
+        // They can pick and choice based on exact event name
+        hostAppAnalytics(event.name.rawValue, props: event.payload.properties)
+    default:
+        // Host app can ignore all other events
+        break
+    }
+    switch event.name {
+    case .storyBlock:
+    // Example 3: Host app can choose to receive all events from a specific analytics group
+        hostAppAnalytics(event.name.rawValue, props: event.payload.properties)
+    case .feed(let feedEvent):
+        switch feedEvent {
+        case .impression:
+    // Example 4: Host app can select individual events within a specific analytics group
+            hostAppAnalytics(event.name.rawValue, props: event.payload.properties)
+        default:
+            // Host app ignores all other events within this group
+            break
+        }
+    case .liveStream(let liveStreamEvent):
+    // Example 5: Host app can explicitly handle each event independently if they need to merge information
+        // or override naming.
+        switch liveStreamEvent {
+        case .join:
+            hostAppAnalytics("ls-join", props: ["fw-payload": event.payload.properties])
+        case .quit:
+            hostAppAnalytics("ls-leave", props: ["fw-payload": event.payload.properties])
+        case .sendChat:
+            hostAppAnalytics("ls-chat", props: ["fw-payload": event.payload.properties])
+        case .sendHeart:
+            hostAppAnalytics("ls-heart", props: ["fw-payload": event.payload.properties])
+        }
+    default:
+        // Just like other examples host app can use this as a catch all and ignore or process all other events the same way.
+        hostAppAnalytics(event.name.rawValue, props: event.payload.properties)
+    }
+}
 ```

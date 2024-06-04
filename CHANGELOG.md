@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## [1.22.0]
+
+### Added
+- Analytics Logger API for tracking user actions on the video player which can be accessed `FireworkVideoSDK.analytics.logger'.
+- Ability to specify first display beahvior for StoryBlockViewController using `StoryBlockConfiguration.onFirstDisplay` property.
+
 ## [1.21.0]
 
 ### Added
