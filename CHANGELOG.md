@@ -1,62 +1,85 @@
+
 ## CHANGELOG
+
+## [1.23.0]
+
+### Added
+
+- Support live commerce UI/UX customization.
+- Make the copies for main entries consistent with Android.
+- Display forward and backward arrows for the full-screen player.
+- Hide or show the chat message when it's deleted or undeleted in business portal
+- Hide the product icon when the product list is empty
 
 ## [1.22.0]
 
 ### Added
+
 - Analytics Logger API for tracking user actions on the video player which can be accessed `FireworkVideoSDK.analytics.logger'.
 - Ability to specify first display beahvior for StoryBlockViewController using `StoryBlockConfiguration.onFirstDisplay` property.
 
 ## [1.21.0]
 
 ### Added
+
 - `feedID` to the `FeedEventDetails` type.
 - `VideoDetails` to the handleCustomCTAClick delegate method.
 - Data Track Level API, `FireworkVideoSDK.dataTrackingLevel` to define the level of data tracking for the SDK. The default value is `.all`.
 - Added the ability to override the product click action on LiveStream and Replay using the `FireworkVideoShoppingDelegate` API.
+
 ```swift
 func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVariant item: SelectedProductVariant, forVideo video: VideoDetails) -> Bool
 ```
 
 ### Deprecated
+
 - `fireworkShopping(_:didTapLinkButtonAt:withURL:)` has been deprecated in favor of `fireworkShopping(_:didTapLinkButtonAt:fromVideo:withURL:)`.
 - `handleCustomCTAClick(_:url:)` has been deprecated in favor of `handleCustomCTAClick(_:url:for:)`.
 
 ## [1.20.1]
 
 ### Fixed
-- Certain CTA text was not properly updating under certain conditions. 
+
+- Certain CTA text was not properly updating under certain conditions.
 
 ## [1.20.0]
 
 ### Added
+
 - Added privacy manifest configuration to ensure compliance with privacy guidelines and regulations. Clients must use the `AppTrackingTransparency` framework to present an app-tracking authorization request to the user and provide the tracking authorization status.
 
 ### Changed
+
 - `FireworkVideoSDK.initializeSDK()` must be called after the app is launched and before utilizing any Firework components. Failing to do so will result in an app crash, ensuring the smooth execution of development tasks.
 
 ## [1.19.0]
 
 ### Added
+
 - The `isEnabled` property has been introduced to the `VideoPlayerLogoConfiguration` class, providing the flexibility to enable or disable touch event on the logo button, thereby controlling the functionality to open the details page.
 - The `shadow: ViewContentConfiguration.ShadowConfiguration` property has beem introduced to the `VideoFeedItemContentConfiguration` class, providing the flexibility to customize the feed item shadow's opacity, color, and offset.
 
 ## [1.18.0]
 
 ### Changed
-- `VideoFeedViewControllerDelegate.videoFeed(_:didFailToLoadFeed:)` will now be invoked with the following error; `VideoFeedError.contentSourceError(.emptyFeed)`. This error occurs when the initial feed load contains no content and the request was successful. 
+
+- `VideoFeedViewControllerDelegate.videoFeed(_:didFailToLoadFeed:)` will now be invoked with the following error; `VideoFeedError.contentSourceError(.emptyFeed)`. This error occurs when the initial feed load contains no content and the request was successful.
 - `StoryBlockViewControllerDelegate.storyBlock(_:didFailToLoadFeed:)` will now be invoked with the following error; `StoryBlockError.contentSourceError(.emptyFeed)`. This error occurs when the initial feed load contains no content and the request was successful.
 
 ### Added
+
 - `VideoPlayerContentConfiguration`, `VideoFeedContentConfiguration`, and `StoryBlockConfiguration` now contain a new property `replayBadge: ReplayBadgeConfiguration` to toggle the replay badge visibility. Default is hidden.
 - add `CountdownTimerConfiguration` in `VideoPlayerContentConfiguration` and `StoryBlockConfiguration`. It can display a countdown timer add a remind me flow so that our customers can add to their calendars when to go live. Default is hidden.
 
 ## [1.16.0]
 
 ### Changed
+
 - `PlayerViewController` method `pause()` can now be called before the video playback begins
 - The `PlayerViewController` is now a wrapper of the underlying player designed to avoid retain cycles that may be caused by integrating with one of the many SDK delegates. This new view controller has very limited functionality (see CTA handler header docs for more details)
 
 ### Fixed
+
 - Optimized thumbnail image fetching
 
 ## [1.15.0]
@@ -66,12 +89,11 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 - Product price labels show/hide state controlled by GraphQL Product.hidePrice boolean value
 - Added configuration for Product Card UI, including size, background color, rounded corners, etc.
 - Introducing a new property, `logoConfiguration`, in the `VideoPlayerContentConfiguration` that enables users to define the option to be used for displaying the logo instead of the ellipsis.
-    `public var logoConfiguration = VideoPlayerLogoConfiguration()`
+  `public var logoConfiguration = VideoPlayerLogoConfiguration()`
 
 ### Deprecated
 
 - PriceConfiguration 'isHidden' local configuration field
-
 
 ## [1.14.0]
 
@@ -95,13 +117,13 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 ### Added
 
 - New product card provided in short video
-- New content source for single video or livestream for Video Feed and Storyblock: 
-    `VideoFeedContentSource.singleContent(videoOrLiveStreamID: EncodedID)` 
-    `StoryBlockContentSource.singleContent(videoOrLiveStreamID: EncodedID)`
+- New content source for single video or livestream for Video Feed and Storyblock:
+  `VideoFeedContentSource.singleContent(videoOrLiveStreamID: EncodedID)`
+  `StoryBlockContentSource.singleContent(videoOrLiveStreamID: EncodedID)`
 - New API to configure `StoryBlockViewController`:
-    `public var viewConfiguration: StoryBlockConfiguration { get set }` 
+  `public var viewConfiguration: StoryBlockConfiguration { get set }`
 - Introducing a new property, `titleConfiguration`, in the `VideoDetailContentConfiguration` that enables users to define the visibility of the video title on the detail section page.
-    `public var titleConfiguration = VideoDetailTitleConfiguration()`
+  `public var titleConfiguration = VideoDetailTitleConfiguration()`
 - New product detail page
 - Ability to define custom navigation handling when user taps on product card.
 - Ability to customize the images of the full screen player buttons namely: video detail button, mute/unmute button, close button, play/pause button.
@@ -109,13 +131,15 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 ## [1.11.0]
 
 ### Added
+
 - Support Poll in short videos
 - Support Questions in short videos
 - Support SKU playlist. Add `skuPlaylist` in `VideoFeedContentSource`
 
 ### Fixed
+
 - Mute Button Parity Issues
-- Number on the Un-read chat messages in live stream doesn't display properly 
+- Number on the Un-read chat messages in live stream doesn't display properly
 - User is not able to edit username on the live stream videos
 
 ## [1.10.0]
@@ -141,13 +165,13 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 
 ### Added
 
-- `start()` and `stop()` APIs on `PictureInPictureController` to start and stop any eligible player without feedID parameter 
+- `start()` and `stop()` APIs on `PictureInPictureController` to start and stop any eligible player without feedID parameter
 - VAST tracking for autoplayed ads in feed thumbnails
 - Hashtag content source
 
 ### Changed
 
-- Live stream UI improvements 
+- Live stream UI improvements
 - Swift Package includes supporting libraries
 - CocoaPod includes supporting libraries
 
@@ -170,7 +194,7 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 
 - APIs to programmatically place video player to floating mode within the application.
 - Updates Firework Branding
-- Adds configuration for hiding link within the product description 
+- Adds configuration for hiding link within the product description
 - Improves player accessibilty
 
 ## [1.6.0]
@@ -207,7 +231,7 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 
 - Picture In Picture functionality
 - `PictureInPictureController` can be used for livestreams
-- Subtitle support for short videos (.vtt files) 
+- Subtitle support for short videos (.vtt files)
 
 ## [1.1.0]
 
@@ -218,13 +242,12 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 - Custom VAST attributes support
 - In feed ad support
 
-
 ## [1.0.0]
 
 ### Added
 
 - Story block playback API
-- Story block UI improvements and optimizations 
+- Story block UI improvements and optimizations
 - Accessibility improvements
 - Localization for all components
 
@@ -234,7 +257,7 @@ func fireworkShopping(_ fireworkShopping: FireworkVideoShopping, didTapProductVa
 
 ## Breaking Changes
 
-The Live Stream Provider APIs have changed which means you must also pull in the latest version of the supporting libraries. 
+The Live Stream Provider APIs have changed which means you must also pull in the latest version of the supporting libraries.
 For more details please follow the instructions on the corresponding supporting lib repo.
 
 ### Fixed
@@ -257,7 +280,7 @@ For more details please follow the instructions on the corresponding supporting 
 
 ## [0.17.0]
 
-### Added 
+### Added
 
 - Configurable CTA display delay
 
@@ -294,7 +317,6 @@ var ctaConfig = VideoPlayerCTAConfiguration()
 ctaConfig.contentConfiguration = existingCTAConfig
 config.ctaButton = ctaConfig
 ```
-
 
 ## [0.16.0]
 
@@ -423,7 +445,7 @@ config.ctaButton = ctaConfig
 ### Changed
 
 - Renamed `VideoPlayerContentConfiguration.FadeOutDelay.none` to `VideoPlayerContentConfiguration.FadeOutDelay.disabled` to remove ambiguity.
-- Better support for launching the video player from landscape orientation. 
+- Better support for launching the video player from landscape orientation.
 
 ## [0.4.0]
 
@@ -436,28 +458,34 @@ config.ctaButton = ctaConfig
 ## [0.3.0]
 
 ### Added
+
 - Support for Google AdMob Native Ads.
 - Video player can now be set to fit a specific size or to full bleed.
 
 ### Changed
+
 - iOS versions 11 through iOS 14.4 now supported.
 - The channel video sources now uses channel encoded ID instead of the channel name.
 
 ### Removed
+
 - Publisher ID is no longer required or supported by the SDK.
 
 ## [0.2.0]
 
 ### Added
+
 - `initializeSDK` can now be called with an optional userID parameter that can be used to link SDK metrics against a specific identity.
 - Video feed can now be configured with a Channel source that displays videos from a given Channel ID.
 
 ### Changed
-- Client ID is now replaced by App ID. 
+
+- Client ID is now replaced by App ID.
 - A Publisher ID is also required to use the SDK.
 - `FireworkVideoPlaybackDelegate` exposes additional delegate methods for video playback.
 
 ## [0.1.0]
 
 ### Added
+
 - Initial Release with Sample Code
