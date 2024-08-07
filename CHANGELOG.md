@@ -1,6 +1,13 @@
 
 ## CHANGELOG
 
+## [1.23.1]
+
+### Fixed
+
+- Touchscreen is not working when video is playing in PIP mode on iPad.
+- Keep product impression/click event reporting consistent with Web.
+
 ## [1.23.0]
 
 ### Added
