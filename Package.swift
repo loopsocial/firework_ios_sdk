@@ -5,54 +5,17 @@ import PackageDescription
 let package = Package(
     name: "FireworkVideo",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v13)
     ],
     products: [
         .library(name: "FireworkVideo",
-                 targets: ["FireworkVideo"]),
-        .library(name: "FireworkMultiHostStreaming",
-                 targets: ["FireworkMultiHostStreaming"]),
-        .library(name: "FireworkLowLatencyStreaming",
-                 targets: ["FireworkLowLatencyStreaming"]),
-        .library(name: "FireworkGoogleIMA",
-                 targets: ["FireworkGoogleIMA"]),
-        .library(name: "FireworkGoogleAdManager",
-                 targets: ["FireworkGoogleAdManager"])
+                 targets: ["FireworkVideo"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/loopsocial/firework_ios_sdk_agora_support.git",
-                .upToNextMajor(from: "0.4.0")),
-        .package(url: "https://github.com/loopsocial/firework_ios_sdk_ivs_support.git",
-                .upToNextMajor(from: "0.5.0")),
-        .package(url: "https://github.com/loopsocial/firework_ios_sdk_google_ima_support.git",
-                .upToNextMajor(from: "0.3.0")),
-        .package(url: "https://github.com/loopsocial/firework_ios_sdk_gam_support.git",
-                .upToNextMajor(from: "0.3.0"))
-    ],
+    dependencies: [],
     targets: [
-        .binaryTarget(name: "FireworkVideo",
-                      url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.23.1/FireworkVideo-v1.23.1.xcframework.zip",
-                      checksum: "02caeeaf8c9a28362da37ff5437a5236c21a916a597b55d43d58eae29c1b7e69"),
-        .target(name: "FireworkMultiHostStreaming",
-                dependencies: [
-                    "FireworkVideo",
-                    .product(name: "FireworkVideoAgoraSupport", package: "firework_ios_sdk_agora_support"),
-                ]),
-        .target(name: "FireworkLowLatencyStreaming",
-                dependencies: [
-                    "FireworkVideo",
-                    .product(name: "FireworkVideoIVSSupport", package: "firework_ios_sdk_ivs_support"),
-                ]),
-        .target(name: "FireworkGoogleAdManager",
-                dependencies: [
-                    "FireworkVideo",
-                    .product(name: "FireworkVideoGAMSupport", package: "firework_ios_sdk_gam_support"),
-                ]),
-        .target(name: "FireworkGoogleIMA",
-                dependencies: [
-                    "FireworkVideo",
-                    .product(name: "FireworkVideoGIMASupport", package: "firework_ios_sdk_google_ima_support"),
-                ])
+        .binaryTarget(
+            name: "FireworkVideo",
+            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.23.2/FireworkVideo-v1.23.2.xcframework.zip",
+            checksum: "e5414c8f0bf33fa9117c3e80fbf5741119815e7aa84e5044f14eca094c23896e")
     ]
-    
 )

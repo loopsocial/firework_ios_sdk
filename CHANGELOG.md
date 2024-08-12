@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.23.2]
+
+### Fixed
+
+- [RN] [iOS] There is an unexpected top margin on story block when embedding story block in FlatList/ScrollView.
+
 ## [1.23.1]
 
 ### Fixed
