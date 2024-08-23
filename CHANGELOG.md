@@ -1,6 +1,16 @@
 
 ## CHANGELOG
 
+## [1.24.0]
+
+### Added
+
+- Add video ads content source.
+- Support autoplay setting for story block.
+- Support the full screen setting for story block.
+- Support hiding player ad badge.
+- Support hiding player caption.
+
 ## [1.23.2]
 
 ### Fixed
