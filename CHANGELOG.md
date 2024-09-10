@@ -1,6 +1,16 @@
 
 ## CHANGELOG
 
+## [1.24.1]
+
+### Added
+
+- Support merging and replacing product variants dynamically.
+
+### Fixed
+
+- Some `UIViewController` APIs don't work for `PlayerViewController`.
+
 ## [1.24.0]
 
 ### Added
