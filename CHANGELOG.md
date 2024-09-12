@@ -1,6 +1,17 @@
 
 ## CHANGELOG
 
+## [1.24.2]
+
+### Added
+
+- Support hiding player ellipses button.
+- Support customizing unavailable text.
+
+### Fixed
+
+- Cart icon doesn't render properly.
+
 ## [1.24.1]
 
 ### Added
