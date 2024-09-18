@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.24.3-beta.2]
+
+### Added
+
+- Expose the entire product object for shopping hydration API.
+
 ## [1.24.2]
 
 ### Added
