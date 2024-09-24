@@ -1,7 +1,17 @@
 
 ## CHANGELOG
 
-## [1.24.3-beta.3]
+## [1.24.4]
+
+### Added
+
+- Support Hungary language
+
+### Added
+
+- Expose the entire product object for shopping hydration API.
+
+## [1.24.3]
 
 ### Added
 
