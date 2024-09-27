@@ -1,7 +1,30 @@
 
 ## CHANGELOG
 
-## [1.24.3-beta.3]
+## [1.24.5-beta.2]
+
+### Added
+
+- Add `isAutoplay` field in `VideoPlaybackDetails` struct.
+- Support swapping the position of the volume/mute button and cc/subtitle icon on the short video player.
+- Support configuring the background color and text color for cc/subtitle.
+
+### Changed
+
+- Trigger video playback event callbacks for autoplay in the video feed item in the carousel/grid.
+- Screen reader update (short video).
+
+## [1.24.4]
+
+### Added
+
+- Support Hungary language.
+
+### Fixed
+
+- Shopping hydration API does not replace the product card image.
+
+## [1.24.3]
 
 ### Added
 
