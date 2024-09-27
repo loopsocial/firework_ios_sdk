@@ -1,11 +1,11 @@
 
 ## CHANGELOG
 
-## [1.24.4-beta.4]
+## [1.24.4]
 
 ### Added
 
-- Support Hungary language
+- Support Hungary language.
 
 ### Fixed
 
