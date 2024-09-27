@@ -1,15 +1,15 @@
 
 ## CHANGELOG
 
-## [1.24.4-beta.3]
+## [1.24.4-beta.4]
 
 ### Added
 
 - Support Hungary language
 
-### Added
+### Fixed
 
-- Expose the entire product object for shopping hydration API.
+- Shopping hydration API does not replace the product card image.
 
 ## [1.24.3]
 
