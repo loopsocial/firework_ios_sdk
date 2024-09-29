@@ -8,6 +8,7 @@
 - Add `isAutoplay` field in `VideoPlaybackDetails` struct.
 - Support swapping the position of the volume/mute button and cc/subtitle icon on the short video player.
 - Support configuring the background color and text color for cc/subtitle.
+- Add `dismissFullScreenPlayer` API.
 
 ### Changed
 
