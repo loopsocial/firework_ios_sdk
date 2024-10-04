@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.24.6]
+
+### Added
+
+- Add `product` and `variant` properties in `SelectedProductVariant` struct.
+
 ## [1.24.5]
 
 ### Added
