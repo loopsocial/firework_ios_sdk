@@ -1,6 +1,21 @@
 
 ## CHANGELOG
 
+## [1.24.7]
+
+### Added
+
+- Add video mute event callback(`fireworkVideoDidMute`) delegate method.
+- Add video unmute event callback(`fireworkVideoDidUnmute`) delegate method.
+- Add video close event callback(`fireworkVideoDidClose`) delegate method.
+- Add video auto pause callback(`fireworkVideoDidAutomaticallyPause`) delegate method.
+- Add video auto resume callback(`fireworkVideoDidAutomaticallyResume`) delegate method.
+
+### Changed
+
+- Trigger video resume event callback(`fireworkVideoDidResume`) only when users play the video manually.
+- Trigger video complete event callback(`fireworkVideoDidFinishPlaying` and `fireworkVideoDidFinishPlayingAd`) only when the video plays to end.
+
 ## [1.24.6]
 
 ### Added
