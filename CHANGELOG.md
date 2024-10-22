@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.24.8]
+
+### Fixed
+
+- Story block does not display normally under certain conditions.
+
 ## [1.24.7]
 
 ### Added
