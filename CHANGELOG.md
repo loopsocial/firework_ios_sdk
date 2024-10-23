@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.24.9]
+
+### Fixed
+
+- The product description for video ad is empty.
+
 ## [1.24.8]
 
 ### Fixed
