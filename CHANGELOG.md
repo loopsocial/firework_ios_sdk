@@ -1,6 +1,13 @@
 
 ## CHANGELOG
 
+## [1.25.0]
+
+### Added
+
+- Support Turkish.
+- Support customizing the share url.
+
 ## [1.24.9]
 
 ### Fixed
