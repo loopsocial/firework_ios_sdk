@@ -1,6 +1,18 @@
 
 ## CHANGELOG
 
+## [1.25.1]
+
+### Added
+
+- Add `showDrawerEmbeddingViewController` method in `FireworkVideoSDK`.
+- Add `isHiddenForNoAvailableVariant` property in `ProductCardConfiguration`.
+- Add `isNoVariantSelectedByDefault` property in `ProductDetailsContentConfiguration`.
+- Add `isTitleHiddenWhenAutoplay` property in `AutoplayConfiguration`.
+- Add `isOriginalPriceHidden` property in `PriceConfiguration`.
+- Add `isOriginalPriceHiddenForNoSelectedVariant` property in `ProductDetailsContentConfiguration`.
+- Add `imageUrls` method in `ProductVariantBuilder`.
+
 ## [1.25.0]
 
 ### Added
