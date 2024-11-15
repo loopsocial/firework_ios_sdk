@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.25.2]
+
+### Fixed
+
+- Story block does not display video under certain conditions.
+
 ## [1.25.1]
 
 ### Added
