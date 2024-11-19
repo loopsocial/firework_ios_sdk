@@ -1,6 +1,13 @@
 
 ## CHANGELOG
 
+## [1.26.0]
+
+### Added
+
+- New livestream player design.
+- Add `FireworkVideoSDK.livestreamPlayerDesignVersion` API for switching livestream designs.
+
 ## [1.25.2]
 
 ### Added
