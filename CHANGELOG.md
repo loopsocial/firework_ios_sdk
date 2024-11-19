@@ -3,6 +3,10 @@
 
 ## [1.25.2]
 
+### Added
+
+- Display placeholder when no option is selected.
+
 ### Fixed
 
 - Story block does not display video under certain conditions.
