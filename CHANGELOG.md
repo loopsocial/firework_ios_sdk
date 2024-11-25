@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.26.2]
+
+### Fixed
+
+- Fix ADA issue.
+
 ## [1.26.1]
 
 ### Fixed
