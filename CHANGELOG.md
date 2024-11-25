@@ -1,17 +1,23 @@
 
 ## CHANGELOG
 
-## [1.26.2]
+## [1.26.3]
 
 ### Fixed
 
 - Fix ADA issue.
 
-## [1.26.1]
+## [1.26.2]
 
 ### Fixed
 
 - Fix Voiceover focus issue.
+
+## [1.26.1]
+
+### Fixed
+
+- Fix new livestream player bug.
 
 ## [1.26.0]
 
