@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.26.1]
+
+### Fixed
+
+- Fix Voiceover focus issue.
+
 ## [1.26.0]
 
 ### Added
