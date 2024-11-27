@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.26.4]
+
+### Fixed
+
+- Fix tracking issue.
+
 ## [1.26.3]
 
 ### Fixed
