@@ -1,6 +1,17 @@
 
 ## CHANGELOG
 
+## [1.27.0]
+
+### Added
+
+- Support horizontal short videos.
+- Add `horizontalLayout` property in `VideoPlayerContentConfiguration`.
+
+### Fixed
+
+- Optimize livestream codes.
+
 ## [1.26.4]
 
 ### Fixed
