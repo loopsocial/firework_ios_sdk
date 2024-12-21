@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.27.1]
+
+### Changed
+
+- Adjust ADA focus order.
+
 ## [1.27.0]
 
 ### Added
