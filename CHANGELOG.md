@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.27.2]
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## [1.27.1]
 
 ### Changed
@@ -22,7 +28,7 @@
 
 ### Fixed
 
-- Fix tracking issue.
+- Bug fixes and improvements.
 
 ## [1.26.3]
 
