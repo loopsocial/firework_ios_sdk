@@ -15,7 +15,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "FireworkVideo",
-            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.27.2/FireworkVideo-v1.27.2.xcframework.zip",
-            checksum: "50fa94e2d776bb64237c3a5af43b7b889c33cbd9f32e5c0f03f6036b47c0a539")
+            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.23.3/FireworkVideo-v1.23.3.xcframework.zip",
+            checksum: "dc3cde43d9ce8afc005dcb8532336c14bc120f3f531d83b49d556f67bf6eb878")
     ]
 )
