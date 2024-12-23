@@ -5,7 +5,7 @@
 
 ### Fixed
 
-- Bug fixes and improvements.
+- Optimize codes.
 
 ## [1.27.1]
 
