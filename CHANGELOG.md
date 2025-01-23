@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.27.7]
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## [1.27.6]
 
 ### Added
