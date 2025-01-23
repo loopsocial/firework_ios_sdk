@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.27.6]
+
+### Added
+
+- Add `getHostAppNavigationController` API.
+
 ## [1.27.5]
 
 ### Fixed
