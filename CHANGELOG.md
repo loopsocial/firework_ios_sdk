@@ -1,6 +1,16 @@
 
 ## CHANGELOG
 
+## [1.28.0]
+
+### Added
+
+- Display countdown timer based on business portal configuration.
+- Support private messages for replay.
+- Add `FireworkVideoSDK.externalAdTrackingEnabled` to support disabling VAST tracking to external ad servers.
+- Support link interaction in livestream.
+- Hide interactions before users enter active livestream.
+
 ## [1.27.7]
 
 ### Fixed
@@ -49,10 +59,6 @@
 
 - Support horizontal short videos.
 - Add `horizontalLayout` property in `VideoPlayerContentConfiguration`.
-
-### Fixed
-
-- Optimize livestream codes.
 
 ## [1.26.4]
 
