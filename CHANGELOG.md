@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.28.1]
+
+### Added
+
+- Support Apple native PiP for short videos.
+
 ## [1.28.0]
 
 ### Added
