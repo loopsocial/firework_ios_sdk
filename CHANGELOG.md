@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.28.2]
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## [1.28.1]
 
 ### Added
