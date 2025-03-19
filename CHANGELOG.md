@@ -1,6 +1,17 @@
 
 ## CHANGELOG
 
+## [1.29.0]
+
+### Added
+
+- Support hiding products in livestream.
+- Support multi-pin for poll, question and giveaway.
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## [1.28.3]
 
 ### Fixed
