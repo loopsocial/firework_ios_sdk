@@ -1,6 +1,30 @@
 
 ## CHANGELOG
 
+## [1.29.1]
+
+### Added
+
+- Add like count widget in modern(v2) livestream player.
+- Support customizing livestream username.
+- Support hiding livestream username.
+- Add completion callback for startFloating and dismiss full-screen player.
+- Support opening video player using content source.
+- Support product impression analytics callbacks.
+- Support showing range price and discount for product list page.
+- Support small size story block for livestream.
+
+### Changed
+
+- Change the product list to a light theme on modern(v2) livestream player to ensure consistency with Android.
+- Replace the bag icon with "Shop" text on the product list to align with Android.
+
+### Fixed
+
+- The feature to hide product prices is not functioning correctly.
+- The product sold-out state is inaccurately displayed under certain conditions.
+- Player logo configuration doesn't work.
+
 ## [1.29.0]
 
 ### Added
