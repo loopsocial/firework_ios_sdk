@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.29.4]
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## [1.29.3]
 
 ### Fixed
