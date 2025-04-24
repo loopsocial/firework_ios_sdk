@@ -1,16 +1,11 @@
 
 ## CHANGELOG
 
-## [1.30.0]
+## [1.29.9]
 
-### Added
+### Fixed
 
-- Support French.
-- Support Portuguese.
-
-### Changed
-
-- Handle iOS and Android modern player differences.
+- Bug fixes and improvements.
 
 ## [1.29.8]
 
