@@ -1,121 +1,11 @@
 
 ## CHANGELOG
 
-## [1.30.0]
-
-### Added
-
-- Support French.
-- Support Portuguese.
-
-### Changed
-
-- Handle iOS and Android modern player differences.
-
-## [1.29.9]
+## [1.27.8]
 
 ### Fixed
 
 - Bug fixes and improvements.
-
-## [1.29.8]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.29.7]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.29.6]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.29.4]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.29.3]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.29.2]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.29.1]
-
-### Added
-
-- Add like count widget in modern(v2) livestream player.
-- Support customizing livestream username.
-- Support hiding livestream username.
-- Add completion callback for startFloating and dismiss full-screen player.
-- Support opening video player using content source.
-- Support product impression analytics callbacks.
-- Support showing range price and discount for product list page.
-- Support small size story block for livestream.
-
-### Changed
-
-- Change the product list to a light theme on modern(v2) livestream player to ensure consistency with Android.
-- Replace the bag icon with "Shop" text on the product list to align with Android.
-
-### Fixed
-
-- The feature to hide product prices is not functioning correctly.
-- The product sold-out state is inaccurately displayed under certain conditions.
-- Player logo configuration doesn't work.
-
-## [1.29.0]
-
-### Added
-
-- Support hiding products in livestream.
-- Support multi-pin for poll, question and giveaway.
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.28.3]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.28.2]
-
-### Fixed
-
-- Bug fixes and improvements.
-
-## [1.28.1]
-
-### Added
-
-- Support Apple native PiP for short videos.
-
-## [1.28.0]
-
-### Added
-
-- Display countdown timer based on business portal configuration.
-- Support private messages for replay.
-- Add `FireworkVideoSDK.externalAdTrackingEnabled` to support disabling VAST tracking to external ad servers.
-- Support link interaction in livestream.
-- Hide interactions before users enter active livestream.
 
 ## [1.27.7]
 
@@ -165,6 +55,10 @@
 
 - Support horizontal short videos.
 - Add `horizontalLayout` property in `VideoPlayerContentConfiguration`.
+
+### Fixed
+
+- Optimize livestream codes.
 
 ## [1.26.4]
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo"
-  spec.version                  = "1.30.0"
+  spec.version                  = "1.27.8"
   spec.summary                  = "FireworkVideoSDK"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -15,60 +15,19 @@ Pod::Spec.new do |spec|
   spec.cocoapods_version        = '>= 1.10.0'
   spec.default_subspec          = :none
 
-  spec.script_phases = [
-    { 
-      :name => 'Check FireworkVideoIVSSupport version',
-      :script => '
-      LIBRARY_NAME="FireworkVideoIVSSupport"
-      BASE_VERSION="0.9.0"
+  spec.subspec "FireworkMultiHostStreaming" do |multihost|
+    multihost.dependency "FireworkVideoAgoraSupport"
+  end
 
-      INFO_PLIST_PATH="${PODS_ROOT}/"$LIBRARY_NAME"/"$LIBRARY_NAME".xcframework/ios-arm64/"$LIBRARY_NAME".framework/Info.plist"
-      if [ ! -e "$INFO_PLIST_PATH" ]; then
-        echo "$LIBRARY_NAME is not installed."
-        exit 0
-      fi
+  spec.subspec "FireworkLowLatencyStreaming" do |lowLatency|
+    lowLatency.dependency "FireworkVideoIVSSupport"
+  end
 
-      FRAMEWORK_VERSION=$(plutil -convert xml1 -o - "$INFO_PLIST_PATH" | grep -A 1 "<key>CFBundleShortVersionString</key>" | grep "<string>" | sed "s/.*<string>\(.*\)<\/string>.*/\1/")
-      echo "Checking $LIBRARY_NAME version: $FRAMEWORK_VERSION"
-      if [[ -n "$FRAMEWORK_VERSION" ]]; then
-        if awk "BEGIN {exit !(ARGV[1] < ARGV[2])}" "$FRAMEWORK_VERSION" "$BASE_VERSION"; then
-          echo "Version $FRAMEWORK_VERSION of $LIBRARY_NAME is incompatible with the current version of FireworkVideo. Please use a version of $LIBRARY_NAME that is $BASE_VERSION or higher."
-        exit 1
-        else
-          echo "Version $FRAMEWORK_VERSION of $LIBRARY_NAME is compatible with the current version of FireworkVideo."
-        fi
-      else
-        echo "Failed to extract framework version."
-      fi
-      ',
-      :output_files => ['${DERIVED_FILE_DIR}/out_file1.txt']
-    },
-    { 
-      :name => 'Check FireworkVideoAgoraSupport version',
-      :script => '
-      LIBRARY_NAME="FireworkVideoAgoraSupport"
-      BASE_VERSION="0.6.0"
+  spec.subspec "FireworkInteractiveMediaAds" do |ima|
+    ima.dependency "FireworkVideoGIMASupport"
+  end
 
-      INFO_PLIST_PATH="${PODS_ROOT}/"$LIBRARY_NAME"/"$LIBRARY_NAME".xcframework/ios-arm64/"$LIBRARY_NAME".framework/Info.plist"
-      if [ ! -e "$INFO_PLIST_PATH" ]; then
-        echo "$LIBRARY_NAME is not installed."
-        exit 0
-      fi
-
-      FRAMEWORK_VERSION=$(plutil -convert xml1 -o - "$INFO_PLIST_PATH" | grep -A 1 "<key>CFBundleShortVersionString</key>" | grep "<string>" | sed "s/.*<string>\(.*\)<\/string>.*/\1/")
-      echo "Checking $LIBRARY_NAME version: $FRAMEWORK_VERSION"
-      if [[ -n "$FRAMEWORK_VERSION" ]]; then
-        if awk "BEGIN {exit !(ARGV[1] < ARGV[2])}" "$FRAMEWORK_VERSION" "$BASE_VERSION"; then
-          echo "Version $FRAMEWORK_VERSION of $LIBRARY_NAME is incompatible with the current version of FireworkVideo. Please use a version of $LIBRARY_NAME that is $BASE_VERSION or higher."
-        exit 1
-        else
-          echo "Version $FRAMEWORK_VERSION of $LIBRARY_NAME is compatible with the current version of FireworkVideo."
-        fi
-      else
-        echo "Failed to extract framework version."
-      fi
-      ',
-      :output_files => ['${DERIVED_FILE_DIR}/out_file2.txt']
-    },
-  ]
+  spec.subspec "FireworkGoogleAdManager" do |adManager|
+    adManager.dependency "FireworkVideoGAMSupport"
+  end
 end
