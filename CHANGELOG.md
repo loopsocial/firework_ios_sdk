@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.27.11]
+
+### Added
+
+- Add prefetch API for story block.
+
 ## [1.27.10]
 
 ### Fixed
