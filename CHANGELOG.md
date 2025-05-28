@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.30.2]
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## [1.30.1]
 
 ### Fixed
