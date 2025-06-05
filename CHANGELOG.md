@@ -1,17 +1,30 @@
 
 ## CHANGELOG
 
-## [1.30.2]
+## [1.32.0]
 
-### Fixed
+### Added
 
-- Bug fixes and improvements.
+- Support Swedish.
+- Support Indonesian.
+- Show carousel slider below pinned products on livestream.
+- Add custom callback for clicking Giveaway Terms & Conditions.
 
-## [1.30.1]
+### Changed
 
-### Fixed
+- Optimize Hungarian translations.
 
-- Unable to maximize the Live stream video in story block.
+## [1.31.0]
+
+### Added
+
+- Global audio state setting
+- Add configuration to hide "Tap to enter livestream"
+
+### Changed
+
+- Enhance the product list page
+- Place the most recently pinned product at the forefront
 
 ## [1.30.0]
 
