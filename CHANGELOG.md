@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.27.17]
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## [1.27.16]
 
 ### Fixed
