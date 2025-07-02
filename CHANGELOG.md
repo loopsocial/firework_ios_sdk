@@ -1,6 +1,13 @@
 
 ## CHANGELOG
 
+## [1.33.0]
+
+### Added
+
+- Support Romanian
+- Support Trivia Giveaway
+
 ## [1.32.0]
 
 ### Added
