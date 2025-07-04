@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.33.1]
+
+### Changed
+
+- To maintain consistency with Android, set the initial product list height to 80% of the player height on iOS.
+
 ## [1.33.0]
 
 ### Added
