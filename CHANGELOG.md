@@ -1,6 +1,12 @@
 
 ## CHANGELOG
 
+## [1.33.2]
+
+### Added
+
+- Support coupon code.
+
 ## [1.33.1]
 
 ### Changed
