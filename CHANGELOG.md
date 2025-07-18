@@ -1,4 +1,10 @@
 
+## [1.33.3]
+
+### Fixed
+
+- Bug fixes and improvements.
+
 ## CHANGELOG
 
 ## [1.33.2]
