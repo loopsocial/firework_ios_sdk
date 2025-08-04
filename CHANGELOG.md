@@ -1,4 +1,16 @@
 
+## [1.34.0]
+
+### Added
+
+- Support multiple winners for Giveaway and Trivia Giveaway.
+- AI Copilot support.
+- Enable Chat Font Color Customization for general messages.
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.33.3]
 
 ### Fixed
