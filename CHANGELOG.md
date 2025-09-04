@@ -1,4 +1,15 @@
 
+## [1.35.0]
+
+### Added
+
+- Adapt re-stream.
+- Add callback for clicking story block to fullscreen.
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.34.1]
 
 ### Fixed
