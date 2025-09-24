@@ -1,4 +1,18 @@
 
+## [1.35.2]
+
+### Added
+
+- Support customizing in-app PiP position
+
+## [1.35.1]
+
+### Added
+
+- Add additionalControlsInset for embedded story block
+- Add shouldExtendMediaOutsideSafeArea for fullscreen player
+- Support configuring status bar style and visibility for fullscreen player
+
 ## [1.35.0]
 
 ### Added
