@@ -1,24 +1,23 @@
 
-## [1.36.0]
+## [1.35.3]
 
-### Added
+### Fixed
 
-- Support modern (v2) design for short videos.
-- Support Traditional Chinese.
+- Bug fix and improvements.
 
 ## [1.35.2]
 
 ### Added
 
-- Support customizing in-app PiP position.
+- Support customizing in-app PiP position
 
 ## [1.35.1]
 
 ### Added
 
-- Add additionalControlsInset for embedded story block.
-- Add shouldExtendMediaOutsideSafeArea for fullscreen player.
-- Support configuring status bar style and visibility for fullscreen player.
+- Add additionalControlsInset for embedded story block
+- Add shouldExtendMediaOutsideSafeArea for fullscreen player
+- Support configuring status bar style and visibility for fullscreen player
 
 ## [1.35.0]
 
