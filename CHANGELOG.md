@@ -1,4 +1,19 @@
 
+## [1.37.0]
+
+### Added
+
+- Support Dutch.
+- Support vertical scroll player.
+- Support closing fullscreen player immediately when Picture-in-Picture is enabled.
+- Adapt Xcode 26.
+
+### Changed
+
+- Automatically play the livestream in the video feed, rather than the trailer, when the livestream status is active.
+- Automatically play the replay in the video feed, rather than the trailer, when the livestream status is replay.
+- Hide the arrow buttons when they are obscured by the replay interactive controls.
+
 ## [1.36.2]
 
 ### Fixed
