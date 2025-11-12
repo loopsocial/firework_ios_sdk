@@ -1,4 +1,20 @@
 
+## [1.37.2]
+
+### Changed
+
+- Show video feed poster based on image container aspect ratio.
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.37.1]
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.37.0]
 
 ### Added
