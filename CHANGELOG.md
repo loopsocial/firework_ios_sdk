@@ -1,4 +1,10 @@
 
+## [1.37.4]
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.37.3]
 
 ### Fixed
