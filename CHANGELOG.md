@@ -1,4 +1,18 @@
 
+## [1.37.5]
+
+### Added
+
+- Support rendering GIF.
+
+### Changed
+
+- Remove the restriction that limits the SDK from reporting internal data only after obtaining ATT consent.
+
+### Breaking Changes
+
+- Remove `userID` from SDK initialization method.
+
 ## [1.37.4]
 
 ### Fixed
