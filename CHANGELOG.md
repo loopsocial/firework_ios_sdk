@@ -1,6 +1,16 @@
-## [1.38.1]
+
+## [1.38.2]
 
 ### Added
+
+- Support hiding product card for short videos and trailer.
+- Support customizing loading indicator color.
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.38.1]
 
 ### Fixed
 
