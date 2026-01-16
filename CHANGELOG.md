@@ -1,4 +1,15 @@
 
+## [1.39.0]
+
+### Added
+
+- Apply seek bar to short videos/trailers when duration ≥ 300s.
+- Support light theme for top interaction entries.
+
+### Changed
+
+- Activate the audio session only when necessary.
+
 ## [1.38.2]
 
 ### Added
