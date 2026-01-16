@@ -1,4 +1,10 @@
 
+## [1.39.1]
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.39.0]
 
 ### Added
