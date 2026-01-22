@@ -1,4 +1,10 @@
 
+## [1.39.5]
+
+### Added
+
+- Support passing the app ID dynamically.
+
 ## [1.39.4]
 
 ### Fixed
