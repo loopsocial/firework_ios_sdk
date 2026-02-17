@@ -1,4 +1,10 @@
 
+## [1.40.3]
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.40.2]
 
 ### Fixed
