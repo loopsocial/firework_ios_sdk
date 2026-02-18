@@ -1,29 +1,9 @@
 
-## [1.40.3]
+## [1.39.11]
 
 ### Fixed
 
 - Bug fix and improvements.
-
-## [1.40.2]
-
-### Fixed
-
-- Bug fix and improvements.
-
-## [1.40.1]
-
-### Fixed
-
-- Bug fix and improvements.
-
-## [1.40.0]
-
-### Added
-
-- Player Deck support.
-- Add channel videos content source.
-- Viewport-based autoplay support.
 
 ## [1.39.10]
 
