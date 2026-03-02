@@ -1,4 +1,12 @@
 
+## [1.41.0]
+
+### Added
+
+- Add option for fullscreen, share, and CC button on player deck
+- Add social attribution to fullscreen player
+- Support adding a CTA to a video which already has product(s) tagged
+
 ## [1.40.4]
 
 ### Fixed
