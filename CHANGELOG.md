@@ -1,4 +1,15 @@
 
+## [1.41.2]
+
+### Added
+
+- Support widget-level product hydration for player deck.
+- Support checking SDK initialization status.
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.41.1]
 
 ### Fixed
