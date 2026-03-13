@@ -1,4 +1,11 @@
 
+## [1.41.3]
+
+### Changed
+
+- Refined mute handling logic in Player Deck.
+- Enhanced widget-level product hydration mechanism.
+
 ## [1.41.2]
 
 ### Added
