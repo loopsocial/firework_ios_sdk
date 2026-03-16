@@ -1,4 +1,10 @@
 
+## [1.41.4]
+
+### Changed
+
+- Bug fix and improvements.
+
 ## [1.41.3]
 
 ### Changed
