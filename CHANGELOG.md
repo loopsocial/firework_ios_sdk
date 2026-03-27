@@ -1,4 +1,12 @@
 
+## [1.41.6]
+
+### Changed
+
+- Add support for shopping bag icon in video feed items
+- Add Click callback to video feedview
+- Add configuration to control video display mode when ratio mismatch with container
+
 ## [1.41.5]
 
 ### Changed
