@@ -1,4 +1,10 @@
 
+## [1.41.7]
+
+### Changed
+
+- Handle thumbnail tap via cell gesture recognizer.
+
 ## [1.41.6]
 
 ### Changed
