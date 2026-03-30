@@ -1,4 +1,10 @@
 
+## [1.41.8]
+
+### Added
+
+- Add `enterFullScreen` API for `FWSStoryBlockView` and `FWSStoryBlockSwiftUIHandler`.
+
 ## [1.41.7]
 
 ### Changed
