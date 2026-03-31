@@ -1,4 +1,10 @@
 
+## [1.41.11]
+
+### Changed
+
+- Supports custom button size and custom shopping bag icon
+
 ## [1.41.10]
 
 ### Changed
