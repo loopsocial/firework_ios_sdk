@@ -1,4 +1,10 @@
 
+## [1.41.10]
+
+### Changed
+
+- Bug fix and improvements.
+
 ## [1.41.9]
 
 ### Changed
