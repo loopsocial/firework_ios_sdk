@@ -1,13 +1,27 @@
 
+## [1.42.0]
+
+### Added
+
+- Support displaying prompts for AI generated content in the full-screen player.
+- Support displaying the share entry in the player top.
+- Support hiding arrow buttons for fullscreen player.
+- Add feed complete action configuration.
+- Support hiding products in hydration.
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.41.13]
 
-### Changed
+### Fixed
 
 - Bug fix and improvements.
 
 ## [1.41.12]
 
-### Changed
+### Fixed
 
 - Bug fix and improvements.
 
@@ -19,13 +33,13 @@
 
 ## [1.41.10]
 
-### Changed
+### Fixed
 
 - Bug fix and improvements.
 
 ## [1.41.9]
 
-### Changed
+### Fixed
 
 - Bug fix and improvements.
 
@@ -51,13 +65,13 @@
 
 ## [1.41.5]
 
-### Changed
+### Fixed
 
 - Bug fix and improvements.
 
 ## [1.41.4]
 
-### Changed
+### Fixed
 
 - Bug fix and improvements.
 
