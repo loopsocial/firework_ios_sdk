@@ -1,4 +1,17 @@
 
+## [1.42.1]
+
+### Added
+
+- Subtitle support for livestream, restream, and V2L events.
+- AI disclaimer on AI-generated short videos and livestreams.
+- Required terms & conditions acknowledgement for Question, Giveaway, and Trivia Giveaway in livestream.
+- Terms & conditions link and required acknowledgement in short video, with a customizable click handler.
+
+### Changed
+
+- Locked livestream viewers no longer need to re-enter the access code after unlocking within the same session.
+
 ## [1.42.0]
 
 ### Added
