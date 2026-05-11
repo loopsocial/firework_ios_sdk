@@ -1,4 +1,14 @@
 
+## [1.42.8]
+
+### Changed
+
+- Performance optimizations across several components.
+
+### Fixed
+
+- Address an issue where RUM was excessively attributing long tasks to the SDK.
+
 ## [1.42.7]
 
 ### Fixed
