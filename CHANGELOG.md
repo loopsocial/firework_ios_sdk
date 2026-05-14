@@ -1,4 +1,18 @@
 
+## [1.43.0]
+
+### Added
+
+- Support chat during replay
+
+### Changed
+
+- Improvements and enhancements
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.42.9]
 
 ### Fixed
