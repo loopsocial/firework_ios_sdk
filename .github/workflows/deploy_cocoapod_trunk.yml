@@ -1,9 +1,15 @@
-name: Deploy CocoaPod Trunk
+name: Deploy CocoaPod Trunk (Static)
+
+# This workflow lives only on the `static` branch. It publishes the
+# FireworkVideoStatic pod whenever a `<version>-static` tag is pushed to
+# this branch (the source-repo release pipeline creates that tag at the end
+# of every release). The `main` branch keeps its own deploy_cocoapod_trunk.yml
+# that publishes the dynamic FireworkVideo pod.
 
 on:
   push:
     tags:
-      - "*"
+      - "*-static"
 
 jobs:
   build:
@@ -26,4 +32,4 @@ jobs:
           # https://medium.com/swlh/automated-cocoapod-releases-with-github-actions-8526dd4535c7
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         run: |
-          pod trunk push FireworkVideo.podspec
+          pod trunk push FireworkVideoStatic.podspec --allow-warnings
