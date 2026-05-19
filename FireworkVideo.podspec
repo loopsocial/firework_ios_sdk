@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo"
-  spec.version                  = "1.43.3-beta.10"
+  spec.version                  = "1.43.3-beta.11"
   spec.summary                  = "FireworkVideoSDK"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -16,6 +16,17 @@ Pod::Spec.new do |spec|
   spec.default_subspec          = :none
 
   spec.script_phases = [
+    {
+      :name => 'Check FireworkVideo static/dynamic conflict',
+      :script => '
+      PODFILE_LOCK="${PODS_PODFILE_DIR_PATH}/Podfile.lock"
+      if [ -f "$PODFILE_LOCK" ] && grep -E "^[[:space:]]*-[[:space:]]FireworkVideo-Static[[:space:]\\(]" "$PODFILE_LOCK" >/dev/null; then
+        echo "FireworkVideo and FireworkVideo-Static cannot be integrated in the same target because both provide module FireworkVideo and the same symbols."
+        exit 1
+      fi
+      ',
+      :output_files => ['${DERIVED_FILE_DIR}/fireworkvideo_linkage_conflict_check.txt']
+    },
     { 
       :name => 'Check FireworkVideoIVSSupport version',
       :script => '

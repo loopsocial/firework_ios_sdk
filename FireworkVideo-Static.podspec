@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.3-beta.10"
+  spec.version                  = "1.43.3-beta.11"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -11,7 +11,8 @@ Pod::Spec.new do |spec|
   spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
   spec.preserve_paths           = "FireworkVideo-static.xcframework"
   spec.ios.vendored_frameworks  = "FireworkVideo-static.xcframework"
-  spec.resources                = [
+  spec.resource_bundles         = {
+    "FireworkVideoResources" => [
     "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.bundle",
     "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.car",
     "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.json",
@@ -19,14 +20,26 @@ Pod::Spec.new do |spec|
     "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.nib",
     "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.sks",
     "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.xcprivacy"
-  ]
+    ]
+  }
   spec.frameworks               = "AVFoundation"
   spec.cocoapods_version        = '>= 1.10.0'
   spec.default_subspec          = :none
-  spec.user_target_xcconfig     = { 'OTHER_LDFLAGS' => '-ObjC' }
-  spec.pod_target_xcconfig      = { 'OTHER_LDFLAGS' => '-ObjC' }
+  spec.user_target_xcconfig     = { 'OTHER_LDFLAGS' => '$(inherited) -ObjC' }
+  spec.pod_target_xcconfig      = { 'OTHER_LDFLAGS' => '$(inherited) -ObjC' }
 
   spec.script_phases = [
+    {
+      :name => 'Check FireworkVideo static/dynamic conflict',
+      :script => '
+      PODFILE_LOCK="${PODS_PODFILE_DIR_PATH}/Podfile.lock"
+      if [ -f "$PODFILE_LOCK" ] && grep -E "^[[:space:]]*-[[:space:]]FireworkVideo[[:space:]\\(]" "$PODFILE_LOCK" >/dev/null; then
+        echo "FireworkVideo and FireworkVideo-Static cannot be integrated in the same target because both provide module FireworkVideo and the same symbols."
+        exit 1
+      fi
+      ',
+      :output_files => ['${DERIVED_FILE_DIR}/fireworkvideo_linkage_conflict_check.txt']
+    },
     {
       :name => 'Check FireworkVideoIVSSupport version',
       :script => '
