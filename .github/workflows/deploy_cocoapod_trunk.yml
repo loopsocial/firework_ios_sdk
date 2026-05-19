@@ -1,6 +1,7 @@
 name: Deploy CocoaPod Trunk
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - "*"
@@ -26,4 +27,46 @@ jobs:
           # https://medium.com/swlh/automated-cocoapod-releases-with-github-actions-8526dd4535c7
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         run: |
-          pod trunk push FireworkVideo.podspec
+          set -euo pipefail
+
+          is_published() {
+            local name="$1"
+            local version="$2"
+
+            pod trunk info "$name" > /tmp/pod_trunk_info.txt 2>/dev/null &&
+              grep -Fq -- "- $version (" /tmp/pod_trunk_info.txt
+          }
+
+          publish_podspec() {
+            local podspec="$1"
+            local name
+            local version
+
+            if [ ! -f "$podspec" ]; then
+              echo "$podspec does not exist. Skipping."
+              return
+            fi
+
+            name=$(pod ipc spec "$podspec" | ruby -rjson -e 'puts JSON.parse(STDIN.read)["name"]')
+            version=$(pod ipc spec "$podspec" | ruby -rjson -e 'puts JSON.parse(STDIN.read)["version"]')
+
+            if is_published "$name" "$version"; then
+              echo "$name $version is already published. Skipping."
+              return
+            fi
+
+            if pod trunk push "$podspec"; then
+              return
+            fi
+
+            echo "pod trunk push failed for $name $version. Rechecking trunk before failing."
+            if is_published "$name" "$version"; then
+              echo "$name $version was published despite the trunk error. Continuing."
+              return
+            fi
+
+            exit 1
+          }
+
+          publish_podspec FireworkVideo.podspec
+          publish_podspec FireworkVideo-Static.podspec

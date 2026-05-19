@@ -26,3 +26,8 @@ jobs:
         run: |
           pod trunk me
           pod spec lint FireworkVideo.podspec --verbose
+          if [ -f FireworkVideo-Static.podspec ]; then
+            pod spec lint FireworkVideo-Static.podspec --verbose
+          else
+            echo "FireworkVideo-Static.podspec does not exist. Skipping."
+          fi
