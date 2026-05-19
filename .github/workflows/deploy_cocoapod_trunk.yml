@@ -55,7 +55,7 @@ jobs:
               return
             fi
 
-            if pod trunk push "$podspec"; then
+            if pod trunk push "$podspec" --verbose; then
               return
             fi
 
