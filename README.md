@@ -23,36 +23,20 @@ FireworkVideo is compatible with:
 
 ## How to add FireworkVideo to your Xcode project?
 
-FireworkVideo is shipped in two linkage variants — **dynamic** (default) and **static**. Both ship the same public API and you keep `import FireworkVideo` either way; pick whichever fits your app's binary size / launch time / extension support requirements.
-
-| Variant | When to use | SPM | CocoaPods |
-|---|---|---|---|
-| Dynamic (default) | General use. Faster incremental builds, smaller app binary on disk. | `loopsocial/firework_ios_sdk` `main` branch | `pod 'FireworkVideo'` |
-| Static | App extensions, faster launch via fewer dylibs, deterministic dead-stripping. | `loopsocial/firework_ios_sdk` `static` branch | `pod 'FireworkVideoStatic'` |
-
-> **Static linkage caveat:** when integrating the static variant, add `-ObjC` to your app target's `Other Linker Flags` so the linker pulls in Objective-C category symbols from the static archive. The static CocoaPods spec applies this automatically via `user_target_xcconfig`; SPM customers must set it themselves.
+FireworkVideo can be added as a Swift binary package using Swift Package Manager or it can be imported manually as framework. Instructions for both installation methods are below.
 
 ### Importing Using Swift Package Manager
 
-In your Xcode project, select File > Swift Packages > Add Package Dependency.
+In your Xcode project, select File > Swift Packages > Add Package Dependency and enter the following URL: `https://www.github.com/loopsocial/firework_ios_sdk/`
 
-**Dynamic (default)** — use the repository URL `https://github.com/loopsocial/firework_ios_sdk` and select Version > Up to Next Major > 1.43.0.
+> If you are new to Xcode's Swift Pacakage Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
-```swift
-.package(url: "https://github.com/loopsocial/firework_ios_sdk.git", from: "1.43.0")
-```
+Select Version > Up to Next Major > 1.9.0.
 
-**Static** — point to the same repository but use the `static` branch (or pin a specific tag via `revision:`):
+The package exposes two products:
 
-```swift
-// Track the latest static release.
-.package(url: "https://github.com/loopsocial/firework_ios_sdk.git", branch: "static")
-
-// Or pin to a specific version. Static releases are tagged with a -static suffix.
-.package(url: "https://github.com/loopsocial/firework_ios_sdk.git", revision: "v1.43.0-static")
-```
-
-> If you are new to Xcode's Swift Package Manager integration, please refer to Apple's documentation on [Adding a Package Dependency to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
+- `FireworkVideo` links the default dynamic XCFramework.
+- `FireworkVideoStatic` links the static XCFramework. Do not add both products to the same app target. When using the static product, add `-ObjC` to the app target's Other Linker Flags.
 
 #### Supporting Libraries
 The SDK has many supporting libraries that can be easily added to your project. Here is a list of currently supported libraries.
@@ -64,9 +48,9 @@ The SDK has many supporting libraries that can be easily added to your project. 
 
 ### Importing Using Cocoapods
 
-**Dynamic (default)** — in your Podfile add `pod 'FireworkVideo'` and run `pod install`.
+In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install`.
 
-**Static** — in your Podfile add `pod 'FireworkVideoStatic'` and run `pod install`. Both pods vend the same `FireworkVideo` module, so application code keeps `import FireworkVideo`. Only one of the two pods may be present in a target at a time.
+For the static XCFramework distribution, use `pod 'FireworkVideo-Static'` instead. Do not include both `FireworkVideo` and `FireworkVideo-Static` in the same target.
 
 #### Supporting Libraries
 The SDK has many supporting libraries that can be easily added to your project.
