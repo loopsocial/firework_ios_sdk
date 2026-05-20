@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.3-beta.11"
+  spec.version                  = "1.43.3-beta.12"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -9,17 +9,17 @@ Pod::Spec.new do |spec|
   spec.swift_versions           = '5.3'
   spec.module_name              = "FireworkVideo"
   spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
-  spec.preserve_paths           = "FireworkVideo-static.xcframework"
-  spec.ios.vendored_frameworks  = "FireworkVideo-static.xcframework"
+  spec.preserve_paths           = "FireworkVideo.xcframework"
+  spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
   spec.resource_bundles         = {
     "FireworkVideoResources" => [
-    "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.bundle",
-    "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.car",
-    "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.json",
-    "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.lproj",
-    "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.nib",
-    "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.sks",
-    "FireworkVideo-static.xcframework/ios-arm64/FireworkVideo.framework/*.xcprivacy"
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle",
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.car",
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.json",
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.lproj",
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.nib",
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.sks",
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.xcprivacy"
     ]
   }
   spec.frameworks               = "AVFoundation"
