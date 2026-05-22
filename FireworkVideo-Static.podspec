@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.3-beta.12"
+  spec.version                  = "1.43.3-beta.14"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -11,9 +11,9 @@ Pod::Spec.new do |spec|
   spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
   spec.preserve_paths           = "FireworkVideo.xcframework"
   spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
+  spec.resources                = "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle"
   spec.resource_bundles         = {
     "FireworkVideoResources" => [
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle",
     "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.car",
     "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.json",
     "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.lproj",
@@ -29,17 +29,6 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig      = { 'OTHER_LDFLAGS' => '$(inherited) -ObjC' }
 
   spec.script_phases = [
-    {
-      :name => 'Check FireworkVideo static/dynamic conflict',
-      :script => '
-      PODFILE_LOCK="${PODS_PODFILE_DIR_PATH}/Podfile.lock"
-      if [ -f "$PODFILE_LOCK" ] && grep -E "^[[:space:]]*-[[:space:]]FireworkVideo[[:space:]\\(]" "$PODFILE_LOCK" >/dev/null; then
-        echo "FireworkVideo and FireworkVideo-Static cannot be integrated in the same target because both provide module FireworkVideo and the same symbols."
-        exit 1
-      fi
-      ',
-      :output_files => ['${DERIVED_FILE_DIR}/fireworkvideo_linkage_conflict_check.txt']
-    },
     {
       :name => 'Check FireworkVideoIVSSupport version',
       :script => '
