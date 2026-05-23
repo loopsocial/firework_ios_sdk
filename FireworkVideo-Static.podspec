@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.3-beta.16"
+  spec.version                  = "1.43.3-beta.17"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -11,22 +11,20 @@ Pod::Spec.new do |spec|
   spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
   spec.preserve_paths           = "FireworkVideo.xcframework"
   spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
+  spec.resources                = "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle"
   spec.resource_bundles         = {
-    "FireworkVideoResources" => [
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle",
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.car",
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.json",
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.lproj",
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.nib",
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.sks",
-    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.xcprivacy"
+    "FireworkVideo" => [
+      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.car",
+      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.json",
+      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.lproj",
+      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.nib",
+      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.sks",
+      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.xcprivacy"
     ]
   }
   spec.frameworks               = "AVFoundation"
   spec.cocoapods_version        = '>= 1.10.0'
   spec.default_subspec          = :none
-  spec.user_target_xcconfig     = { 'OTHER_LDFLAGS' => '$(inherited) -ObjC' }
-  spec.pod_target_xcconfig      = { 'OTHER_LDFLAGS' => '$(inherited) -ObjC' }
 
   spec.script_phases = [
     {
