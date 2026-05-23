@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.3-beta.15"
+  spec.version                  = "1.43.3-beta.16"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -11,9 +11,9 @@ Pod::Spec.new do |spec|
   spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
   spec.preserve_paths           = "FireworkVideo.xcframework"
   spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
-  spec.resources                = "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle"
   spec.resource_bundles         = {
     "FireworkVideoResources" => [
+    "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle",
     "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.car",
     "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.json",
     "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.lproj",
