@@ -1,0 +1,50 @@
+/* Add more products title label */
+"Add more products" = "商品を追加";
+
+/* Cancel */
+"Cancel" = "キャンセル";
+
+/* Clear Pin */
+"Clear Pin" = "ピン留めをクリア";
+
+/* Product in stock swipe label */
+"In Stock" = "在庫あり";
+
+/* to translate */
+"Interaction active" = "インタラクション実行中";
+
+/* Empty products preview */
+"No products set up" = "このライブ配信にはプロダクトが設定されていません";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d ピン留め商品";
+
+/* Percentage Selected */
+"Percentage Selected" = "%d/%d を選択中";
+
+/* Pin */
+"Pin" = "ピン留め";
+
+/* Pin More */
+"Pin More" = "ピン留めを追加";
+
+/* to translate */
+"Pin product" = "商品をピン留め";
+
+/* to translate */
+"Pinning a product will end the current interaction" = "商品をピン留めすると";
+
+/* Poll active */
+"Poll active" = "投票中";
+
+/* Product table view title */
+"Product" = "商品 (%d)";
+
+/* Questionnaire active */
+"Questionnaire active" = "アンケート実施中";
+
+/* Product sold out swipe label */
+"Sold Out" = "完売";
+
+/* Unknown active */
+"Unknown active" = "未知のアクティブ";
