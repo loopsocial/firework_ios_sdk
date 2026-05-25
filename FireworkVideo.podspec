@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo"
-  spec.version                  = "1.43.3-beta.24"
+  spec.version                  = "1.43.3-beta.26"
   spec.summary                  = "FireworkVideoSDK"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   spec.default_subspec          = :none
 
   spec.script_phases = [
-    {
+    { 
       :name => 'Check FireworkVideoIVSSupport version',
       :script => '
       LIBRARY_NAME="FireworkVideoIVSSupport"
