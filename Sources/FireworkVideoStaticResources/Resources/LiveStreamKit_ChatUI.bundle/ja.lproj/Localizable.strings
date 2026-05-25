@@ -1,0 +1,9 @@
+/* Host message input post button */
+"Post" = "投稿する";
+
+/* Host message input placeholder */
+"Say Something..." = "メッセージ";
+
+"Chat" = "チャット";
+
+"Private" = "プライベート";

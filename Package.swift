@@ -11,25 +11,30 @@ let package = Package(
         .library(name: "FireworkVideo",
                  targets: ["FireworkVideo"]),
         .library(name: "FireworkVideoStatic",
-                 targets: ["FireworkVideoStaticWrapper"])
+                 targets: ["FireworkVideoStaticResources"])
     ],
     dependencies: [],
     targets: [
         .binaryTarget(
             name: "FireworkVideo",
-            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.43.3-beta.21/"
-                + "FireworkVideo-v1.43.3-beta.21.xcframework.zip",
-            checksum: "5330d68c1deee5df7434650be5e585d7e3d0fca4b28728205ae89a008fee9ac8"),
+            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.43.3-beta.22/"
+                + "FireworkVideo-v1.43.3-beta.22.xcframework.zip",
+            checksum: "85089c5fb1fcb112ea11f2a224e1c3d775166dfad5a32b005728a3264533746c"),
         .binaryTarget(
             name: "FireworkVideoStaticBinary",
-            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.43.3-beta.21/"
-                + "FireworkVideo-static-v1.43.3-beta.21.xcframework.zip",
-            checksum: "167ad79c413753e407f406e9e23dcc2257a8566a843417b76222fb4e50a52d33"),
+            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.43.3-beta.22/"
+                + "FireworkVideo-static-v1.43.3-beta.22.xcframework.zip",
+            checksum: "17618541112e6c81bff1eee6ffb2583d2936a9899ae3306f81560202df8b959f"),
         .target(
-            name: "FireworkVideoStaticWrapper",
+            name: "FireworkVideoStaticResources",
             dependencies: ["FireworkVideoStaticBinary"],
-            path: "Sources/FireworkVideoStaticWrapper",
-            resources: [.copy("Resources")]
+            path: "Sources/FireworkVideoStaticResources",
+            resources: [
+                .copy("Resources/FireworkVideo.bundle"),
+                .copy("Resources/LiveStreamKit_ChatUI.bundle"),
+                .copy("Resources/LiveStreamKit_InteractionUI.bundle"),
+                .copy("Resources/LiveStreamKit_ProductUI.bundle")
+            ]
         )
     ]
 )
