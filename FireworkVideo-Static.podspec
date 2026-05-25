@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.3-beta.23"
+  spec.version                  = "1.43.3-beta.24"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -11,17 +11,12 @@ Pod::Spec.new do |spec|
   spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
   spec.preserve_paths           = "FireworkVideo.xcframework"
   spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
+  # FireworkVideo.bundle is now pre-assembled inside the static xcframework by
+  # create_xcframework.sh (consolidate_static_framework_resources). The framework
+  # directory only contains *.bundle entries — no loose .car/.nib/.lproj/etc —
+  # so a single spec.resources glob covers everything (FireworkVideo.bundle +
+  # LiveStreamKit_*.bundle).
   spec.resources                = "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.bundle"
-  spec.resource_bundles         = {
-    "FireworkVideo" => [
-      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.car",
-      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.json",
-      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.lproj",
-      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.nib",
-      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.sks",
-      "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/*.xcprivacy"
-    ]
-  }
   spec.frameworks               = "AVFoundation"
   spec.cocoapods_version        = '>= 1.10.0'
   spec.default_subspec          = :none

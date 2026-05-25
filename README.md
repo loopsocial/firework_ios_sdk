@@ -72,7 +72,7 @@ The SDK has many supporting libraries that can be easily added to your project.
 
 * In your apps Project pane select your app Target > Build Phases, click the + button, and add a Copy Files step. Select `Frameworks` as the destination and click the + within the Copy Files step and select FireworkVideo.xcframework. Your Copy Files step should look like below. 
 
-For the static XCFramework, download `FireworkVideo-static-v<version>.xcframework.zip`, link `FireworkVideo-static.xcframework`, and copy the resources from `FireworkVideo.framework` into the app target's Copy Bundle Resources phase. Do not add the dynamic and static XCFrameworks to the same target.
+For the static XCFramework, download `FireworkVideo-static-v<version>.xcframework.zip`, link the unzipped `FireworkVideo.xcframework`, then drag every `*.bundle` directory inside `FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/` (`FireworkVideo.bundle` and the three `LiveStreamKit_*.bundle` directories) into your app target's **Copy Bundle Resources** build phase. Do not add the dynamic and static XCFrameworks to the same target.
 
 ![Copy Files Step](https://github.com/loopsocial/firework_ios_sdk/blob/main/Resources/manual_installation_copy_files_step.png?raw=true)
 
