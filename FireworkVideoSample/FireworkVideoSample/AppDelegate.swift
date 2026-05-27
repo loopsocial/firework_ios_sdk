@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         /// Enable CTA custom handling
         FireworkVideoSDK.ctaDelegate = self
 
+        // Use modern design for both short video player and live stream player
+        FireworkVideoSDK.shortVideoPlayerDesignVersion = .v2
+        FireworkVideoSDK.livestreamPlayerDesignVersion = .v2
+
         return true
     }
     
