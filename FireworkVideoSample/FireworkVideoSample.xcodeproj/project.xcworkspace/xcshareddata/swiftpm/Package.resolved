@@ -1,5 +1,4 @@
 {
-  "originHash" : "29729a6e473119c225f041d4fc97ff13446ce07a5d4dba19b78b1ca4c5dcc20d",
   "pins" : [
     {
       "identity" : "chromacolorpicker",
@@ -20,5 +19,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
