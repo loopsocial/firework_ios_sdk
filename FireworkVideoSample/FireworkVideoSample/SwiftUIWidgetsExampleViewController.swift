@@ -212,6 +212,7 @@ struct SwiftUIWidgetsExampleView: View {
         config.itemView.playIcon.isHidden = false
         config.backgroundColor = .gray
         config.playerView.scrollDirection = .vertical
+        config.playerView.playbackButton.isHidden = false
         return config
     }
 
@@ -221,6 +222,7 @@ struct SwiftUIWidgetsExampleView: View {
         config.itemView.playIcon.isHidden = false
         config.itemView.muteButton.isHidden = false
         config.playerView.scrollDirection = .vertical
+        config.playerView.playbackButton.isHidden = false
         return config
     }
 }
