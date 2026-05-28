@@ -1,0 +1,17 @@
+/* Host message input post button */
+"Post" = "Post";
+
+/* Host message input placeholder */
+"Say Something..." = "Say Something...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " and ";
+
+"Guest" = "Guest";
+
+"Chat" = "Chat";
+
+"Private" = "Private";

@@ -75,13 +75,9 @@ The SDK has many supporting libraries that can be easily added to your project.
 For the static XCFramework, download **two** artifacts from the same release:
 
 1. `FireworkVideo-static-v<version>.xcframework.zip` — the static framework. Unzip and drag `FireworkVideo.xcframework` into Xcode the same way as the dynamic version.
-2. `FireworkVideo-static-bundles-v<version>.zip` — the pre-assembled resource bundles. Unzip to get four `.bundle` directories:
-   - `FireworkVideo.bundle`
-   - `LiveStreamKit_ChatUI.bundle`
-   - `LiveStreamKit_InteractionUI.bundle`
-   - `LiveStreamKit_ProductUI.bundle`
+2. `FireworkVideo-static-bundles-v<version>.zip` — the pre-assembled resource container. Unzip to get `FireworkVideoResources.bundle`.
 
-   Drag all four into your app target's **Build Phases > Copy Bundle Resources**.
+   Drag `FireworkVideoResources.bundle` into your app target's **Build Phases > Copy Bundle Resources**.
 
 Do not add the dynamic and static XCFrameworks to the same target.
 
