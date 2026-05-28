@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.5-beta.4"
+  spec.version                  = "1.43.5-beta.5"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
