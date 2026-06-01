@@ -38,7 +38,7 @@ The package exposes two products:
 - `FireworkVideo` links the default dynamic XCFramework.
 - `FireworkVideoStatic` links the static XCFramework. Do not add both products to the same app target.
 
-`FireworkVideoStatic` requires `-ObjC` when linking. The package applies this linker flag through its static wrapper target.
+For static SPM integration, add `-ObjC` to your app target's **Build Settings > Other Linker Flags**.
 
 #### Supporting Libraries
 The SDK has many supporting libraries that can be easily added to your project. Here is a list of currently supported libraries.
