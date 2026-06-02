@@ -54,7 +54,7 @@ In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install
 
 For the static XCFramework distribution, use `pod 'FireworkVideo-Static'` instead. Do not include both `FireworkVideo` and `FireworkVideo-Static` in the same target.
 
-`FireworkVideo-Static` uses the same Swift module name as the dynamic pod, so app code still imports `FireworkVideo`. CocoaPods automatically copies SDK resources for the static pod.
+`FireworkVideo-Static` uses the same Swift module name as the dynamic pod, so app code still imports `FireworkVideo`. CocoaPods automatically copies SDK resources for the static pod. The static pod disables User Script Sandboxing for the app target because CocoaPods' generated resource-copy script writes an intermediate file under `Pods`.
 
 #### Supporting Libraries
 The SDK has many supporting libraries that can be easily added to your project.

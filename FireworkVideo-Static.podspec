@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.43.5-beta.7"
+  spec.version                  = "1.43.5-beta.8"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -13,7 +13,10 @@ Pod::Spec.new do |spec|
   spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
   spec.resources                = "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/FireworkVideoResources.bundle"
   spec.frameworks               = "AVFoundation"
-  spec.user_target_xcconfig     = { "OTHER_LDFLAGS" => "$(inherited) -ObjC" }
+  spec.user_target_xcconfig     = {
+    "OTHER_LDFLAGS" => "$(inherited) -ObjC",
+    "ENABLE_USER_SCRIPT_SANDBOXING" => "NO",
+  }
   spec.cocoapods_version        = '>= 1.10.0'
   spec.default_subspec          = :none
 
