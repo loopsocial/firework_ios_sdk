@@ -39,8 +39,8 @@ struct SwiftUIWidgetsExampleView: View {
 
     /// Shared content source reused by both the video feeds and the player decks.
     private let source: VideoFeedContentSource = .channelPlaylist(
-        channelID: "Your encoded channel ID here",
-        playlistID: "Your encoded playlist ID here"
+        channelID: "Your encoded channel ID",
+        playlistID: "You encoded playlist ID"
     )
 
     /// The composed layout: placeholders interleaved with video feeds and player decks.
