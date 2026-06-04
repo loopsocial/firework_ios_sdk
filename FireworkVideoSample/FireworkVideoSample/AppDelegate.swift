@@ -33,10 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FireworkVideoSDKDelegate 
         /// Enable CTA custom handling
         FireworkVideoSDK.ctaDelegate = self
 
-        /// Use modern design for both livestream and short video players
-        FireworkVideoSDK.livestreamPlayerDesignVersion = .v2
-        FireworkVideoSDK.shortVideoPlayerDesignVersion = .v2
-
         return true
     }
     
@@ -87,11 +83,6 @@ extension AppDelegate: FireworkVideoCTADelegate {
 
 /// Implementing the FireworkLiveStreamEventDelegate will receive live stream events
 extension AppDelegate: FireworkLiveStreamEventDelegate {
-    func fireworkLiveStreamDidStartPlaying(_ liveStream: LiveStreamEventDetails) {
-        // App developer code
-        debugPrint(">>> Live stream did start playing")
-    }
-
     func fireworkLiveStreamUserDidJoin(_ liveStream: LiveStreamEventDetails) {
         // App developer code
         debugPrint(">>> Live stream user did join")

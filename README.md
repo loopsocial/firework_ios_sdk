@@ -33,13 +33,6 @@ In your Xcode project, select File > Swift Packages > Add Package Dependency and
 
 Select Version > Up to Next Major > 1.9.0.
 
-The package exposes two products:
-
-- `FireworkVideo` links the default dynamic XCFramework.
-- `FireworkVideoStatic` links the static XCFramework. Do not add both products to the same app target.
-
-For static SPM integration, add `-ObjC` to your app target's **Build Settings > Other Linker Flags**.
-
 #### Supporting Libraries
 The SDK has many supporting libraries that can be easily added to your project. Here is a list of currently supported libraries.
 
@@ -51,12 +44,6 @@ The SDK has many supporting libraries that can be easily added to your project. 
 ### Importing Using Cocoapods
 
 In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install`.
-
-For the static XCFramework distribution, use `pod 'FireworkVideo-Static'` instead. Do not include both `FireworkVideo` and `FireworkVideo-Static` in the same target.
-
-`FireworkVideo-Static` uses the same Swift module name as the dynamic pod, so app code still imports `FireworkVideo`. CocoaPods automatically copies SDK resources for the static pod.
-
-For static CocoaPods integration, set your app target's **Build Settings > Build Options > User Script Sandboxing** to **No**. CocoaPods' generated resource-copy script writes an intermediate file under `Pods`, so the static pod may fail to build when User Script Sandboxing is enabled in the main app target.
 
 #### Supporting Libraries
 The SDK has many supporting libraries that can be easily added to your project.
@@ -75,17 +62,6 @@ The SDK has many supporting libraries that can be easily added to your project.
 * Drag the unzipped `FireworkVideo.xcframework` into the Xcode project navigator and drop it at root of your project. Make sure `Copy items if needed` checkbox is selected in the confirmation dialog. Check to make sure your project directory now has `FireworkVideo.xcframework` in it and it is visible and linked in your Xcode project navigator.
 
 * In your apps Project pane select your app Target > Build Phases, click the + button, and add a Copy Files step. Select `Frameworks` as the destination and click the + within the Copy Files step and select FireworkVideo.xcframework. Your Copy Files step should look like below. 
-
-For the static XCFramework, download **two** artifacts from the same release:
-
-1. `FireworkVideo-static-v<version>.xcframework.zip` — the static framework. Unzip and drag `FireworkVideo.xcframework` into Xcode the same way as the dynamic version.
-2. `FireworkVideo-static-bundles-v<version>.zip` — the pre-assembled resource container. Unzip to get `FireworkVideoResources.bundle`.
-
-   Drag `FireworkVideoResources.bundle` into your app target's **Build Phases > Copy Bundle Resources**.
-
-For manual static integration, add `-ObjC` to your app target's **Build Settings > Other Linker Flags**.
-
-Do not add the dynamic and static XCFrameworks to the same target.
 
 ![Copy Files Step](https://github.com/loopsocial/firework_ios_sdk/blob/main/Resources/manual_installation_copy_files_step.png?raw=true)
 

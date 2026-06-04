@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,7 +42,6 @@
 		8432FD35273E22F5000A0125 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FD34273E22F5000A0125 /* CartViewController.swift */; };
 		845EC4BA297733C30028F1B3 /* PictureInPictureExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EC4B9297733C30028F1B3 /* PictureInPictureExampleViewController.swift */; };
 		84E478AB2622C888007CC9AE /* ShareVideoExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E478AA2622C888007CC9AE /* ShareVideoExamplesViewController.swift */; };
-		898E54ED2FD016E100AFE597 /* SwiftUIWidgetsExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E54EC2FD016E100AFE597 /* SwiftUIWidgetsExampleViewController.swift */; };
 		C9ED838C286E00180033072B /* StoryBlockExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED838B286E00180033072B /* StoryBlockExampleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +95,6 @@
 		8432FD34273E22F5000A0125 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		845EC4B9297733C30028F1B3 /* PictureInPictureExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureInPictureExampleViewController.swift; sourceTree = "<group>"; };
 		84E478AA2622C888007CC9AE /* ShareVideoExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareVideoExamplesViewController.swift; sourceTree = "<group>"; };
-		898E54EC2FD016E100AFE597 /* SwiftUIWidgetsExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWidgetsExampleViewController.swift; sourceTree = "<group>"; };
 		C9ED838B286E00180033072B /* StoryBlockExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBlockExampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,7 +160,6 @@
 				7B1A7B9725DB305E0097079C /* VideoFeedChannelSourceViewController.swift */,
 				7BA940C525B979D900CF58D5 /* StoryboardVideoFeedViewController.swift */,
 				C9ED838B286E00180033072B /* StoryBlockExampleViewController.swift */,
-				898E54EC2FD016E100AFE597 /* SwiftUIWidgetsExampleViewController.swift */,
 				845EC4B9297733C30028F1B3 /* PictureInPictureExampleViewController.swift */,
 				7B8BD69E25BD85C400BFFFB5 /* ColorPickers.swift */,
 				7B8BD6A025BD973900BFFFB5 /* Helpers.swift */,
@@ -376,7 +373,6 @@
 				7B1A7B9625DB2E640097079C /* VideoPlaybackLogger.swift in Sources */,
 				7B052ACB2613EA0700B96C2F /* DiscoverVideoFeedViewController.swift in Sources */,
 				C9ED838C286E00180033072B /* StoryBlockExampleViewController.swift in Sources */,
-				898E54ED2FD016E100AFE597 /* SwiftUIWidgetsExampleViewController.swift in Sources */,
 				7B8BD6A125BD973900BFFFB5 /* Helpers.swift in Sources */,
 				7BA940C625B979D900CF58D5 /* StoryboardVideoFeedViewController.swift in Sources */,
 				7B8BD69F25BD85C400BFFFB5 /* ColorPickers.swift in Sources */,
@@ -567,7 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z24TE4EN73;
 				INFOPLIST_FILE = FireworkVideoSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,7 +584,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z24TE4EN73;
 				INFOPLIST_FILE = FireworkVideoSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
