@@ -54,7 +54,10 @@ class VideoFeedExamplesViewController: UITableViewController {
         else if selectedIndexPath.section == 0 && selectedIndexPath.row == 10 {
             return PictureInPictureExampleViewController()
         }
-        
+        else if selectedIndexPath.section == 0 && selectedIndexPath.row == 11 {
+            return SwiftUIWidgetsExampleViewController()
+        }
+
         return nil
     }
 }

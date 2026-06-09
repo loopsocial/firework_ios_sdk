@@ -1,4 +1,60 @@
 
+## [1.43.7]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.6]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.5]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.4]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.3]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.2]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.1]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.0]
+
+### Added
+
+- Support chat during replay
+
+### Changed
+
+- Improvements and enhancements
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.42.13]
 
 ### Fixed
