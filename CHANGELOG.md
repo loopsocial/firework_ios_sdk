@@ -1,4 +1,18 @@
 
+## [1.44.0]
+
+### Added
+
+- Support in-feed ads in StoryBlock and Player Deck.
+- Add grid and single-column layouts for Player Deck.
+- Add `VideoFetchConfiguration.maxVideos` to cap feed video loading.
+- Add `useSafeAreaViewport` support for Player Deck autosizing.
+- Add loading indicator support to the fullscreen video player.
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.43.7]
 
 ### Fixed
