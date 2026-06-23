@@ -1,0 +1,53 @@
+/* Empty products preview */
+"No products set up" = "Nenhum produto configurado para esta transmissão ao vivo";
+
+/* Product sold out swipe label */
+"Sold Out" = "Esgotado";
+
+/* Product in stock swipe label */
+"In Stock" = "Em Estoque";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d items fixados";
+
+/* Percentage Selected */
+"Percentage Selected" = "%d/%d selecionado";
+
+/* Pin */
+"Pin" = "Fixar";
+
+/* Pin More */
+"Pin More" = "Fixar Mais";
+
+/* Cancel */
+"Cancel" = "Cancelar";
+
+/* Clear Pin */
+"Clear Pin" = "Remover Pin";
+
+/* Product table view title */
+"Product" = "Produto (%d)";
+
+/* Poll active */
+"Poll active" = "Enquete Ativa";
+
+/* Questionnaire active */
+"Questionnaire active" = "Questionário ativo";
+
+/* to translate */
+"Interaction active" = "Interação ativa";
+
+/* to translate */
+"Pinning a product will end the current interaction" = "Fixar um produto terminará a interação atual";
+
+/* to translate */
+"Pin product" = "Fixar produto";
+
+/* Add more products title label */
+"Add more products" = "Adicione mais produtos";
+
+/* Giveaway active */
+"Giveaway active" = "Sorteio ativo";
+
+/* Unknown active */
+"Unknown active" = "Ativo desconhecido";

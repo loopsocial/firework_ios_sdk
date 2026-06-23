@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Geen producten ingesteld voor deze livestream";
+
+"Sold Out" = "Uitverkocht";
+"In Stock" = "Op voorraad";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d vastgezette items";
+"Percentage Selected" = "%d/%d geselecteerd";
+"Pin" = "Vastzetten";
+"Pin More" = "Meer vastzetten";
+"Cancel" = "Annuleren";
+"Clear Pin" = "Pin verwijderen";
+
+/* Product table view title */
+"Product" = "Product (%d)";
+"Poll active" = "Peiling actief";
+"Questionnaire active" = "Vragenlijst actief";
+"Interaction active" = "Interactie actief"; // to translate
+"Pinning a product will end the current interaction" = "Een product vastzetten beëindigt de huidige interactie"; // to translate
+"Pin product" = "Product vastzetten"; // to translate
+"Add more products" = "Meer producten toevoegen";
+"Giveaway active" = "Weggeefactie actief";
+"Unknown active" = "Onbekend actief";

@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Chưa thiết lập sản phẩm nào cho buổi phát trực tiếp này";
+
+"Sold Out" = "Đã bán hết";
+"In Stock" = "Còn hàng";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d mục đã ghim";
+"Percentage Selected" = "Đã chọn %d/%d";
+"Pin" = "Ghim";
+"Pin More" = "Ghim thêm";
+"Cancel" = "Hủy";
+"Clear Pin" = "Bỏ ghim";
+
+/* Product table view title */
+"Product" = "Sản phẩm (%d)";
+"Poll active" = "Khảo sát đang hoạt động";
+"Questionnaire active" = "Bảng câu hỏi đang hoạt động";
+"Interaction active" = "Tương tác đang hoạt động"; // to translate
+"Pinning a product will end the current interaction" = "Ghim một sản phẩm sẽ kết thúc tương tác hiện tại"; // to translate
+"Pin product" = "Ghim sản phẩm"; // to translate
+"Add more products" = "Thêm sản phẩm";
+"Giveaway active" = "Tặng quà đang diễn ra";
+"Unknown active" = "Không xác định đang hoạt động";

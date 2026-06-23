@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Gửi";
+
+/* Host message input placeholder */
+"Say Something..." = "Nhập nội dung...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " và ";
+
+"Guest" = "Khách";
+
+"Chat" = "Trò chuyện";
+
+"Private" = "Riêng tư";
+
+"use_code" = "Sử dụng mã %@";
+
+"discount_off_product_name" = "Giảm %1$@ cho %2$@";

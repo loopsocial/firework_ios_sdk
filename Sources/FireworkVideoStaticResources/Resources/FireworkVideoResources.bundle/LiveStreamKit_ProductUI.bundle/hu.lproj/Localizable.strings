@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Nincsenek termékek beállítva ehhez az élő közvetítéshez";
+
+"Sold Out" = "Eladva";
+"In Stock" = "Raktáron";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d rögzített elem";
+"Percentage Selected" = "%d/%d kiválasztva";
+"Pin" = "Rögzítés";
+"Pin More" = "Több rögzítése";
+"Cancel" = "Mégse";
+"Clear Pin" = "Rögzítés törlése";
+
+/* Product table view title */
+"Product" = "Termék (%d)";
+"Poll active" = "Szavazás aktív";
+"Questionnaire active" = "Kérdőív aktív";
+"Interaction active" = "Interakció aktív"; // to translate
+"Pinning a product will end the current interaction" = "Egy termék rögzítése befejezi az aktuális interakciót"; // to translate
+"Pin product" = "Termék rögzítése"; // to translate
+"Add more products" = "További termékek hozzáadása";
+"Giveaway active" = "Nyereményjáték aktív";
+"Unknown active" = "Ismeretlen aktív";

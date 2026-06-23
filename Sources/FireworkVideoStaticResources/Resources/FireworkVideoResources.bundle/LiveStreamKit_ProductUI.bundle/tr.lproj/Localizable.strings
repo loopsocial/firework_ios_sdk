@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Bu canlı yayın için ürün ayarlanmadı";
+
+"Sold Out" = "Tükendi";
+"In Stock" = "Stokta";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d sabitlenmiş öğe";
+"Percentage Selected" = "%d/%d seçildi";
+"Pin" = "Sabitle";
+"Pin More" = "Daha fazla sabitle";
+"Cancel" = "İptal";
+"Clear Pin" = "Sabitlemeyi kaldır";
+
+/* Product table view title */
+"Product" = "Ürün (%d)";
+"Poll active" = "Anket etkin";
+"Questionnaire active" = "Soru formu etkin";
+"Interaction active" = "Etkileşim etkin"; // to translate
+"Pinning a product will end the current interaction" = "Bir ürünü sabitlemek mevcut etkileşimi sonlandırır"; // to translate
+"Pin product" = "Ürünü sabitle"; // to translate
+"Add more products" = "Daha fazla ürün ekle";
+"Giveaway active" = "Çekiliş etkin";
+"Unknown active" = "Bilinmeyen etkin";

@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "ไม่มีสินค้าที่ตั้งค่าไว้สำหรับไลฟ์สตรีมนี้";
+
+"Sold Out" = "ขายหมด";
+"In Stock" = "มีสินค้า";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d รายการที่ปักหมุด";
+"Percentage Selected" = "เลือกแล้ว %d/%d";
+"Pin" = "ปักหมุด";
+"Pin More" = "ปักหมุดเพิ่ม";
+"Cancel" = "ยกเลิก";
+"Clear Pin" = "ล้างการปักหมุด";
+
+/* Product table view title */
+"Product" = "สินค้า (%d)";
+"Poll active" = "โพลกำลังดำเนินอยู่";
+"Questionnaire active" = "แบบสอบถามกำลังดำเนินอยู่";
+"Interaction active" = "การโต้ตอบกำลังดำเนินอยู่"; // to translate
+"Pinning a product will end the current interaction" = "การปักหมุดสินค้าจะสิ้นสุดการโต้ตอบปัจจุบัน"; // to translate
+"Pin product" = "ปักหมุดสินค้า"; // to translate
+"Add more products" = "เพิ่มสินค้าเพิ่มเติม";
+"Giveaway active" = "การแจกของรางวัลกำลังดำเนินอยู่";
+"Unknown active" = "ไม่ทราบกำลังดำเนินอยู่";

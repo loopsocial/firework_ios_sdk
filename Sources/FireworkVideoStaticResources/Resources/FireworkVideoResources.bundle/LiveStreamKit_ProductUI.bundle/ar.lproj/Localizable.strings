@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "لا توجد منتجات معدّة لهذا البث المباشر";
+
+"Sold Out" = "نفذ";
+"In Stock" = "متوفر";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d عناصر مثبتة";
+"Percentage Selected" = "%d/%d محدد";
+"Pin" = "تثبيت";
+"Pin More" = "تثبيت المزيد";
+"Cancel" = "إلغاء";
+"Clear Pin" = "إزالة التثبيت";
+
+/* Product table view title */
+"Product" = "المنتج (%d)";
+"Poll active" = "الاستطلاع نشط";
+"Questionnaire active" = "الاستبيان نشط";
+"Interaction active" = "التفاعل نشط"; // to translate
+"Pinning a product will end the current interaction" = "تثبيت منتج سينهي التفاعل الحالي"; // to translate
+"Pin product" = "تثبيت المنتج"; // to translate
+"Add more products" = "إضافة المزيد من المنتجات";
+"Giveaway active" = "السحب نشط";
+"Unknown active" = "نشاط غير معروف";

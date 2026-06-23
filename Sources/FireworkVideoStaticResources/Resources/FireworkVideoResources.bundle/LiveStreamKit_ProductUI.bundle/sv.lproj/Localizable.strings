@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Inga produkter har konfigurerats för den här livesändningen";
+
+"Sold Out" = "Slutsåld";
+"In Stock" = "I lager";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d fästa objekt";
+"Percentage Selected" = "%d/%d valda";
+"Pin" = "Fäst";
+"Pin More" = "Fäst fler";
+"Cancel" = "Avbryt";
+"Clear Pin" = "Ta bort fästning";
+
+/* Product table view title */
+"Product" = "Produkt (%d)";
+"Poll active" = "Omröstning aktiv";
+"Questionnaire active" = "Frågeformulär aktivt";
+"Interaction active" = "Interaktion aktiv"; // to translate
+"Pinning a product will end the current interaction" = "Att fästa en produkt avslutar den aktuella interaktionen"; // to translate
+"Pin product" = "Fäst produkt"; // to translate
+"Add more products" = "Lägg till fler produkter";
+"Giveaway active" = "Utlottning aktiv";
+"Unknown active" = "Okänd aktiv";

@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Для этой трансляции не настроены товары";
+
+"Sold Out" = "Продано";
+"In Stock" = "В наличии";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d закреплённых элементов";
+"Percentage Selected" = "%d/%d выбрано";
+"Pin" = "Закрепить";
+"Pin More" = "Закрепить ещё";
+"Cancel" = "Отменить";
+"Clear Pin" = "Открепить";
+
+/* Product table view title */
+"Product" = "Товар (%d)";
+"Poll active" = "Опрос активен";
+"Questionnaire active" = "Анкета активна";
+"Interaction active" = "Взаимодействие активно"; // to translate
+"Pinning a product will end the current interaction" = "Закрепление товара завершит текущее взаимодействие"; // to translate
+"Pin product" = "Закрепить товар"; // to translate
+"Add more products" = "Добавить больше товаров";
+"Giveaway active" = "Розыгрыш активен";
+"Unknown active" = "Неизвестное активно";

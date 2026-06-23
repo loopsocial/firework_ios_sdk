@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Brak produktów skonfigurowanych dla tej transmisji na żywo";
+
+"Sold Out" = "Wyprzedane";
+"In Stock" = "Dostępny";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d przypiętych elementów";
+"Percentage Selected" = "%d/%d wybranych";
+"Pin" = "Przypnij";
+"Pin More" = "Przypnij więcej";
+"Cancel" = "Anuluj";
+"Clear Pin" = "Usuń przypięcie";
+
+/* Product table view title */
+"Product" = "Produkt (%d)";
+"Poll active" = "Ankieta aktywna";
+"Questionnaire active" = "Kwestionariusz aktywny";
+"Interaction active" = "Interakcja aktywna"; // to translate
+"Pinning a product will end the current interaction" = "Przypięcie produktu zakończy bieżącą interakcję"; // to translate
+"Pin product" = "Przypnij produkt"; // to translate
+"Add more products" = "Dodaj więcej produktów";
+"Giveaway active" = "Rozdanie aktywne";
+"Unknown active" = "Nieznany aktywny";

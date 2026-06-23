@@ -1,0 +1,24 @@
+/* Empty products preview */
+"No products set up" = "Tidak ada produk yang disiapkan untuk livestream ini";
+
+"Sold Out" = "Habis Terjual";
+"In Stock" = "Tersedia";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d item tersemat";
+"Percentage Selected" = "%d/%d dipilih";
+"Pin" = "Sematkan";
+"Pin More" = "Sematkan lainnya";
+"Cancel" = "Batal";
+"Clear Pin" = "Hapus sematan";
+
+/* Product table view title */
+"Product" = "Produk (%d)";
+"Poll active" = "Polling aktif";
+"Questionnaire active" = "Kuesioner aktif";
+"Interaction active" = "Interaksi aktif"; // to translate
+"Pinning a product will end the current interaction" = "Menyematkan produk akan mengakhiri interaksi saat ini"; // to translate
+"Pin product" = "Sematkan produk"; // to translate
+"Add more products" = "Tambahkan produk lainnya";
+"Giveaway active" = "Giveaway aktif";
+"Unknown active" = "Tidak diketahui aktif";

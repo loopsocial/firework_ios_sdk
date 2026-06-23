@@ -1,0 +1,53 @@
+/* Empty products preview */
+"No products set up" = "此直播尚未設置任何產品";
+
+/* Product sold out swipe label */
+"Sold Out" = "完售";
+
+/* Product in stock swipe label */
+"In Stock" = "有現貨";
+
+/* Products selection drawer tool tip */
+"Percentage Pinned items" = "%d/%d 置頂項目";
+
+/* Percentage Selected */
+"Percentage Selected" = "%d/%d 已選";
+
+/* Pin */
+"Pin" = "置頂";
+
+/* Pin More */
+"Pin More" = "更多";
+
+/* Cancel */
+"Cancel" = "取消";
+
+/* Clear Pin */
+"Clear Pin" = "清除置頂";
+
+/* Product table view title */
+"Product" = "產品 (%d)";
+
+/* Poll active */
+"Poll active" = "投票進行中";
+
+/* Questionnaire active */
+"Questionnaire active" = "問卷調查進行中";
+
+/* to translate */
+"Interaction active" = "開始互動";
+
+/* to translate */
+"Pinning a product will end the current interaction" = "置頂產品將會終止目前的互動";
+
+/* to translate */
+"Pin product" = "置頂產品";
+
+/* Add more products title label */
+"Add more products" = "新增更多商品";
+
+/* Giveaway active */
+"Giveaway active" = "抽獎進行中";
+
+/* Unknown active */
+"Unknown active" = "未知的活動";
