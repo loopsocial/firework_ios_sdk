@@ -1,22 +1,23 @@
 name: Dispatch Deploy CocoaPod Trunk
 
-run-name: Dispatch Deploy CocoaPod Trunk from ${{ inputs.target }}
+run-name: Dispatch Deploy CocoaPod Trunk from ${{ inputs.ref_type }}
 
 on:
   workflow_dispatch:
     inputs:
-      target:
-        description: Ref to run Deploy CocoaPod Trunk from.
+      ref_type:
+        description: Ref type to run Deploy CocoaPod Trunk from.
         required: true
-        default: main
+        default: branch
         type: choice
         options:
-          - main
+          - branch
           - latest_tag
-          - custom_ref
-      custom_ref:
-        description: Branch or tag name. Required only when target is custom_ref.
+          - tag
+      ref_name:
+        description: Branch or tag name. Defaults to main for branch, ignored for latest_tag.
         required: false
+        default: main
         type: string
 
 permissions:
@@ -32,31 +33,37 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          CUSTOM_REF: ${{ inputs.custom_ref }}
-          TARGET: ${{ inputs.target }}
+          REF_NAME: ${{ inputs.ref_name }}
+          REF_TYPE: ${{ inputs.ref_type }}
         run: |
           set -euo pipefail
 
-          case "$TARGET" in
-            main)
-              target_ref="main"
+          case "$REF_TYPE" in
+            branch)
+              target_ref="${REF_NAME:-main}"
+              if [[ -z "${target_ref// }" ]]; then
+                echo "ref_name is required when ref_type is branch."
+                exit 1
+              fi
+              gh api "repos/$GH_REPO/git/ref/heads/$target_ref" > /dev/null
               ;;
             latest_tag)
-              target_ref="$(gh api "repos/$GH_REPO/tags" --jq '.[0].name')"
+              target_ref="$(gh api "repos/$GH_REPO/tags?per_page=1" --jq '.[0].name')"
               if [[ -z "${target_ref// }" ]]; then
                 echo "No tags found."
                 exit 1
               fi
               ;;
-            custom_ref)
-              if [[ -z "${CUSTOM_REF// }" ]]; then
-                echo "custom_ref is required when target is custom_ref."
+            tag)
+              target_ref="$REF_NAME"
+              if [[ -z "${target_ref// }" ]]; then
+                echo "ref_name is required when ref_type is tag."
                 exit 1
               fi
-              target_ref="$CUSTOM_REF"
+              gh api "repos/$GH_REPO/git/ref/tags/$target_ref" > /dev/null
               ;;
             *)
-              echo "Unsupported target: $TARGET"
+              echo "Unsupported ref_type: $REF_TYPE"
               exit 1
               ;;
           esac
