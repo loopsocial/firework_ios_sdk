@@ -1,21 +1,12 @@
 name: Dispatch Deploy CocoaPod Trunk
 
-run-name: Dispatch Deploy CocoaPod Trunk from ${{ inputs.source }}
+run-name: Dispatch Deploy CocoaPod Trunk
 
 on:
   workflow_dispatch:
     inputs:
-      source:
-        description: Source to run Deploy CocoaPod Trunk from.
-        required: true
-        default: main
-        type: choice
-        options:
-          - main
-          - latest_tag
-          - tag
       tag_name:
-        description: Tag name. Required only when source is tag.
+        description: Optional tag to run Deploy CocoaPod Trunk from. Leave empty to use the latest repository tag.
         required: false
         type: string
 
@@ -32,36 +23,21 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          SOURCE: ${{ inputs.source }}
           TAG_NAME: ${{ inputs.tag_name }}
         run: |
           set -euo pipefail
 
-          case "$SOURCE" in
-            main)
-              target_ref="main"
-              gh api "repos/$GH_REPO/git/ref/heads/main" > /dev/null
-              ;;
-            latest_tag)
-              target_ref="$(gh api "repos/$GH_REPO/tags?per_page=1" --jq '.[0].name')"
-              if [[ -z "${target_ref// }" ]]; then
-                echo "No tags found."
-                exit 1
-              fi
-              ;;
-            tag)
-              target_ref="$TAG_NAME"
-              if [[ -z "${target_ref// }" ]]; then
-                echo "tag_name is required when source is tag."
-                exit 1
-              fi
-              gh api "repos/$GH_REPO/git/ref/tags/$target_ref" > /dev/null
-              ;;
-            *)
-              echo "Unsupported source: $SOURCE"
-              exit 1
-              ;;
-          esac
+          target_ref="$TAG_NAME"
+          if [[ -z "${target_ref// }" ]]; then
+            target_ref="$(gh api "repos/$GH_REPO/tags?per_page=1" --jq '.[0].name')"
+          fi
+
+          if [[ -z "${target_ref// }" ]]; then
+            echo "No tag was provided and no tags were found."
+            exit 1
+          fi
+
+          gh api "repos/$GH_REPO/git/ref/tags/$target_ref" > /dev/null
 
           echo "Dispatching Deploy CocoaPod Trunk from ref: $target_ref"
           gh workflow run deploy_cocoapod_trunk.yml --repo "$GH_REPO" --ref "$target_ref"
