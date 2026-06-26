@@ -1,0 +1,65 @@
+name: Dispatch Deploy CocoaPod Trunk
+
+run-name: Dispatch Deploy CocoaPod Trunk from ${{ inputs.target }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Ref to run Deploy CocoaPod Trunk from.
+        required: true
+        default: main
+        type: choice
+        options:
+          - main
+          - latest_tag
+          - custom_ref
+      custom_ref:
+        description: Branch or tag name. Required only when target is custom_ref.
+        required: false
+        type: string
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Trigger Deploy CocoaPod Trunk
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CUSTOM_REF: ${{ inputs.custom_ref }}
+          TARGET: ${{ inputs.target }}
+        run: |
+          set -euo pipefail
+
+          case "$TARGET" in
+            main)
+              target_ref="main"
+              ;;
+            latest_tag)
+              target_ref="$(gh api "repos/$GH_REPO/tags" --jq '.[0].name')"
+              if [[ -z "${target_ref// }" ]]; then
+                echo "No tags found."
+                exit 1
+              fi
+              ;;
+            custom_ref)
+              if [[ -z "${CUSTOM_REF// }" ]]; then
+                echo "custom_ref is required when target is custom_ref."
+                exit 1
+              fi
+              target_ref="$CUSTOM_REF"
+              ;;
+            *)
+              echo "Unsupported target: $TARGET"
+              exit 1
+              ;;
+          esac
+
+          echo "Dispatching Deploy CocoaPod Trunk from ref: $target_ref"
+          gh workflow run deploy_cocoapod_trunk.yml --repo "$GH_REPO" --ref "$target_ref"
