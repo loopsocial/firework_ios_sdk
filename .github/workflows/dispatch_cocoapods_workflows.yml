@@ -39,5 +39,5 @@ jobs:
 
           gh api "repos/$GH_REPO/git/ref/tags/$target_ref" > /dev/null
 
-          echo "Dispatching Deploy CocoaPod Trunk from ref: $target_ref"
-          gh workflow run deploy_cocoapod_trunk.yml --repo "$GH_REPO" --ref "$target_ref"
+          echo "Dispatching Deploy CocoaPod Trunk from main with release_ref: $target_ref"
+          gh workflow run deploy_cocoapod_trunk.yml --repo "$GH_REPO" --ref main -f "release_ref=$target_ref"

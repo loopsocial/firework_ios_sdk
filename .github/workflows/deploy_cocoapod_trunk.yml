@@ -2,6 +2,11 @@ name: Deploy CocoaPod Trunk
 
 on:
   workflow_dispatch:
+    inputs:
+      release_ref:
+        description: Optional branch or tag to publish. Defaults to the workflow ref.
+        required: false
+        type: string
   push:
     tags:
       - "*"
@@ -11,6 +16,8 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.release_ref || github.ref }}
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
