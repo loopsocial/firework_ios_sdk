@@ -1,6 +1,6 @@
-name: Dispatch Deploy CocoaPod Trunk
+name: Manual Deploy CocoaPod Trunk
 
-run-name: Dispatch Deploy CocoaPod Trunk
+run-name: Manual Deploy CocoaPod Trunk
 
 on:
   workflow_dispatch:
