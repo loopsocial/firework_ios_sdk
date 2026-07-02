@@ -132,6 +132,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // ... // 
 }
 ```
+
+#### Get and Observe App ID, Guest ID, and PiP Status
+
+Use these APIs to retrieve current SDK identity/PiP values and listen for updates:
+
+`guestID` returns an empty string until `initializeSDK()` has been called.
+
+```swift
+import FireworkVideo
+
+let appID = FireworkVideoSDK.appID
+let guestID = FireworkVideoSDK.guestID
+let isPiPShown = FireworkVideoSDK.isPiPShown
+
+let appIDToken = FireworkVideoSDK.addAppIDListener { updatedAppID in
+    print("App ID changed: \(updatedAppID)")
+}
+
+let guestIDToken = FireworkVideoSDK.addGuestIDListener { updatedGuestID in
+    print("Guest ID changed: \(updatedGuestID)")
+}
+
+let pipToken = FireworkVideoSDK.addPiPStatusListener { isPiPShown in
+    print("PiP status changed: \(isPiPShown)")
+}
+
+// Remove listeners when no longer needed.
+FireworkVideoSDK.removeAppIDListener(appIDToken)
+FireworkVideoSDK.removeGuestIDListener(guestIDToken)
+FireworkVideoSDK.removePiPStatusListener(pipToken)
+```
+
 #### Displaying the Video Feed 
 
 Displaying a video feed can be done by using a `VideoFeedViewController` either programmatically or in a storyboard. 
