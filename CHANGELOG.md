@@ -1,4 +1,10 @@
 
+## [1.44.6]
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.44.5]
 
 ### Fixed
