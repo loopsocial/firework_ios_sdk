@@ -69,11 +69,27 @@ class CartViewController: UIViewController, CartViewRepresentable {
             performSegue(withIdentifier: "checkoutSegue", sender: self)
         }
 
+        // Shopping V2 purchase tracking: report the order built from the cart contents.
+        let products = shopping.cartItems.map { item in
+            PurchaseProduct(
+                sku: item.productID,
+                price: item.price.amount.doubleValue,
+                quantity: item.quantity,
+                productName: item.name
+            )
+        }
+        let subtotal = products.reduce(0) { $0 + $1.price * Double($1.quantity) }
+        let totalDiscounts = Double.random(in: 0 ... 5)
+        let shippingPrice = Double.random(in: 1 ... 20)
         FireworkVideoSDK.trackPurchase(
             orderID: UUID().uuidString,
-            value: Double.random(in: 1 ... 100),
-            currencyCode: Locale.current.currencyCode,
+            value: subtotal - totalDiscounts + shippingPrice,
+            currencyCode: shopping.cartItems.first?.price.currencyCode ?? Locale.current.currencyCode,
             countryCode: Locale.current.regionCode,
+            shippingPrice: shippingPrice,
+            subtotal: subtotal,
+            totalDiscounts: totalDiscounts,
+            products: products,
             [
                 "additionalKey1": "additionalValue1",
                 "additionalKey2": "additionalValue2",
