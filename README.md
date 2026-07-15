@@ -670,21 +670,20 @@ Purchase fields:
 | Parameter | Sent as | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `orderID` | `order_id` | String | yes | A unique identifier for the order. |
-| `value` | `order_value` | Double | yes | Final amount paid, including taxes, shipping, and discounts. |
+| `orderValue` | `order_value` | Decimal | yes | Final amount paid, including taxes, shipping, and discounts. |
 | `currencyCode` | `currency` | String | yes | ISO 4217 currency code. |
-| `subtotal` | `subtotal` | Double | yes | Items cost before discounts, taxes, and shipping. |
-| `totalDiscounts` | `total_discounts` | Double | no | Total discounts applied to the order. |
+| `subtotal` | `subtotal` | Decimal | yes | Items cost before discounts, taxes, and shipping. |
+| `totalDiscounts` | `total_discounts` | Decimal | no | Total discounts applied to the order. |
 | `countryCode` | `country` | String | no | Country code of the purchase. |
-| `shippingPrice` | `shipping_price` | Double | no | Shipping price of the order. |
-| `products` | `line_items` | [PurchaseProduct] | yes | The purchased items, sent as the Shopping V2 `line_items` payload. |
+| `shippingPrice` | `shipping_price` | Decimal | no | Shipping price of the order. |
+| `lineItems` | `line_items` | [LineItem] | yes | The purchased items, sent as the Shopping V2 `line_items` payload. |
 
-`PurchaseProduct` fields:
+`LineItem` fields:
 
 | Parameter | Sent as | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
-| `sku` | `sku` | String | yes | The ID that can be linked back to the product or product unit (SKU/barcode/GTIN/MPN/`product_unit.external_id`/`product.external_id`). Replaces the deprecated `extProductID`. |
-| `extProductID` | `sku` | String | deprecated | Legacy identifier; used as the item `sku` only when `sku` is not set. |
-| `price` | `price` | Double | yes | Unit price, including line-level discounts. |
+| `sku` | `sku` | String | yes | The ID that can be linked back to the product or product unit (SKU/barcode/GTIN/MPN/`product_unit.external_id`/`product.external_id`). |
+| `price` | `price` | Decimal | yes | Unit price, including line-level discounts. |
 | `quantity` | `quantity` | Int | yes | Quantity purchased. |
 | `productName` | `product_name` | String | no | Product variant or unit name. |
 
@@ -692,12 +691,12 @@ Purchase fields:
 // Call from your order confirmation / purchase complete screen
 FireworkVideoSDK.trackPurchase(
     orderID: "123456789",
-    value: 50.00, // sent as order_value
+    orderValue: 50.00,
     currencyCode: "USD",
     subtotal: 40.00,
     totalDiscounts: 5.00,
-    products: [
-        PurchaseProduct(
+    lineItems: [
+        LineItem(
             sku: "TSHIRT-RED-M",
             price: 15.00,
             quantity: 2,
@@ -706,6 +705,10 @@ FireworkVideoSDK.trackPurchase(
     ]
 )
 ```
+
+Build fractional `Decimal` amounts from exact sources (e.g. `Decimal(string: "19.99")`) rather than converting `Double` values, so binary floating-point artifacts don't leak into the reported amounts.
+
+The previous `trackPurchase(orderID:value:currencyCode:countryCode:shippingPrice:subtotal:products:_:)` API taking `[PurchaseProduct]` is deprecated; migrate to the overload above.
 
 ### Force Refresh
 
