@@ -1,4 +1,10 @@
 
+## [1.44.8]
+
+### Fixed
+
+- Bug fix and improvements.
+
 ## [1.44.7]
 
 ### Fixed

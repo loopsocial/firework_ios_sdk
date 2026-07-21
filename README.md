@@ -661,54 +661,22 @@ If no provider is set the actions above will be replaced with these actions; res
 The `CartViewController` has a `drawerController: DrawerControllerRepresentable` property which provides a func to close the cart view container.
 
 #### Purchase tracking
-The host app can record a purchase which will help get a full picture of the user journey flow. In order to do this, call `FireworkVideoSDK.trackPurchase` from your order confirmation (purchase complete) screen whenever a purchase happens. The SDK sends a `user:purchase` analytics event to Firework.
-
-Please send **all** the purchase events happening in your app, without any client-side filtering, so Firework can identify attributed vs non-attributed purchases and calculate GMV/AOV lift.
-
-Purchase fields:
-
-| Parameter | Sent as | Type | Required | Notes |
-| --- | --- | --- | --- | --- |
-| `orderID` | `order_id` | String | yes | A unique identifier for the order. |
-| `orderValue` | `order_value` | Decimal | yes | Final amount paid, including taxes, shipping, and discounts. |
-| `currencyCode` | `currency` | String | yes | ISO 4217 currency code. |
-| `subtotal` | `subtotal` | Decimal | yes | Items cost before discounts, taxes, and shipping. |
-| `totalDiscounts` | `total_discounts` | Decimal | no | Total discounts applied to the order. |
-| `countryCode` | `country` | String | no | Country code of the purchase. |
-| `shippingPrice` | `shipping_price` | Decimal | no | Shipping price of the order. |
-| `lineItems` | `line_items` | [LineItem] | yes | The purchased items, sent as the Shopping V2 `line_items` payload. |
-
-`LineItem` fields:
-
-| Parameter | Sent as | Type | Required | Notes |
-| --- | --- | --- | --- | --- |
-| `sku` | `sku` | String | yes | The ID that can be linked back to the product or product unit (SKU/barcode/GTIN/MPN/`product_unit.external_id`/`product.external_id`). |
-| `price` | `price` | Decimal | yes | Unit price, including line-level discounts. |
-| `quantity` | `quantity` | Int | yes | Quantity purchased. |
-| `productName` | `product_name` | String | no | Product variant or unit name. |
+The host app can record a purchase which will help get a full picture of the user journey flow.In order to do this, call `FireworkVideoSDK.trackPurchase` whenever the purchase happens.
 
 ```
-// Call from your order confirmation / purchase complete screen
+let totalPurchaseValue: Double = // The total value of the purchase
 FireworkVideoSDK.trackPurchase(
-    orderID: "123456789",
-    orderValue: 50.00,
-    currencyCode: "USD",
-    subtotal: 40.00,
-    totalDiscounts: 5.00,
-    lineItems: [
-        LineItem(
-            sku: "TSHIRT-RED-M",
-            price: 15.00,
-            quantity: 2,
-            productName: "Red T-shirt (M)"
+            orderID: "<Order ID of User Purchase>",
+            value: totalPurchaseValue,
+            currencyCode: Locale.current.currencyCode,
+            countryCode: Locale.current.regionCode,
+            [
+                "additionalKey1": "additionalValue1",
+                "additionalKey2": "additionalValue2",
+                "additionalKey3": "additionalValue3"
+            ]
         )
-    ]
-)
 ```
-
-Build fractional `Decimal` amounts from exact sources (e.g. `Decimal(string: "19.99")`) rather than converting `Double` values, so binary floating-point artifacts don't leak into the reported amounts.
-
-The previous `trackPurchase(orderID:value:currencyCode:countryCode:shippingPrice:subtotal:products:_:)` API taking `[PurchaseProduct]` is deprecated; migrate to the overload above.
 
 ### Force Refresh
 
