@@ -1,4 +1,30 @@
 
+## [1.45.0]
+
+### Added
+
+- Shopping V2 purchase tracking: a new `FireworkVideoSDK.trackPurchase(orderID:orderValue:currencyCode:countryCode:shippingPrice:subtotal:totalDiscounts:lineItems:_:)` overload with `Decimal` money amounts and a new `LineItem` type (`sku`, `price`, `quantity`, `productName`); purchased items are reported as `line_items` for GMV attribution parity with Web.
+- Host-scroll-container and manual viewport support for Video Feed, Circle Story, Player Deck, and StoryBlock.
+
+### Changed
+
+- The `user:purchase` event reports the order value under `order_value` (previously `value`) and the purchased items under `line_items` (previously `product`), matching the Web integration.
+- Purchase amounts are serialized in their shortest decimal representation (e.g. `5.28` instead of `5.2800000000000002`).
+- In-app language overrides now also apply to LiveStream Kit content.
+- Updated the Firework attribution displayed in the video detail player.
+
+### Deprecated
+
+- `FireworkVideoSDK.trackPurchase(orderID:value:currencyCode:countryCode:shippingPrice:subtotal:products:_:)` in favor of the new overload above. It still reports the Shopping V2 payload (`order_value` / `line_items`, with `PurchaseProduct.extProductID` sent as the line item `sku`).
+
+### Fixed
+
+- Autoplay now pauses and resumes correctly when embedded content leaves the viewport or is covered by another screen.
+- StoryBlock controls remain responsive in SwiftUI scrolling containers.
+- The V1 live-stream chat input remains visible above the keyboard.
+- Live-stream replays no longer report invalid watch time.
+- Player Deck control icons scale correctly.
+
 ## [1.44.9]
 
 ### Fixed
