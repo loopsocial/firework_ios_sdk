@@ -49,5 +49,8 @@
 /* Giveaway active */
 "Giveaway active" = "抽獎進行中";
 
+/* Image overlay active */
+"Image overlay active" = "圖片疊加層顯示中";
+
 /* Unknown active */
 "Unknown active" = "未知的活動";

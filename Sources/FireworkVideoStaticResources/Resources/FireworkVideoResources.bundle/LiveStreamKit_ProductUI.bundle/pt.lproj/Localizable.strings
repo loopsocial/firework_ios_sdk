@@ -49,5 +49,8 @@
 /* Giveaway active */
 "Giveaway active" = "Sorteio ativo";
 
+/* Image overlay active */
+"Image overlay active" = "Sobreposição de imagem ativa";
+
 /* Unknown active */
 "Unknown active" = "Ativo desconhecido";
