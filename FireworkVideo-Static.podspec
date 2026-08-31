@@ -1,17 +1,21 @@
 Pod::Spec.new do |spec|
-  spec.name                     = "FireworkVideo"
+  spec.name                     = "FireworkVideo-Static"
   spec.version                  = "1.46.0"
-  spec.summary                  = "FireworkVideoSDK"
+  spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
   spec.author                   = "Loop Now Technologies, Inc."
   spec.platform                 = :ios, "13.0"
   spec.swift_versions           = '5.3'
   spec.module_name              = "FireworkVideo"
-  spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-v#{spec.version}.xcframework.zip" }
+  spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
   spec.preserve_paths           = "FireworkVideo.xcframework"
   spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
+  spec.resources                = "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/FireworkVideoResources.bundle"
   spec.frameworks               = "AVFoundation"
+  spec.user_target_xcconfig     = {
+    "OTHER_LDFLAGS" => "$(inherited) -ObjC",
+  }
   spec.cocoapods_version        = '>= 1.10.0'
   spec.default_subspec          = :none
 
@@ -43,7 +47,7 @@ Pod::Spec.new do |spec|
       ',
       :output_files => ['${DERIVED_FILE_DIR}/out_file1.txt']
     },
-    { 
+    {
       :name => 'Check FireworkVideoAgoraSupport version',
       :script => '
       LIBRARY_NAME="FireworkVideoAgoraSupport"

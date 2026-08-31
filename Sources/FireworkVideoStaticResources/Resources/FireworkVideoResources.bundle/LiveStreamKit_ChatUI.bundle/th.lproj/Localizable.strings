@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "โพสต์";
+
+/* Host message input placeholder */
+"Say Something..." = "เขียนข้อความ...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " และ ";
+
+"Guest" = "ผู้เยี่ยมชม";
+
+"Chat" = "แชท";
+
+"Private" = "ส่วนตัว";
+
+"use_code" = "ใช้รหัส %@";
+
+"discount_off_product_name" = "ลด %1$@ สำหรับ %2$@";

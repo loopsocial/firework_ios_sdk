@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "نشر";
+
+/* Host message input placeholder */
+"Say Something..." = "اكتب شيئًا...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = "، ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " و ";
+
+"Guest" = "ضيف";
+
+"Chat" = "الدردشة";
+
+"Private" = "خاص";
+
+"use_code" = "استخدم الرمز %@";
+
+"discount_off_product_name" = "%1$@ خصم على %2$@";

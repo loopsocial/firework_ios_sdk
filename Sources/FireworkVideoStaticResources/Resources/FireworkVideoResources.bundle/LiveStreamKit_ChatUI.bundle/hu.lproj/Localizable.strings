@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Elküldés";
+
+/* Host message input placeholder */
+"Say Something..." = "Írj valamit...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " és ";
+
+"Guest" = "Vendég";
+
+"Chat" = "Csevegés";
+
+"Private" = "Privát";
+
+"use_code" = "Használd a(z) %@ kódot";
+
+"discount_off_product_name" = "%1$@ kedvezmény erre: %2$@";

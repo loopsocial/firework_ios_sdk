@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Skicka";
+
+/* Host message input placeholder */
+"Say Something..." = "Skriv något...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " och ";
+
+"Guest" = "Gäst";
+
+"Chat" = "Chatt";
+
+"Private" = "Privat";
+
+"use_code" = "Använd koden %@";
+
+"discount_off_product_name" = "%1$@ rabatt på %2$@";
