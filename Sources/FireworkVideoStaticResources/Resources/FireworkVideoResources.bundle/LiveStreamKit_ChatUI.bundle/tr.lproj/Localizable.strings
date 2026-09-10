@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Gönder";
+
+/* Host message input placeholder */
+"Say Something..." = "Bir şey yaz...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " ve ";
+
+"Guest" = "Misafir";
+
+"Chat" = "Sohbet";
+
+"Private" = "Özel";
+
+"use_code" = "%@ kodunu kullan";
+
+"discount_off_product_name" = "%2$@ için %1$@ indirim";

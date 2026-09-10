@@ -1,0 +1,94 @@
+/* (No Comment) */
+"Audience answers here" = "觀眾回覆結果";
+
+/* (No Comment) */
+"End interaction" = "結束互動";
+
+/* (No Comment) */
+"Interactions" = "互動";
+
+/* (No Comment) */
+"Launch" = "開始";
+
+/* (No Comment) */
+"No new interactions left" = "沒有新互動";
+
+/* (No Comment) */
+"Pin the question for everyone to answer" = "置頂問題讓觀眾回答";
+
+/* (No Comment) */
+"poll" = "投票";
+
+/* (No Comment) */
+"Previous" = "稍早";
+
+/* (No Comment) */
+"question" = "發問";
+
+/* (No Comment) */
+"responses" = "回覆";
+
+/* (No Comment) */
+"Result" = "結果";
+
+/* (No Comment) */
+"Stop the voting and display results to everyone" = "停止投票，顯示結果給所有觀眾。";
+
+/* (No Comment) */
+"View your question results in business portal under assistant mode" = "在助手模式下觀看你的問題回覆結果。";
+
+/* (No Comment) */
+"vote" = "投票";
+
+/* (No Comment) */
+"vote total" = "總投票數";
+
+/* (No Comment) */
+"votes" = "投票";
+
+/* (No Comment) */
+"votes total" = "總投票數";
+
+/* (No Comment) */
+"Number of Winners: %@" = "獲獎人數: %@";
+
+"giveaway" = "抽獎";
+
+/* (No Comment) */
+"Draw Winners" = "抽取得獎者";
+
+/* (No Comment) */
+"Collected Entries: %@" = "已收集的參加次數: %@";
+
+/* (No Comment) */
+"Stop the voting and display \n results to everyone" = "結束投票並向所有人顯示\n結果";
+
+/* (No Comment) */
+"giveaway_single_winner_title" = "這是我們的獲獎者！";
+
+/* (No Comment) */
+"giveaway_single_winner_subtitle" = "恭喜獲獎者。\n您將很快收到一封電子郵件！";
+
+/* (No Comment) */
+"giveaway_multi_winners_title" = "這是我們的獲獎者！";
+
+/* (No Comment) */
+"giveaway_multi_winners_subtitle" = "恭喜所有獲獎者。\n您將很快收到一封電子郵件！";
+
+/* (No Comment) */
+"trivia_giveaway" = "問答抽獎";
+
+/* (No Comment) */
+"Reveal Answer" = "揭曉答案";
+
+/* (No Comment) */
+"correct_out_of_total_votes" = "%d 個正確 / %d 票";
+
+/* (No Comment) */
+"votes_percentage" = "%d 票 / %d%%";
+
+/* (No Comment) */
+"votes_count" = "%d 票";
+
+/* (No Comment) */
+"correct_answer_num_of_total" = "第 %d 個正確答案（共 %d 個）";
