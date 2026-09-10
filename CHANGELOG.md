@@ -1,4 +1,22 @@
 
+## Include Changes in Next Release Here
+
+### Added
+
+- Thumbnail play icons in Video Feed, Circle Story, and Player Deck can now be customized through `itemView.playIcon.display`, including the image, tint color for system-defined symbol images, and size.
+
+### Changed
+
+- The default thumbnail play icon now matches Web with a white play symbol on a gray circular backdrop, improving contrast and visual parity across Video Feed, Circle Story, and Player Deck.
+
+### Deprecated
+
+- `VideoFeedItemContentConfiguration.PlayIconConfiguration.iconWidth` in favor of `display.size`. When `display.size` is `nil`, the icon continues to use `iconWidth` for both its width and height.
+
+### Fixed
+
+- Live stream and video ad shopping analytics now report `_business_store_id` as the base62 encoded store id instead of the raw numeric id, so commerce events are no longer rejected by the pixel service. `Product.businessStore.id` now carries that encoded id for products delivered over REST or the live stream WebSocket; products from the GraphQL feed are unchanged.
+
 ## [1.46.0]
 
 ### Added
