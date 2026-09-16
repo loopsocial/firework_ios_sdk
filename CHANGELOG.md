@@ -1,4 +1,10 @@
 
+## [1.46.2]
+
+### Fixed
+
+- Product hydration requests now report each external product ID only once when multiple selected product units expand the same product, while hydration updates continue to apply to every unit-specific product entry.
+
 ## [1.46.1]
 
 ### Added
