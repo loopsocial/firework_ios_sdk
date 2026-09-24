@@ -1,4 +1,15 @@
 
+## [1.47.0]
+
+### Added
+
+- Added playback-speed and 10-second skip controls for livestream replays and longer videos.
+
+### Changed
+
+- Improved the "Remind Me" experience for livestream trailers by opening a prefilled system calendar event on supported devices.
+- Streamlined analytics reporting by removing redundant app lifecycle, session, and mute-state events.
+
 ## [1.46.3]
 
 ### Fixed
