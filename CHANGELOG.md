@@ -7,7 +7,7 @@
 
 ### Changed
 
-- Improved the "Remind Me" experience for livestream trailers by opening a prefilled system calendar event on supported devices.
+- Improved the "Remind Me" experience for livestream trailers, making it easier for viewers to add events to their calendar.
 - Streamlined analytics reporting by removing redundant app lifecycle, session, and mute-state events.
 
 ## [1.46.3]
