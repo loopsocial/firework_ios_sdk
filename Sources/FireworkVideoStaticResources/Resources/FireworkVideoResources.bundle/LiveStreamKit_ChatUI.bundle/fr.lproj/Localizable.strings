@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Publier";
+
+/* Host message input placeholder */
+"Say Something..." = "Écrivez quelque chose...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " et ";
+
+"Guest" = "Invité";
+
+"Chat" = "Discussion";
+
+"Private" = "Privé";
+
+"use_code" = "Utilisez le code %@";
+
+"discount_off_product_name" = "%1$@ de réduction sur %2$@";

@@ -1,0 +1,95 @@
+/* (No Comment) */
+"Audience answers here" = "視聴者の回答";
+
+/* (No Comment) */
+"End interaction" = "インタラクション終了";
+
+/* (No Comment) */
+"Interactions" = "インタラクション";
+
+/* (No Comment) */
+"Launch" = "開始";
+
+/* (No Comment) */
+"No new interactions left" = "新規のインタラクションはありません。";
+
+/* (No Comment) */
+"Pin the question for everyone to answer" = "質問を視聴者へ表示する";
+
+/* (No Comment) */
+"poll" = "投票";
+
+/* (No Comment) */
+"Previous" = "これまでのインタラクション";
+
+/* (No Comment) */
+"question" = "質問";
+
+/* (No Comment) */
+"responses" = "回答";
+
+/* (No Comment) */
+"Result" = "結果";
+
+/* (No Comment) */
+"Stop the voting and display results to everyone" = "投票終了して結果を表示";
+
+/* (No Comment) */
+"View your question results in business portal under assistant mode" = "アシスタントモードで質問の回答を見る";
+
+/* (No Comment) */
+"vote" = "投票";
+
+/* (No Comment) */
+"vote total" = "投票数";
+
+/* (No Comment) */
+"votes" = "投票";
+
+/* (No Comment) */
+"votes total" = "投票数";
+
+/* (No Comment) */
+"Number of Winners: %@" = "当選者数: %@";
+
+/* (No Comment) */
+"giveaway" = "プレゼント";
+
+/* (No Comment) */
+"Draw Winners" = "当選者を抽選する";
+
+/* (No Comment) */
+"Collected Entries: %@" = "応募総数: %@";
+
+/* (No Comment) */
+"Stop the voting and display \n results to everyone" = "投票を終了し、\n結果を全員に表示する";
+
+/* (No Comment) */
+"giveaway_single_winner_title" = "当選者はこちらです！";
+
+/* (No Comment) */
+"giveaway_single_winner_subtitle" = "当選者おめでとうございます。\nまもなくメールが送信されます！";
+
+/* (No Comment) */
+"giveaway_multi_winners_title" = "当選者はこちらです！";
+
+/* (No Comment) */
+"giveaway_multi_winners_subtitle" = "当選者の皆様おめでとうございます。\nまもなくメールが送信されます！";
+
+/* (No Comment) */
+"trivia_giveaway" = "トリビアプレゼント";
+
+/* (No Comment) */
+"Reveal Answer" = "答えを表示";
+
+/* (No Comment) */
+"correct_out_of_total_votes" = "%d 件正解 / %d 件の投票";
+
+/* (No Comment) */
+"votes_percentage" = "%d 件の投票 / %d%%";
+
+/* (No Comment) */
+"votes_count" = "%d 件の投票";
+
+/* (No Comment) */
+"correct_answer_num_of_total" = "正解数 %d / %d";

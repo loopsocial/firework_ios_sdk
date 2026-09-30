@@ -1,0 +1,95 @@
+/* (No Comment) */
+"Audience answers here" = "Respostas do público aqui";
+
+/* (No Comment) */
+"End interaction" = "Finalizar interação";
+
+/* (No Comment) */
+"Interactions" = "Interações";
+
+/* (No Comment) */
+"Launch" = "Lançar";
+
+/* (No Comment) */
+"No new interactions left" = "Não há novas interações";
+
+/* (No Comment) */
+"Pin the question for everyone to answer" = "Fixe a pergunta para que todos possam responder";
+
+/* (No Comment) */
+"poll" = "Enquete";
+
+/* (No Comment) */
+"Previous" = "Anterior";
+
+/* (No Comment) */
+"question" = "Pergunta";
+
+/* (No Comment) */
+"responses" = "Respostas";
+
+/* (No Comment) */
+"Result" = "Resultado";
+
+/* (No Comment) */
+"Stop the voting and display results to everyone" = "Pare a votação e exiba os resultados para todos";
+
+/* (No Comment) */
+"View your question results in business portal under assistant mode" = "Veja os resultados da sua pergunta no portal de negócios no modo assistente";
+
+/* (No Comment) */
+"vote" = "Votar";
+
+/* (No Comment) */
+"vote total" = "Total de votos";
+
+/* (No Comment) */
+"votes" = "Votos";
+
+/* (No Comment) */
+"votes total" = "Total de votos";
+
+/* (No Comment) */
+"Number of Winners: %@" = "Número de vencedores: %@";
+
+/* (No Comment) */
+"giveaway" = "Sorteio";
+
+/* (No Comment) */
+"Draw Winners" = "Sortear Vencedores";
+
+/* (No Comment) */
+"Collected Entries: %@" = "Entradas Coletadas: %@";
+
+/* (No Comment) */
+"Stop the voting and display \n results to everyone" = "Encerrar a votação e exibir \nos resultados para todos";
+
+/* (No Comment) */
+"giveaway_single_winner_title" = "Aqui está nosso vencedor!";
+
+/* (No Comment) */
+"giveaway_single_winner_subtitle" = "Parabéns ao vencedor.\nVocê receberá um e-mail em breve!";
+
+/* (No Comment) */
+"giveaway_multi_winners_title" = "Aqui estão nossos vencedores!";
+
+/* (No Comment) */
+"giveaway_multi_winners_subtitle" = "Parabéns aos vencedores.\nVocês receberão um e-mail em breve!";
+
+/* (No Comment) */
+"trivia_giveaway" = "Sorteio Trivia";
+
+/* (No Comment) */
+"Reveal Answer" = "Revelar Resposta";
+
+/* (No Comment) */
+"correct_out_of_total_votes" = "%d correto de %d votos";
+
+/* (No Comment) */
+"votes_percentage" = "%d votos / %d%%";
+
+/* (No Comment) */
+"votes_count" = "%d votos";
+
+/* (No Comment) */
+"correct_answer_num_of_total" = "Respostas corretas %d de %d";

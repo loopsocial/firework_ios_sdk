@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Kirim";
+
+/* Host message input placeholder */
+"Say Something..." = "Tulis sesuatu...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " dan ";
+
+"Guest" = "Tamu";
+
+"Chat" = "Obrolan";
+
+"Private" = "Pribadi";
+
+"use_code" = "Gunakan kode %@";
+
+"discount_off_product_name" = "Diskon %1$@ untuk %2$@";
