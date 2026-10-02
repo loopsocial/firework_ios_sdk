@@ -1,4 +1,14 @@
 
+## [1.47.2]
+
+### Added
+
+- Added `PlayerDeckItemContentConfiguration.cardConfiguration` and `borderColor` so hosts can theme the Player Deck bottom panel (product card, CTA, "Tap to watch", one-tap Add to Cart button, the expanded product list, and the product list expand / collapse button) for light and dark mode. Dynamic colors follow the system appearance automatically.
+
+### Changed
+
+- Updated the chevron icons of the Player Deck product list expand / collapse button.
+
 ## [1.47.1]
 
 ### Changed
