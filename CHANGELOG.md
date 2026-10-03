@@ -1,4 +1,10 @@
 
+## [1.47.3]
+
+### Changed
+
+- Renamed `PlayerDeckCardConfiguration.productListButton` to `productListToggleButton`, and `PlayerDeckProductListButtonConfiguration` to `PlayerDeckProductListToggleButtonConfiguration`, to match the Android SDK. The old names are removed.
+
 ## [1.47.2]
 
 ### Added
