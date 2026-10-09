@@ -1,37 +1,4 @@
 
-## [1.47.3]
-
-### Changed
-
-- Renamed `PlayerDeckCardConfiguration.productListButton` to `productListToggleButton`, and `PlayerDeckProductListButtonConfiguration` to `PlayerDeckProductListToggleButtonConfiguration`, to match the Android SDK. The old names are removed.
-
-## [1.47.2]
-
-### Added
-
-- Added `PlayerDeckItemContentConfiguration.cardConfiguration` and `borderColor` so hosts can theme the Player Deck bottom panel (product card, CTA, "Tap to watch", one-tap Add to Cart button, the expanded product list, and the product list expand / collapse button) for light and dark mode. Dynamic colors follow the system appearance automatically.
-
-### Changed
-
-- Updated the chevron icons of the Player Deck product list expand / collapse button.
-
-## [1.47.1]
-
-### Changed
-
-- Hiding the video detail button (`videoDetailButton.isHidden`) now also hides the custom channel logo shown in its place in the short video and livestream players.
-
-## [1.47.0]
-
-### Added
-
-- Added playback-speed and 10-second skip controls for livestream replays and longer videos.
-
-### Changed
-
-- Improved the "Remind Me" experience for livestream trailers, making it easier for viewers to add events to their calendar.
-- Streamlined analytics reporting by removing redundant app lifecycle, session, and mute-state events.
-
 ## [1.46.3]
 
 ### Fixed
