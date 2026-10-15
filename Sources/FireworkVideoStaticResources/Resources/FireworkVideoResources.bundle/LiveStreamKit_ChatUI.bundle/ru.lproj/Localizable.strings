@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Отправить";
+
+/* Host message input placeholder */
+"Say Something..." = "Напишите что-нибудь...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " и ";
+
+"Guest" = "Гость";
+
+"Chat" = "Чат";
+
+"Private" = "Один на один";
+
+"use_code" = "Используйте код %@";
+
+"discount_off_product_name" = "Скидка %1$@ на %2$@";

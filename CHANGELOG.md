@@ -1,4 +1,44 @@
 
+## [1.47.4]
+
+### Fixed
+
+- Tapping a product card in Player Deck now reports the `commerce:click_product_card` analytics event, including when the host app handles navigation through `fireworkShopping(_:didTapProductVariant:forVideo:)`.
+- Tapping a sold out product card in Player Deck now also calls `fireworkShopping(_:didTapProductVariant:forVideo:)`, so the host app can handle it. If the host app does not handle it, no product detail is shown, as before.
+
+## [1.47.3]
+
+### Changed
+
+- Renamed `PlayerDeckCardConfiguration.productListButton` to `productListToggleButton`, and `PlayerDeckProductListButtonConfiguration` to `PlayerDeckProductListToggleButtonConfiguration`, to match the Android SDK. The old names are removed.
+
+## [1.47.2]
+
+### Added
+
+- Added `PlayerDeckItemContentConfiguration.cardConfiguration` and `borderColor` so hosts can theme the Player Deck bottom panel (product card, CTA, "Tap to watch", one-tap Add to Cart button, the expanded product list, and the product list expand / collapse button) for light and dark mode. Dynamic colors follow the system appearance automatically.
+
+### Changed
+
+- Updated the chevron icons of the Player Deck product list expand / collapse button.
+
+## [1.47.1]
+
+### Changed
+
+- Hiding the video detail button (`videoDetailButton.isHidden`) now also hides the custom channel logo shown in its place in the short video and livestream players.
+
+## [1.47.0]
+
+### Added
+
+- Added playback-speed and 10-second skip controls for livestream replays and longer videos.
+
+### Changed
+
+- Improved the "Remind Me" experience for livestream trailers, making it easier for viewers to add events to their calendar.
+- Streamlined analytics reporting by removing redundant app lifecycle, session, and mute-state events.
+
 ## [1.46.3]
 
 ### Fixed
