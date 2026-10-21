@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.47.4"
+  spec.version                  = "1.43.8"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
       :name => 'Check FireworkVideoIVSSupport version',
       :script => '
       LIBRARY_NAME="FireworkVideoIVSSupport"
-      BASE_VERSION="0.9.9"
+      BASE_VERSION="0.9.7"
 
       INFO_PLIST_PATH="${PODS_ROOT}/"$LIBRARY_NAME"/"$LIBRARY_NAME".xcframework/ios-arm64/"$LIBRARY_NAME".framework/Info.plist"
       if [ ! -e "$INFO_PLIST_PATH" ]; then
