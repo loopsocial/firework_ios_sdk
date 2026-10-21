@@ -1,10 +1,212 @@
 
-## [1.43.8]
+## [1.47.5]
 
 ### Fixed
 
-- Improved video feed scrolling performance: thumbnail images are now decoded and downsampled off the main thread.
-- Reduced main-thread work when video feed cells are reused.
+- Live stream analytics now report how long the viewer has actually watched as `seconds_watched`. Previously the player's position in the stream was reported, which made live watch time much higher than the actual time watched, especially for viewers who joined after the stream started.
+
+## [1.47.4]
+
+### Fixed
+
+- Tapping a product card in Player Deck now reports the `commerce:click_product_card` analytics event, including when the host app handles navigation through `fireworkShopping(_:didTapProductVariant:forVideo:)`.
+- Tapping a sold out product card in Player Deck now also calls `fireworkShopping(_:didTapProductVariant:forVideo:)`, so the host app can handle it. If the host app does not handle it, no product detail is shown, as before.
+
+## [1.47.3]
+
+### Changed
+
+- Renamed `PlayerDeckCardConfiguration.productListButton` to `productListToggleButton`, and `PlayerDeckProductListButtonConfiguration` to `PlayerDeckProductListToggleButtonConfiguration`, to match the Android SDK. The old names are removed.
+
+## [1.47.2]
+
+### Added
+
+- Added `PlayerDeckItemContentConfiguration.cardConfiguration` and `borderColor` so hosts can theme the Player Deck bottom panel (product card, CTA, "Tap to watch", one-tap Add to Cart button, the expanded product list, and the product list expand / collapse button) for light and dark mode. Dynamic colors follow the system appearance automatically.
+
+### Changed
+
+- Updated the chevron icons of the Player Deck product list expand / collapse button.
+
+## [1.47.1]
+
+### Changed
+
+- Hiding the video detail button (`videoDetailButton.isHidden`) now also hides the custom channel logo shown in its place in the short video and livestream players.
+
+## [1.47.0]
+
+### Added
+
+- Added playback-speed and 10-second skip controls for livestream replays and longer videos.
+
+### Changed
+
+- Improved the "Remind Me" experience for livestream trailers, making it easier for viewers to add events to their calendar.
+- Streamlined analytics reporting by removing redundant app lifecycle, session, and mute-state events.
+
+## [1.46.3]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.46.2]
+
+### Fixed
+
+- Product hydration requests now report each external product ID only once when multiple selected product units expand the same product, while hydration updates continue to apply to every unit-specific product entry.
+
+## [1.46.1]
+
+### Added
+
+- Thumbnail play icons in Video Feed, Circle Story, and Player Deck can now be customized through `itemView.playIcon.display`, including the image, tint color for system-defined symbol images, and size.
+
+### Changed
+
+- The default thumbnail play icon now matches Web with a white play symbol on a gray circular backdrop, improving contrast and visual parity across Video Feed, Circle Story, and Player Deck.
+
+### Deprecated
+
+- `VideoFeedItemContentConfiguration.PlayIconConfiguration.iconWidth` in favor of `display.size`. When `display.size` is `nil`, the icon continues to use `iconWidth` for both its width and height.
+
+### Fixed
+
+- Live stream and video ad shopping analytics now report `_business_store_id` as the base62 encoded store id instead of the raw numeric id, so commerce events are no longer rejected by the pixel service. `Product.businessStore.id` now carries that encoded id for products delivered over REST or the live stream WebSocket; products from the GraphQL feed are unchanged.
+
+## [1.46.0]
+
+### Added
+
+- Live shopping product cards now support `selected_product_unit_id`, allowing each card and its in-stream product detail view to represent a specific product unit.
+- Product subtitles are now supported through `Product.productSubtitle` and `ProductCardDetails.productSubtitle` and are displayed on shopping product cards and in-stream product detail views.
+- Player Deck product cards now support host-managed one-tap Add to Cart through `FireworkVideoShopping.playerDeckAddToCartDelegate` and `PlayerDeckItemContentConfiguration.addToCartButton`. The button is hidden by default; unhide it and assign the delegate before creating the Player Deck.
+
+### Changed
+
+- `useSafeAreaViewport` now defaults to `true` for all widgets, matching the Web player: autoplay visibility is measured against what is actually on screen — the screen minus the safe area, clipped by your own layout — instead of the widget's own bounds. Widgets scrolled off-screen now pause and resume on return, content under the status bar, a navigation bar or the home indicator no longer counts as visible, and a Story Block plays once at least half visible instead of at the first drawn pixel. Set `useSafeAreaViewport = false` to restore the previous behavior. Hosts using `managesAppearanceManually` are unaffected.
+- The autoplay `triggerVisibilityPercentage` for Video Feed, Circle Story and Player Deck now defaults to `50` (previously `100`): the most visible item plays once at least half visible, instead of requiring a fully visible item. Set it back to `100` to restore the previous behavior.
+- The autoplay viewport is now derived automatically from your view hierarchy, UIKit or SwiftUI: a widget scrolled out of your scroll container, covered by your own UI, or under a hidden or transparent ancestor reads as not visible — no host configuration needed.
+- `PlayerDeckItemContentConfiguration.FirstDisplayMuteState` now spells its muted state `.muted` instead of `.default`. Behavior is unchanged.
+
+### Deprecated
+
+- `PlayerDeckItemContentConfiguration.FirstDisplayMuteState.default` in favor of `.muted`. It still resolves to the same muted state, so `onFirstDisplayMuteState = .default` keeps working with a deprecation warning. It is now a static property rather than an enum case, so it can no longer be used as a `switch` or `if case` pattern — match on `.muted` there.
+
+### Fixed
+
+- Autosizing is now fixed at construction: `autosizingEnabled` and the layout's kind are latched, and assigning a layout of the other kind to `FWSVideoFeedView` / `PlayerDeckView` is refused instead of half-applied. The SwiftUI wrappers latch on first render; give the view a new `.id()` to switch.
+- Circle Story keeps its fixed height under autosizing and scrolls internally instead of expanding to its content.
+- Autosized widgets no longer mis-report their height during scrolling, and autosized grids no longer scroll inside their own already-expanded height.
+- Re-styling a layout instance in place — changing column count, spacing or insets on the object you already handed the SDK — now takes effect.
+- An unmuted Player Deck no longer comes back muted after closing an in-app picture-in-picture window opened from its fullscreen player: the deck's mute state is captured when the unmuted PiP takes over the audio and restored when the PiP is dismissed. Changing the mute state via a card's mute button while the PiP floats still takes precedence.
+
+## [1.45.2]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.45.1]
+
+### Fixed
+
+- Widget wrapper views (`FWSVideoFeedView`, `FWSStoryBlockView`, `CircleStoryView`, `PlayerDeckView`) now detach and release their embedded view controller when an ancestor container view is removed from the hierarchy, preventing a memory leak in long-lived host view controllers.
+
+## [1.45.0]
+
+### Added
+
+- Shopping V2 purchase tracking: a new `FireworkVideoSDK.trackPurchase(orderID:orderValue:currencyCode:countryCode:shippingPrice:subtotal:totalDiscounts:lineItems:_:)` overload with `Decimal` money amounts and a new `LineItem` type (`sku`, `price`, `quantity`, `productName`); purchased items are reported as `line_items` for GMV attribution parity with Web.
+- Host-scroll-container and manual viewport support for Video Feed, Circle Story, Player Deck, and StoryBlock.
+
+### Changed
+
+- The `user:purchase` event reports the order value under `order_value` (previously `value`) and the purchased items under `line_items` (previously `product`), matching the Web integration.
+- Purchase amounts are serialized in their shortest decimal representation (e.g. `5.28` instead of `5.2800000000000002`).
+- In-app language overrides now also apply to LiveStream Kit content.
+- Updated the Firework attribution displayed in the video detail player.
+
+### Deprecated
+
+- `FireworkVideoSDK.trackPurchase(orderID:value:currencyCode:countryCode:shippingPrice:subtotal:products:_:)` in favor of the new overload above. It still reports the Shopping V2 payload (`order_value` / `line_items`, with `PurchaseProduct.extProductID` sent as the line item `sku`).
+
+### Fixed
+
+- Autoplay now pauses and resumes correctly when embedded content leaves the viewport or is covered by another screen.
+- StoryBlock controls remain responsive in SwiftUI scrolling containers.
+- The V1 live-stream chat input remains visible above the keyboard.
+- Live-stream replays no longer report invalid watch time.
+- Player Deck control icons scale correctly.
+
+## [1.44.9]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.8]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.7]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.6]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.5]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.4]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.3]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.2]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.1]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.44.0]
+
+### Added
+
+- Support in-feed ads in StoryBlock and Player Deck.
+- Add grid and single-column layouts for Player Deck.
+- Add `VideoFetchConfiguration.maxVideos` to cap feed video loading.
+- Add `useSafeAreaViewport` support for Player Deck autosizing.
+- Add loading indicator support to the fullscreen video player.
+
+### Fixed
+
+- Bug fix and improvements.
 
 ## [1.43.7]
 
