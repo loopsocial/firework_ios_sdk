@@ -1,4 +1,10 @@
 
+## [1.47.6]
+
+### Fixed
+
+- Live stream progress tracking pixels now follow how long the viewer has actually watched. Previously they followed the player's position in the stream, so a viewer who joined after the stream started sent every progress pixel up to that point as soon as playback began, and their `seconds_watched` was much higher than the actual time watched.
+
 ## [1.47.5]
 
 ### Fixed
