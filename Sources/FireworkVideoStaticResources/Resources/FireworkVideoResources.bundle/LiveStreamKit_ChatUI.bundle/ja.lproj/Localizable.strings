@@ -7,3 +7,13 @@
 "Chat" = "チャット";
 
 "Private" = "プライベート";
+
+", " = "、";
+
+" and " = "と";
+
+"Guest" = "ゲスト";
+
+"use_code" = "コード%@を使用してください";
+
+"discount_off_product_name" = "%2$@が%1$@オフ";

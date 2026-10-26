@@ -18,7 +18,7 @@ The app ID is used to authenticate your application with the server. Authenticat
 FireworkVideo is compatible with:
 
   - iOS 13+
-  - Xcode 14+
+  - Xcode 15+
   - Swift 5.3+
 
 ## How to add FireworkVideo to your Xcode project?
@@ -132,6 +132,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // ... // 
 }
 ```
+
+#### Get and Observe App ID, Guest ID, and PiP Status
+
+Use these APIs to retrieve current SDK identity/PiP values and listen for updates:
+
+`guestID` returns an empty string until `initializeSDK()` has been called.
+
+```swift
+import FireworkVideo
+
+let appID = FireworkVideoSDK.appID
+let guestID = FireworkVideoSDK.guestID
+let isPiPShown = FireworkVideoSDK.isPiPShown
+
+let appIDToken = FireworkVideoSDK.addAppIDListener { updatedAppID in
+    print("App ID changed: \(updatedAppID)")
+}
+
+let guestIDToken = FireworkVideoSDK.addGuestIDListener { updatedGuestID in
+    print("Guest ID changed: \(updatedGuestID)")
+}
+
+let pipToken = FireworkVideoSDK.addPiPStatusListener { isPiPShown in
+    print("PiP status changed: \(isPiPShown)")
+}
+
+// Remove listeners when no longer needed.
+FireworkVideoSDK.removeAppIDListener(appIDToken)
+FireworkVideoSDK.removeGuestIDListener(guestIDToken)
+FireworkVideoSDK.removePiPStatusListener(pipToken)
+```
+
 #### Displaying the Video Feed 
 
 Displaying a video feed can be done by using a `VideoFeedViewController` either programmatically or in a storyboard. 
@@ -629,22 +661,54 @@ If no provider is set the actions above will be replaced with these actions; res
 The `CartViewController` has a `drawerController: DrawerControllerRepresentable` property which provides a func to close the cart view container.
 
 #### Purchase tracking
-The host app can record a purchase which will help get a full picture of the user journey flow.In order to do this, call `FireworkVideoSDK.trackPurchase` whenever the purchase happens.
+The host app can record a purchase which will help get a full picture of the user journey flow. In order to do this, call `FireworkVideoSDK.trackPurchase` from your order confirmation (purchase complete) screen whenever a purchase happens. The SDK sends a `user:purchase` analytics event to Firework.
+
+Please send **all** the purchase events happening in your app, without any client-side filtering, so Firework can identify attributed vs non-attributed purchases and calculate GMV/AOV lift.
+
+Purchase fields:
+
+| Parameter | Sent as | Type | Required | Notes |
+| --- | --- | --- | --- | --- |
+| `orderID` | `order_id` | String | yes | A unique identifier for the order. |
+| `orderValue` | `order_value` | Decimal | yes | Final amount paid, including taxes, shipping, and discounts. |
+| `currencyCode` | `currency` | String | yes | ISO 4217 currency code. |
+| `subtotal` | `subtotal` | Decimal | yes | Items cost before discounts, taxes, and shipping. |
+| `totalDiscounts` | `total_discounts` | Decimal | no | Total discounts applied to the order. |
+| `countryCode` | `country` | String | no | Country code of the purchase. |
+| `shippingPrice` | `shipping_price` | Decimal | no | Shipping price of the order. |
+| `lineItems` | `line_items` | [LineItem] | yes | The purchased items, sent as the Shopping V2 `line_items` payload. |
+
+`LineItem` fields:
+
+| Parameter | Sent as | Type | Required | Notes |
+| --- | --- | --- | --- | --- |
+| `sku` | `sku` | String | yes | The ID that can be linked back to the product or product unit (SKU/barcode/GTIN/MPN/`product_unit.external_id`/`product.external_id`). |
+| `price` | `price` | Decimal | yes | Unit price, including line-level discounts. |
+| `quantity` | `quantity` | Int | yes | Quantity purchased. |
+| `productName` | `product_name` | String | no | Product variant or unit name. |
 
 ```
-let totalPurchaseValue: Double = // The total value of the purchase
+// Call from your order confirmation / purchase complete screen
 FireworkVideoSDK.trackPurchase(
-            orderID: "<Order ID of User Purchase>",
-            value: totalPurchaseValue,
-            currencyCode: Locale.current.currencyCode,
-            countryCode: Locale.current.regionCode,
-            [
-                "additionalKey1": "additionalValue1",
-                "additionalKey2": "additionalValue2",
-                "additionalKey3": "additionalValue3"
-            ]
+    orderID: "123456789",
+    orderValue: 50.00,
+    currencyCode: "USD",
+    subtotal: 40.00,
+    totalDiscounts: 5.00,
+    lineItems: [
+        LineItem(
+            sku: "TSHIRT-RED-M",
+            price: 15.00,
+            quantity: 2,
+            productName: "Red T-shirt (M)"
         )
+    ]
+)
 ```
+
+Build fractional `Decimal` amounts from exact sources (e.g. `Decimal(string: "19.99")`) rather than converting `Double` values, so binary floating-point artifacts don't leak into the reported amounts.
+
+The previous `trackPurchase(orderID:value:currencyCode:countryCode:shippingPrice:subtotal:products:_:)` API taking `[PurchaseProduct]` is deprecated; migrate to the overload above.
 
 ### Force Refresh
 

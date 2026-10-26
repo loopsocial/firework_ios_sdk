@@ -48,3 +48,6 @@
 
 /* Unknown active */
 "Unknown active" = "未知的活動";
+
+"Giveaway active" = "抽獎進行中";
+"Image overlay active" = "圖片疊加層顯示中";

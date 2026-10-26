@@ -15,3 +15,7 @@
 "Chat" = "Chat";
 
 "Private" = "Private";
+
+"use_code" = "Use Code %@";
+
+"discount_off_product_name" = "%1$@ off %2$@";
