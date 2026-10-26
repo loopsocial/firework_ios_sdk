@@ -7,13 +7,3 @@
 "Chat" = "Bate-papo";
 
 "Private" = "Privado";
-
-", " = ", ";
-
-" and " = " e ";
-
-"Guest" = "Convidado";
-
-"use_code" = "Use o código %@";
-
-"discount_off_product_name" = "%1$@ de desconto em %2$@";

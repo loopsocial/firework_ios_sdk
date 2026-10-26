@@ -17,14 +17,14 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "FireworkVideo",
-            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.48.0/"
-                + "FireworkVideo-v1.48.0.xcframework.zip",
-            checksum: "c49531b3b4c20ecf0fdca05866e0f1ae8ee608f5ed1c02a252c9ff3c37a0ba7f"),
+            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.43.10/"
+                + "FireworkVideo-v1.43.10.xcframework.zip",
+            checksum: "16bb22cbc6e1b759a19d10a284f67fea5fb4906e053da6e867d66da9d3343653"),
         .binaryTarget(
             name: "FireworkVideoStaticBinary",
-            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.48.0/"
-                + "FireworkVideo-static-v1.48.0.xcframework.zip",
-            checksum: "08c570e6e85bd36777272a2a6e1af123fda9bfd118775324d244b9951755c8c3"),
+            url: "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.43.10/"
+                + "FireworkVideo-static-v1.43.10.xcframework.zip",
+            checksum: "a1e8783bc8ebc415cda5799c3d62ead6b8261621c279edf925781d299e161191"),
         .target(
             name: "FireworkVideoStaticResources",
             dependencies: ["FireworkVideoStaticBinary"],
