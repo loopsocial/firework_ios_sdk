@@ -45,8 +45,6 @@ The SDK has many supporting libraries that can be easily added to your project. 
 
   - `FireworkMultiHostStreaming`
   - `FireworkLowLatencyStreaming`
-  - `FireworkGoogleIMA`
-  - `FireworkGoogleAdManager`
 
 ### Importing Using Cocoapods
 
@@ -63,8 +61,6 @@ The SDK has many supporting libraries that can be easily added to your project.
 
   - Multihost Streaming - Add `pod 'FireworkVideo/FireworkMultiHostStreaming`
   - Low Latency Streaming - Add `pod 'FireworkVideo/FireworkLowLatencyStreaming`
-  - Interactive Media Ads - Add `pod 'FireworkVideo/FireworkInteractiveMediaAds`
-  - Google Ad Manager - Add `pod 'FireworkVideo/FireworkGoogleAdManager`
 
 ### Importing FireworkVideo Framework Manually
 
@@ -721,10 +717,12 @@ The second set allows for starting and stopping of picture in picture of any "el
 
 ### Ad Support
 
-Popular 3rd party ad SDKs can be used alongside the FireworkVideoSDK to perform client side ad insertion within the Firework Video Player. These 3rd party SDKs require a supporting library in order to work. Please review the list below and checkout the repo for more detailed instructions.
+Ads are set up in the Firework ad settings and inserted by the SDK itself, without a supporting library. The SDK plays Firework ad insertion (FWAI) videos between videos in the player and at fixed positions in feeds.
 
-  - Google Ad Mob SDK - Requires [FireworkVideo GAM Supporting Library](https://github.com/loopsocial/firework_ios_sdk_gam_support) 
-  - Google IMA SDK - Requires [FireworkVideo Google IMA Supporting Library](https://github.com/loopsocial/firework_ios_sdk_google_ima_support)
+  - Use `AdConfiguration` to pass VAST attributes, and to set whether a feed waits for its ads and for how long.
+  - Use `AdBadgeConfiguration` to customize the ad badge.
+
+> Client side ad insertion through 3rd party ad SDKs (Google Ad Manager and Google IMA) is no longer supported, and the GAM and Google IMA supporting libraries are discontinued.
 
 ### Troubleshooting
 
