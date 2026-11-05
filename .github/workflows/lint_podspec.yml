@@ -20,14 +20,11 @@ jobs:
         run: gem install cocoapods
       - name: Lint Podspec
         env:
-          # For info on how to obtain a new token see
-          # https://medium.com/swlh/automated-cocoapod-releases-with-github-actions-8526dd4535c7
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+          POD_SOURCES: https://github.com/loopsocial/firework_ios_specs.git,https://cdn.cocoapods.org/
         run: |
-          pod trunk me
-          pod spec lint FireworkVideo.podspec --verbose
+          pod spec lint FireworkVideo.podspec --sources="$POD_SOURCES" --verbose
           if [ -f FireworkVideo-Static.podspec ]; then
-            pod spec lint FireworkVideo-Static.podspec --verbose
+            pod spec lint FireworkVideo-Static.podspec --sources="$POD_SOURCES" --verbose
           else
             echo "FireworkVideo-Static.podspec does not exist. Skipping."
           fi

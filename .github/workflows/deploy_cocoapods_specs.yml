@@ -1,0 +1,83 @@
+name: Deploy CocoaPods Specs
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_ref:
+        description: Optional branch or tag to publish. Defaults to the workflow ref.
+        required: false
+        type: string
+  push:
+    tags:
+      - "*"
+
+env:
+  # CocoaPods trunk became read-only on December 2, 2026. Specs are published to our own repository instead.
+  SPECS_REPO_NAME: firework_ios_specs
+  SPECS_REPO_URL: git@github.com:loopsocial/firework_ios_specs.git
+  POD_SOURCES: firework_ios_specs,https://cdn.cocoapods.org/
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.release_ref || github.ref }}
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "16.4"
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Install CocoaPods
+        run: gem install cocoapods
+      - name: Set up specs repository
+        env:
+          # Private key of the write-enabled deploy key on loopsocial/firework_ios_specs.
+          SPECS_REPO_DEPLOY_KEY: ${{ secrets.SPECS_REPO_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p ~/.ssh
+          echo "$SPECS_REPO_DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          pod repo add "$SPECS_REPO_NAME" "$SPECS_REPO_URL"
+      - name: Publish to specs repository
+        run: |
+          set -euo pipefail
+
+          specs_dir="$HOME/.cocoapods/repos/$SPECS_REPO_NAME"
+
+          publish_podspec() {
+            local podspec="$1"
+            local spec_json
+            local name
+            local version
+
+            if [ ! -f "$podspec" ]; then
+              echo "$podspec does not exist. Skipping."
+              return
+            fi
+
+            spec_json=$(pod ipc spec "$podspec")
+            name=$(echo "$spec_json" | ruby -rjson -e 'puts JSON.parse(STDIN.read)["name"]')
+            version=$(echo "$spec_json" | ruby -rjson -e 'puts JSON.parse(STDIN.read)["version"]')
+
+            if [ -d "$specs_dir/$name/$version" ]; then
+              echo "$name $version is already published. Skipping."
+              return
+            fi
+
+            pod repo push "$SPECS_REPO_NAME" "$podspec" --sources="$POD_SOURCES"
+          }
+
+          publish_podspec FireworkVideo.podspec
+          publish_podspec FireworkVideo-Static.podspec

@@ -1,12 +1,12 @@
-name: Manual Deploy CocoaPod Trunk
+name: Manual Deploy CocoaPods Specs
 
-run-name: Manual Deploy CocoaPod Trunk
+run-name: Manual Deploy CocoaPods Specs
 
 on:
   workflow_dispatch:
     inputs:
       tag_name:
-        description: Optional tag to run Deploy CocoaPod Trunk from. Leave empty to use the latest repository tag.
+        description: Optional tag to run Deploy CocoaPods Specs from. Leave empty to use the latest repository tag.
         required: false
         type: string
 
@@ -18,7 +18,7 @@ jobs:
   dispatch:
     runs-on: ubuntu-24.04
     steps:
-      - name: Trigger Deploy CocoaPod Trunk
+      - name: Trigger Deploy CocoaPods Specs
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,5 +39,5 @@ jobs:
 
           gh api "repos/$GH_REPO/git/ref/tags/$target_ref" > /dev/null
 
-          echo "Dispatching Deploy CocoaPod Trunk from main with release_ref: $target_ref"
-          gh workflow run deploy_cocoapod_trunk.yml --repo "$GH_REPO" --ref main -f "release_ref=$target_ref"
+          echo "Dispatching Deploy CocoaPods Specs from main with release_ref: $target_ref"
+          gh workflow run deploy_cocoapods_specs.yml --repo "$GH_REPO" --ref main -f "release_ref=$target_ref"
