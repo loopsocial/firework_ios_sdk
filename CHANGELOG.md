@@ -1,15 +1,15 @@
 
-## Include Changes in Next Release Here
-
-### Added
-
-- Added a Quality entry to the livestream player's more menu so viewers can pick a video rendition or go back to Auto. It shows for IVS and CDN livestreams while live, when the stream offers more than one rendition.
-- Added `FireworkPlayerQualityControlling` and `FireworkPlayerQuality`. Players that adopt the protocol (the IVS support package, starting with its next release) get the Quality menu; players that don't keep working without it.
-- Live shopping deals now update in real time when they are created, changed, or deleted during a stream.
+## [1.48.2]
 
 ### Changed
 
-- Live shopping discounts now appear and expire automatically according to their configured start and end times across live streams, product detail views, and GraphQL feeds.
+- CocoaPods trunk becomes read-only on December 2, 2026, so FireworkVideo and FireworkVideo-Static are now published to the [Firework specs repository](https://github.com/loopsocial/firework_ios_specs). To install this and later versions with CocoaPods, add `source 'https://github.com/loopsocial/firework_ios_specs.git'` and `source 'https://cdn.cocoapods.org/'` to the top of your Podfile. Keep the CDN source: other dependencies and earlier FireworkVideo versions are only available there.
+
+## [1.48.1]
+
+### Fixed
+
+- When `videoCompleteAction` is `.advanceToNext` and `feedCompleteAction` is `.loop`, the first video now plays automatically after the feed loops back from the last video. Previously it stayed paused.
 
 ## [1.48.0]
 
@@ -243,31 +243,6 @@
 ### Fixed
 
 - Bug fix and improvements.
-
-## [1.43.11]
-
-### Fixed
-
-- Bug fix and improvements.
-
-## [1.43.10]
-
-### Fixed
-
-- Bug fix and improvements.
-
-## [1.43.9]
-
-### Fixed
-
-- Bug fix and improvements.
-
-## [1.43.8]
-
-### Fixed
-
-- Improved video feed scrolling performance: thumbnail images are now decoded and downsampled off the main thread.
-- Reduced main-thread work when video feed cells are reused.
 
 ## [1.43.7]
 
