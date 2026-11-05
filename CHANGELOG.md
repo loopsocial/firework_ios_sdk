@@ -1,9 +1,15 @@
 
-## [1.48.1]
+## Include Changes in Next Release Here
 
-### Fixed
+### Added
 
-- When `videoCompleteAction` is `.advanceToNext` and `feedCompleteAction` is `.loop`, the first video now plays automatically after the feed loops back from the last video. Previously it stayed paused.
+- Added a Quality entry to the livestream player's more menu so viewers can pick a video rendition or go back to Auto. It shows for IVS and CDN livestreams while live, when the stream offers more than one rendition.
+- Added `FireworkPlayerQualityControlling` and `FireworkPlayerQuality`. Players that adopt the protocol (the IVS support package, starting with its next release) get the Quality menu; players that don't keep working without it.
+- Live shopping deals now update in real time when they are created, changed, or deleted during a stream.
+
+### Changed
+
+- Live shopping discounts now appear and expire automatically according to their configured start and end times across live streams, product detail views, and GraphQL feeds.
 
 ## [1.48.0]
 
@@ -237,6 +243,31 @@
 ### Fixed
 
 - Bug fix and improvements.
+
+## [1.43.11]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.10]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.9]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.8]
+
+### Fixed
+
+- Improved video feed scrolling performance: thumbnail images are now decoded and downsampled off the main thread.
+- Reduced main-thread work when video feed cells are reused.
 
 ## [1.43.7]
 
