@@ -1,4 +1,10 @@
 
+## [1.48.3]
+
+### Added
+
+- Added product viewing cues to the V2 livestream player. During a live stream, viewers see how many people are currently viewing a product, for example "12 people are viewing [Product]". Cues appear only when the feature is enabled for the event and are not shown in replays.
+
 ## [1.48.2]
 
 ### Changed
