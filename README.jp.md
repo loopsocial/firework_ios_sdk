@@ -35,7 +35,16 @@ Version > Up to Next Major > 0.5.0を選択します。
 
 ### Cocoapodsを使ったインポート
 
-PodfileにFireworkVideo: `pod FireworkVideo`を追加して、`pod install`を実行します。
+CocoaPods trunkは2026年12月2日に読み取り専用になったため、FireworkVideoの新しいバージョンは[Firework specsリポジトリ](https://github.com/loopsocial/firework_ios_specs)で公開されています。Podfileの先頭に、CocoaPods CDNと合わせて追加してください。
+
+```ruby
+source 'https://github.com/loopsocial/firework_ios_specs.git'
+source 'https://cdn.cocoapods.org/'
+```
+
+`cdn.cocoapods.org`の行は削除しないでください。Podfileで`source`を1つでも指定すると、CocoaPodsはCDNを自動的に追加しなくなります。他の依存ライブラリや、2026年12月2日より前にリリースされたFireworkVideoのバージョンはCDNでのみ提供されています。
+
+その後、PodfileにFireworkVideo: `pod 'FireworkVideo'`を追加して、`pod install --repo-update`を実行します。
 
 ### FireworkVideo Frameworkを手動でインポートする
 

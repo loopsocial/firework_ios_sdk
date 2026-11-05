@@ -50,7 +50,16 @@ The SDK has many supporting libraries that can be easily added to your project. 
 
 ### Importing Using Cocoapods
 
-In your Podfile add FireworkVideo: `pod FireworkVideo` and then run `pod install`.
+CocoaPods trunk became read-only on December 2, 2026, so new versions of FireworkVideo are published to the [Firework specs repository](https://github.com/loopsocial/firework_ios_specs). Add it to the top of your Podfile together with the CocoaPods CDN:
+
+```ruby
+source 'https://github.com/loopsocial/firework_ios_specs.git'
+source 'https://cdn.cocoapods.org/'
+```
+
+Keep the `cdn.cocoapods.org` line. Once a Podfile declares any `source`, CocoaPods no longer adds the CDN by default, and other dependencies as well as FireworkVideo versions released before December 2, 2026 are only available there.
+
+Then add FireworkVideo: `pod 'FireworkVideo'` and run `pod install --repo-update`.
 
 For the static XCFramework distribution, use `pod 'FireworkVideo-Static'` instead. Do not include both `FireworkVideo` and `FireworkVideo-Static` in the same target.
 
