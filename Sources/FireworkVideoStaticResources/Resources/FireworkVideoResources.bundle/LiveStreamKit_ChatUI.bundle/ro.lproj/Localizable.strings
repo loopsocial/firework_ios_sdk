@@ -1,0 +1,21 @@
+/* Host message input post button */
+"Post" = "Postează";
+
+/* Host message input placeholder */
+"Say Something..." = "Scrie ceva...";
+
+/* Comma separator between names i.e. "UserA, UserB, UserC" */
+", " = ", ";
+
+/* And separator between names i.e. "UserA and UserB" */
+" and " = " și ";
+
+"Guest" = "Invitat";
+
+"Chat" = "Chat";
+
+"Private" = "Privat";
+
+"use_code" = "Folosește codul %@";
+
+"discount_off_product_name" = "%1$@ reducere la %2$@";
