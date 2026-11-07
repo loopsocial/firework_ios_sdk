@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                     = "FireworkVideo-Static"
-  spec.version                  = "1.48.3"
+  spec.version                  = "1.43.14-beta.1"
   spec.summary                  = "FireworkVideoSDK static distribution"
   spec.homepage                 = "https://github.com/loopsocial/firework_ios_sdk"
   spec.license                  = { :text => "Copyright 2021 Loop Now Technologies, Inc.", :type => "Copyright" }
@@ -8,10 +8,10 @@ Pod::Spec.new do |spec|
   spec.platform                 = :ios, "13.0"
   spec.swift_versions           = '5.3'
   spec.module_name              = "FireworkVideo"
-  spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-v#{spec.version}.xcframework.zip" }
+  spec.source                   = { :http => "https://github.com/loopsocial/firework_ios_sdk/releases/download/v#{spec.version}/FireworkVideo-static-cocoapods-v#{spec.version}.zip" }
   spec.preserve_paths           = "FireworkVideo.xcframework"
   spec.ios.vendored_frameworks  = "FireworkVideo.xcframework"
-  spec.resources                = "FireworkVideo.xcframework/ios-arm64/FireworkVideo.framework/FireworkVideoResources.bundle"
+  spec.resources                = "FireworkVideoResources.bundle"
   spec.frameworks               = "AVFoundation"
   spec.user_target_xcconfig     = {
     "OTHER_LDFLAGS" => "$(inherited) -ObjC",
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
       :name => 'Check FireworkVideoIVSSupport version',
       :script => '
       LIBRARY_NAME="FireworkVideoIVSSupport"
-      BASE_VERSION="0.9.9"
+      BASE_VERSION="0.9.7"
 
       INFO_PLIST_PATH="${PODS_ROOT}/"$LIBRARY_NAME"/"$LIBRARY_NAME".xcframework/ios-arm64/"$LIBRARY_NAME".framework/Info.plist"
       if [ ! -e "$INFO_PLIST_PATH" ]; then
