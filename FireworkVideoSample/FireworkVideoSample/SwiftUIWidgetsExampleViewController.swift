@@ -202,7 +202,6 @@ struct SwiftUIWidgetsExampleView: View {
 
     private func makeVideoFeedConfiguration() -> VideoFeedContentConfiguration {
         var config = VideoFeedContentConfiguration()
-        config.useSafeAreaViewport = true
         config.itemView.autoplay.isEnabled = true
         config.itemView.title.isHidden = true
         config.itemView.title.font = .systemFont(ofSize: 12)
