@@ -1,4 +1,12 @@
 
+## [1.48.5]
+
+### Fixed
+
+- Tapping the 10-second skip buttons several times in a row now moves the video by the full amount, and the progress bar and time label move with each tap. Previously, on a slow connection, a run of quick taps moved the video by only 10 seconds and the time label did not change.
+- In livestream replays, skip buttons tapped before the video's duration has loaded are now ignored. Previously they jumped to the start of the replay.
+- The play button no longer stays stuck on its loading spinner after the progress bar is dragged again before the previous seek finishes.
+
 ## [1.48.4]
 
 ### Fixed
