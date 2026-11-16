@@ -21,6 +21,7 @@
 
 - A feed that waits for in-feed ads no longer waits for the whole ads fetch timeout when the ad request fails.
 - Feed impressions are now reported for a feed whose view is placed directly in a window.
+- The dynamic `FireworkVideo` framework no longer re-exports system classes such as `NSObject` and `AVPictureInPictureController`. Binaries linked against it bound those classes to `FireworkVideo` and crashed at launch with any `FireworkVideo` that doesn't re-export them.
 
 ## [1.48.5]
 
