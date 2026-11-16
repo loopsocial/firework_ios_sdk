@@ -1,4 +1,27 @@
 
+## Include Changes in Next Release Here
+
+### Added
+
+- Added a Quality entry to the livestream player's more menu so viewers can pick a video rendition or go back to Auto. It shows for IVS and CDN livestreams while live, when the stream offers more than one rendition.
+- Added `FireworkPlayerQualityControlling` and `FireworkPlayerQuality`. Players that adopt the protocol (the IVS support package, starting with its next release) get the Quality menu; players that don't keep working without it.
+- Live shopping deals now update in real time when they are created, changed, or deleted during a stream.
+- Added `FireworkVideoSDK.openVideoPlayer(with:feedConfiguration:presentingViewController:isPictureInPictureEnabled:completion:)` and `FireworkVideoSDK.openVideoPlayer(source:playbackMode:feedConfiguration:isPictureInPictureEnabled:completion:)`. They open share links and content sources without a `VideoFeedViewController`, so they also work in SDK releases built without the video feed.
+
+### Changed
+
+- Live shopping discounts now appear and expire automatically according to their configured start and end times across live streams, product detail views, and GraphQL feeds.
+- Ads are always on and come only from FWAI interstitial and in-feed placements and from direct ads. Ad settings that use client side (CSAI) or server side (SSAI) insertion no longer show ads.
+
+### Removed
+
+- Removed client side ad insertion through 3rd party ad SDKs (Google Ad Manager and Google IMA): `FireworkVideoSDK.nativeAdProvider`, `FireworkVideoSDK.interactiveMediaAdProvider`, `NativeAdProviding`, `NativeAdRepresentable`, `NativeAdRequest`, `NativeAdEventDelegate`, `InteractiveMediaAdProviding`, `InteractiveMediaAdSlotRepresentable` and `InteractiveMediaAdRequest`. The `FireworkGoogleIMA` and GAM supporting libraries are discontinued.
+
+### Fixed
+
+- A feed that waits for in-feed ads no longer waits for the whole ads fetch timeout when the ad request fails.
+- Feed impressions are now reported for a feed whose view is placed directly in a window.
+
 ## [1.48.5]
 
 ### Fixed
@@ -263,6 +286,37 @@
 ### Fixed
 
 - Bug fix and improvements.
+
+## [1.43.12]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.11]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.10]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.9]
+
+### Fixed
+
+- Bug fix and improvements.
+
+## [1.43.8]
+
+### Fixed
+
+- Improved video feed scrolling performance: thumbnail images are now decoded and downsampled off the main thread.
+- Reduced main-thread work when video feed cells are reused.
 
 ## [1.43.7]
 
