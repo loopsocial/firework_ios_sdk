@@ -1,0 +1,19 @@
+/* Host message input post button */
+"Post" = "投稿する";
+
+/* Host message input placeholder */
+"Say Something..." = "メッセージ";
+
+"Chat" = "チャット";
+
+"Private" = "プライベート";
+
+", " = "、";
+
+" and " = "と";
+
+"Guest" = "ゲスト";
+
+"use_code" = "コード%@を使用してください";
+
+"discount_off_product_name" = "%2$@が%1$@オフ";
